@@ -6,3 +6,4 @@ Embedded Systems projects for our EE 445L lab.
 * Parth Adhia
 
 ### Projects
+1) Graphics Lab  
