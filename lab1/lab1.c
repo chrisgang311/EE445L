@@ -123,7 +123,7 @@ int main(void){uint32_t i;
     ST7735_XYplot(180,(int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
     Pause();
     
-    ST7735_XYplotInit("Star- upper right",-450, 150, -400, 200);
+    ST7735_XYplotInit("Star: upper right",-450, 150, -400, 200);
     ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
     Pause(); 
   } 

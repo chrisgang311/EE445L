@@ -128,7 +128,7 @@ void ST7735_uBinOut8(uint32_t n){
 */
 static int32_t Xmin = 0, Xmax = 0, Ymin = 0, Ymax = 0;
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY){
-	/// clear screen.
+	// clear screen.
 	ST7735_FillScreen(0);
 	ST7735_SetCursor(0,0);
 	ST7735_PlotClear(minY,maxY);  // range from 0 to 4095
@@ -140,12 +140,6 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 	printf("x: (%d, %d)\n", minX, maxX);
 	printf("y: (%d, %d)", minY, maxY);
 	
-	
-
-//  for(j=0;j<128;j++){
-//    ST7735_PlotPoints(j*j/2+900-(j*j/256)*j,32*j); // cubic,linear
-//    ST7735_PlotNext();
-//  }   // called 128 times
 }
 
 /**************ST7735_XYplot***************
@@ -167,9 +161,12 @@ void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]){
 		if(y < Ymin) y = Ymin;
 		if(y > Ymax) y = Ymax;
 		
-		x = (128 * x / (Xmax - Xmin)) + 64;
-		y = (160 * y / (Ymax - Ymin)) + 80;
+		// map point to LCD coordinate
+		// y = Ymax maps to 32 : y = Ymin maps to 159
+		x = (128 * (x - Xmin)  / (Xmax - Xmin));
+		y = (128 * (Ymax - y) / (Ymax - Ymin)) + 32;
 		
+		// plot point
 		ST7735_DrawPixel(x,   y,   ST7735_RED);
 		ST7735_DrawPixel(x+1, y,   ST7735_GREEN);
 		ST7735_DrawPixel(x,   y+1, ST7735_BLACK);

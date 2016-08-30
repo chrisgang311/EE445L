@@ -370,23 +370,23 @@ Image Symbol Table
     setAddrWindow                            0x0000051f   Thumb Code   106  st7735.o(.text)
     pushColor                                0x000006d9   Thumb Code    18  st7735.o(.text)
     .text                                    0x00001248   Section        0  fixed.o(.text)
-    .text                                    0x000014b8   Section        0  lab1.o(.text)
-    .text                                    0x000016e4   Section        0  uidiv.o(.text)
-    .text                                    0x00001710   Section       36  init.o(.text)
-    i.__0printf$3                            0x00001734   Section        0  printf3.o(i.__0printf$3)
-    i.__scatterload_copy                     0x00001754   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001762   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001764   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x00001774   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x00001775   Thumb Code   436  printf3.o(i._printf_core)
-    .constdata                               0x0000192c   Section     2018  st7735.o(.constdata)
-    Font                                     0x0000192c   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x00001e27   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x00001e8e   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x00001ec9   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x00001ed6   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x00001ee3   Data          43  st7735.o(.constdata)
-    .constdata                               0x00002110   Section     2272  lab1.o(.constdata)
+    .text                                    0x000014bc   Section        0  lab1.o(.text)
+    .text                                    0x000016e8   Section        0  uidiv.o(.text)
+    .text                                    0x00001714   Section       36  init.o(.text)
+    i.__0printf$3                            0x00001738   Section        0  printf3.o(i.__0printf$3)
+    i.__scatterload_copy                     0x00001758   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001766   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001768   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00001778   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x00001779   Thumb Code   436  printf3.o(i._printf_core)
+    .constdata                               0x00001930   Section     2018  st7735.o(.constdata)
+    Font                                     0x00001930   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x00001e2b   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x00001e92   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x00001ecd   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x00001eda   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x00001ee7   Data          43  st7735.o(.constdata)
+    .constdata                               0x00002114   Section     2272  lab1.o(.constdata)
     .data                                    0x20000000   Section       44  st7735.o(.data)
     _width                                   0x2000000a   Data           2  st7735.o(.data)
     _height                                  0x2000000c   Data           2  st7735.o(.data)
@@ -632,32 +632,32 @@ Image Symbol Table
     ST7735_sDecOut3                          0x00001249   Thumb Code   136  fixed.o(.text)
     ST7735_uBinOut8                          0x000012d1   Thumb Code   158  fixed.o(.text)
     ST7735_XYplotInit                        0x0000136f   Thumb Code    86  fixed.o(.text)
-    ST7735_XYplot                            0x000013c5   Thumb Code   176  fixed.o(.text)
-    DelayWait10ms                            0x000014b9   Thumb Code    32  lab1.o(.text)
-    Pause                                    0x000014d9   Thumb Code    36  lab1.o(.text)
-    PortF_Init                               0x000014fd   Thumb Code   110  lab1.o(.text)
-    main                                     0x0000156b   Thumb Code   202  lab1.o(.text)
-    main4                                    0x00001635   Thumb Code    26  lab1.o(.text)
-    main5                                    0x0000164f   Thumb Code    26  lab1.o(.text)
-    __aeabi_uidiv                            0x000016e5   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x000016e5   Thumb Code    44  uidiv.o(.text)
-    __scatterload                            0x00001711   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00001711   Thumb Code     0  init.o(.text)
-    __0printf$3                              0x00001735   Thumb Code    22  printf3.o(i.__0printf$3)
-    __1printf$3                              0x00001735   Thumb Code     0  printf3.o(i.__0printf$3)
-    __2printf                                0x00001735   Thumb Code     0  printf3.o(i.__0printf$3)
-    __scatterload_copy                       0x00001755   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001763   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001765   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    dBfs                                     0x00001f0e   Data         512  st7735.o(.constdata)
-    outTests1                                0x00002110   Data         208  lab1.o(.constdata)
-    outTests2                                0x000021e0   Data         224  lab1.o(.constdata)
-    CircleXbuf                               0x000022c0   Data         720  lab1.o(.constdata)
-    CircleYbuf                               0x00002590   Data         720  lab1.o(.constdata)
-    StarXbuf                                 0x00002860   Data         200  lab1.o(.constdata)
-    StarYbuf                                 0x00002928   Data         200  lab1.o(.constdata)
-    Region$$Table$$Base                      0x000029f0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002a10   Number         0  anon$$obj.o(Region$$Table)
+    ST7735_XYplot                            0x000013c5   Thumb Code   180  fixed.o(.text)
+    DelayWait10ms                            0x000014bd   Thumb Code    32  lab1.o(.text)
+    Pause                                    0x000014dd   Thumb Code    36  lab1.o(.text)
+    PortF_Init                               0x00001501   Thumb Code   110  lab1.o(.text)
+    main                                     0x0000156f   Thumb Code   202  lab1.o(.text)
+    main4                                    0x00001639   Thumb Code    26  lab1.o(.text)
+    main5                                    0x00001653   Thumb Code    26  lab1.o(.text)
+    __aeabi_uidiv                            0x000016e9   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x000016e9   Thumb Code    44  uidiv.o(.text)
+    __scatterload                            0x00001715   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00001715   Thumb Code     0  init.o(.text)
+    __0printf$3                              0x00001739   Thumb Code    22  printf3.o(i.__0printf$3)
+    __1printf$3                              0x00001739   Thumb Code     0  printf3.o(i.__0printf$3)
+    __2printf                                0x00001739   Thumb Code     0  printf3.o(i.__0printf$3)
+    __scatterload_copy                       0x00001759   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001767   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001769   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    dBfs                                     0x00001f12   Data         512  st7735.o(.constdata)
+    outTests1                                0x00002114   Data         208  lab1.o(.constdata)
+    outTests2                                0x000021e4   Data         224  lab1.o(.constdata)
+    CircleXbuf                               0x000022c4   Data         720  lab1.o(.constdata)
+    CircleYbuf                               0x00002594   Data         720  lab1.o(.constdata)
+    StarXbuf                                 0x00002864   Data         200  lab1.o(.constdata)
+    StarYbuf                                 0x0000292c   Data         200  lab1.o(.constdata)
+    Region$$Table$$Base                      0x000029f4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002a14   Number         0  anon$$obj.o(Region$$Table)
     StX                                      0x20000000   Data           4  st7735.o(.data)
     StY                                      0x20000004   Data           4  st7735.o(.data)
     StTextColor                              0x20000008   Data           2  st7735.o(.data)
@@ -679,9 +679,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002a50, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00002a54, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002a10, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002a14, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -697,20 +697,20 @@ Memory Map of the image
     0x00000294   0x00000004   Code   RO          355    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000298   0x0000007c   Code   RO           12    .text               pll.o
     0x00000314   0x00000f34   Code   RO           34    .text               st7735.o
-    0x00001248   0x00000270   Code   RO           58    .text               fixed.o
-    0x000014b8   0x0000022c   Code   RO           72    .text               lab1.o
-    0x000016e4   0x0000002c   Code   RO          369    .text               mc_w.l(uidiv.o)
-    0x00001710   0x00000024   Code   RO          384    .text               mc_w.l(init.o)
-    0x00001734   0x00000020   Code   RO          182    i.__0printf$3       mc_w.l(printf3.o)
-    0x00001754   0x0000000e   Code   RO          396    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001762   0x00000002   Code   RO          397    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001764   0x0000000e   Code   RO          398    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00001772   0x00000002   PAD
-    0x00001774   0x000001b8   Code   RO          189    i._printf_core      mc_w.l(printf3.o)
-    0x0000192c   0x000007e2   Data   RO           36    .constdata          st7735.o
-    0x0000210e   0x00000002   PAD
-    0x00002110   0x000008e0   Data   RO           73    .constdata          lab1.o
-    0x000029f0   0x00000020   Data   RO          394    Region$$Table       anon$$obj.o
+    0x00001248   0x00000274   Code   RO           58    .text               fixed.o
+    0x000014bc   0x0000022c   Code   RO           72    .text               lab1.o
+    0x000016e8   0x0000002c   Code   RO          369    .text               mc_w.l(uidiv.o)
+    0x00001714   0x00000024   Code   RO          384    .text               mc_w.l(init.o)
+    0x00001738   0x00000020   Code   RO          182    i.__0printf$3       mc_w.l(printf3.o)
+    0x00001758   0x0000000e   Code   RO          396    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001766   0x00000002   Code   RO          397    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001768   0x0000000e   Code   RO          398    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00001776   0x00000002   PAD
+    0x00001778   0x000001b8   Code   RO          189    i._printf_core      mc_w.l(printf3.o)
+    0x00001930   0x000007e2   Data   RO           36    .constdata          st7735.o
+    0x00002112   0x00000002   PAD
+    0x00002114   0x000008e0   Data   RO           73    .constdata          lab1.o
+    0x000029f4   0x00000020   Data   RO          394    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000040, Max: 0xffffffff, ABSOLUTE)
@@ -738,14 +738,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       624         68          0         16          0       2430   fixed.o
+       628         68          0         16          0       2430   fixed.o
        556        124       2272          0          0       2368   lab1.o
        124          6          0          0          0       4679   pll.o
       3892        210       2018         44         12      16503   st7735.o
        644        620          0          0       1024        684   startup.o
 
     ----------------------------------------------------------------------
-      5840       1028       4324         60       1040      26664   Object Totals
+      5844       1028       4324         60       1040      26664   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          2          0          4          0   (incl. Padding)
 
@@ -787,15 +787,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6444       1058       4324         64       1040      26576   Grand Totals
-      6444       1058       4324         64       1040      26576   ELF Image Totals
-      6444       1058       4324         64          0          0   ROM Totals
+      6448       1058       4324         64       1040      26576   Grand Totals
+      6448       1058       4324         64       1040      26576   ELF Image Totals
+      6448       1058       4324         64          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                10768 (  10.52kB)
+    Total RO  Size (Code + RO Data)                10772 (  10.52kB)
     Total RW  Size (RW Data + ZI Data)              1104 (   1.08kB)
-    Total ROM Size (Code + RO Data + RW Data)      10832 (  10.58kB)
+    Total ROM Size (Code + RO Data + RW Data)      10836 (  10.58kB)
 
 ==============================================================================
 
