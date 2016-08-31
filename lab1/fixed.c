@@ -1,6 +1,6 @@
 /** fixed.c **
  * names: Ronald Macmaster and Parth Adhia
- * TA: 
+ * TA: Dylan Zika
  * Date: August 26th 2016
  * Lab: 1
  * desc: Fixed point extension routines for our ST7735 LCD library.

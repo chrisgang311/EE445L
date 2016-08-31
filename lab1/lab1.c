@@ -1,6 +1,6 @@
 /** lab1.c **
  * names: Ronald Macmaster and Parth Adhia
- * TA: 
+ * TA: Dylan Zika
  * Date: August 26th 2016
  * Lab: 1
  * desc: test routines for our ST7735 fixed point library.
