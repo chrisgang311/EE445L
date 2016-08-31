@@ -1,10 +1,12 @@
 /** lab1.c **
- * names: Ronald Macmaster and Parth Adhia
- * TA: Dylan Zika
- * Date: August 26th 2016
+ * Author: Jonathan Valvano
+ * Used By: Ronald Macmaster and Parth Adhia
+ * Created: August 26th 2016
+ * Description: Test routines for our ST7735 fixed point library.
  * Lab: 1
- * desc: test routines for our ST7735 fixed point library.
- *********************************************************************/
+ * TA: Dylan Zika
+ * Date: August 31st 2016
+ *********************************************************************************/
 
 /** hardware connections **
  * Backlight (pin 10) connected to +3.3 V

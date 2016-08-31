@@ -1,12 +1,12 @@
 /** fixed.h **
- * names: Ronald Macmaster and Parth Adhia
- * TA: Dylan Zika
- * Date: August 26th 2016
+ * Authors: Ronald Macmaster and Parth Adhia
+ * Created: August 26th 2016
+ * Description: Fixed point output routines for our ST7735 LCD library extension.
  * Lab: 1
- * desc: Fixed point extension routines for our ST7735 LCD library.
- *********************************************************************/
-
-
+ * TA: Dylan Zika
+ * Date: August 31st 2016
+ * Hardware Configuration: Reference the ST7735.h header for classic LCD setup.
+ *********************************************************************************/
 
 /****************ST7735_sDecOut3***************
  converts fixed point number to LCD

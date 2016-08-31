@@ -7,6 +7,110 @@ C:\Users\ronny\Desktop\EE\445L\labs\lab1\lab1.uvproj
 Project File Date:  08/29/2016
 
 <h2>Output:</h2>
-</pre>
-</body>
-</html>
+Build target 'Main'
+compiling fixed.c...
+linking...
+Program Size: Code=6500 RO-data=4324 RW-data=64 ZI-data=1040  
+".\lab1.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab1\\lab1.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+ogramming Done.
+Verify OK.
+Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab1\\lab1.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Error: Flash Download failed  -  Target DLL has been cancelled
+op\\EE\\445L\\labs\\lab1\\lab1.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+" is undefined
+        LDR R1,=N    ;pointer to N
+extra.s(10): error:  #65: expected a ";"
+        LDR R1,=N    ;pointer to N
+extra.s(11): error:  #20: identifier "pointer" is undefined
+        LDR R2,=T    ;pointer to T
+extra.s(11): error:  #65: expected a ";"
+        LDR R2,=T    ;pointer to T
+extra.s(14): warning:  #12-D: parsing restarts here after previous syntax error
+  loop3 STR R0,[R1]          ; N is volatile
+extra.s(14): error:  #20: identifier "N" is undefined
+  loop3 STR R0,[R1]          ; N is volatile
+extra.s(14): error:  #65: expected a ";"
+  loop3 STR R0,[R1]          ; N is volatile
+extra.s(16): error:  #20: identifier "S0" is undefined
+        VCVT.F32.U32 S0,S0   ; S0 has N
+extra.s(16): error:  #65: expected a ";"
+        VCVT.F32.U32 S0,S0   ; S0 has N
+extra.s(17): error:  #20: identifier "N" is undefined
+        VMUL.F32 S0,S0,S1    ; N*0.09768
+extra.s(17): error:  #40: expected an identifier
+        VMUL.F32 S0,S0,S1    ; N*0.09768
+extra.s(18): error:  #169: expected a declaration
+        VADD.F32 S0,S0,S2    ; 10+N*0.0968
+extra.s(19): error:  #77-D: this declaration has no storage class or type specifier
+        VSTR.F32 S0,[R2]     ; T=10+N*0.0968
+extra.s(19): error:  #20: identifier "N" is undefined
+        VSTR.F32 S0,[R2]     ; T=10+N*0.0968
+extra.s(20): error:  #65: expected a ";"
+        ADD R0,R0,#1
+extra.s(20): error:  #10: "#" not expected here
+        ADD R0,R0,#1
+extra.s(21): error:  #10: "#" not expected here
+        CMP R0,#4096
+extra.s(25): warning:  #12-D: parsing restarts here after previous syntax error
+  ;version 4, assembly fixed point
+extra.s(25): error:  #77-D: this declaration has no storage class or type specifier
+  ;version 4, assembly fixed point
+extra.s(25): error:  #65: expected a ";"
+  ;version 4, assembly fixed point
+extra.s(27): error:  #10: "#" not expected here
+        MOV R0,#0
+extra.s(28): warning:  #12-D: parsing restarts here after previous syntax error
+        LDR R1,=N   ;pointer to N
+extra.s(28): error:  #20: identifier "pointer" is undefined
+        LDR R1,=N   ;pointer to N
+extra.s(28): error:  #65: expected a ";"
+        LDR R1,=N   ;pointer to N
+extra.s(29): error:  #20: identifier "pointer" is undefined
+        LDR R2,=T   ;pointer to T
+extra.s(29): error:  #65: expected a ";"
+        LDR R2,=T   ;pointer to T
+extra.s(30): error:  #10: "#" not expected here
+        MOV R3,#125   
+extra.s(31): error:  #10: "#" not expected here
+        MOV R4,#64
+test.c: 4 warnings, 30 errors
+compiling fixed.c...
+".\lab1.axf" - 30 Error(s), 4 Warning(s).
+Target not created
+rors
+compiling lab1.c...
+".\lab1.axf" - 30 Error(s), 5 Warning(s).
+Target not created
+ error
+        LDR R1,=N   ;pointer to N
+extra.s(28): error:  #20: identifier "pointer" is undefined
+        LDR R1,=N   ;pointer to N
+extra.s(28): error:  #65: expected a ";"
+        LDR R1,=N   ;pointer to N
+extra.s(29): error:  #20: identifier "pointer" is undefined
+        LDR R2,=T   ;pointer to T
+extra.s(29): error:  #65: expected a ";"
+        LDR R2,=T   ;pointer to T
+extra.s(30): error:  #10: "#" not expected here
+        MOV R3,#125   
+extra.s(31): error:  #10: "#" not expected here
+        MOV R4,#64
+test.c: 4 warnings, 30 errors
+compiling lab1.c...
+".\lab1.axf" - 37 Error(s), 5 Warning(s).
+Target not created
+Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab1\\lab1.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'C:\Users\ronny\Desktop\EE\445L\labs\lab1\lab1.axf'
