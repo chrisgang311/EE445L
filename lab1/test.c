@@ -44,52 +44,91 @@ void Pause(void);
 void PortF_Init(void);
 
 int main() {
-	PLL_Init(Bus80MHz);
-	PortF_Init();
-	SysTick_Init();
-	ST7735_InitR(INITR_REDTAB);
-	
-	while(1){
-		
+  PLL_Init(Bus80MHz);
+  PortF_Init();
+  SysTick_Init();
+  ST7735_InitR(INITR_REDTAB);
+  
+  while(1){
+    
+    // test 1
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test1\n");
+    printf("C - Floating Point\n");
+    for(int i = 0; i < 12; i++){
+        uint32_t time = SysTick_Time();
+        Test1();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
+    
 		// test 1
-		ST7735_FillScreen(0);
-		ST7735_SetCursor(0, 0);
-		printf("Extra Credit: Test1\n");
-		printf("C - Floating Point\n");
-		for(int i = 0; i < 12; i++){
-				uint32_t time = SysTick_Time();
-				Test1();
-				time = time - SysTick_Time();
-			printf("trial %u: %u\n", i, time);
-		}
-		Pause();
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test1\n");
+    printf("C - Floating Point\n");
+    for(int i = 12; i < 24; i++){
+        uint32_t time = SysTick_Time();
+        Test1();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
 		
-		// test 2
-		ST7735_FillScreen(0);
-		ST7735_SetCursor(0, 0);
-		printf("Extra Credit: Test2\n");
-		printf("C - Fixed Point\n");
-		for(int i = 0; i < 12; i++){
-				uint32_t time = SysTick_Time();
-				Test2();
-				time = time - SysTick_Time();
-			printf("trial %u: %u\n", i, time);
-		}
-		Pause();
+    // test 2
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test2\n");
+    printf("C - Fixed Point\n");
+    for(int i = 0; i < 12; i++){
+        uint32_t time = SysTick_Time();
+        Test2();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
+
+    // test 2
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test2\n");
+    printf("C - Fixed Point\n");
+    for(int i = 12; i < 24; i++){
+        uint32_t time = SysTick_Time();
+        Test2();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
+    
+    // test 3
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test3\n");
+    printf("ASM - Floating Point\n");
+    for(int i = 0; i < 12; i++){
+        uint32_t time = SysTick_Time();
+        Test3();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
 		
 		// test 3
-		ST7735_FillScreen(0);
-		ST7735_SetCursor(0, 0);
-		printf("Extra Credit: Test3\n");
-		printf("ASM - Floating Point\n");
-		for(int i = 0; i < 12; i++){
-				uint32_t time = SysTick_Time();
-				Test3();
-				time = time - SysTick_Time();
-			printf("trial %u: %u\n", i, time);
-		}
-		Pause();
-		
+    ST7735_FillScreen(0);
+    ST7735_SetCursor(0, 0);
+    printf("Extra Credit: Test3\n");
+    printf("ASM - Floating Point\n");
+    for(int i = 12; i < 24; i++){
+        uint32_t time = SysTick_Time();
+        Test3();
+        time = time - SysTick_Time();
+      printf("trial %u: %u\n", i, time);
+    }
+    Pause();
+    
 		// test 4
 		ST7735_FillScreen(0);
 		ST7735_SetCursor(0, 0);
@@ -103,8 +142,21 @@ int main() {
 		}
 		Pause();
 		
-	}
-	
+		// test 4
+		ST7735_FillScreen(0);
+		ST7735_SetCursor(0, 0);
+		printf("Extra Credit: Test4\n");
+		printf("ASM - Fixed Point\n");
+		for(int i = 12; i < 24; i++){
+				uint32_t time = SysTick_Time();
+				Test4();
+				time = time - SysTick_Time();
+			printf("trial %u: %u\n", i, time);
+		}
+		Pause();
+    
+  }
+  
 }
 
 
@@ -137,7 +189,7 @@ void SysTick_Init(void){
 
 // Read the systick
 uint32_t SysTick_Time(void){
-	return NVIC_ST_CURRENT_R;
+  return NVIC_ST_CURRENT_R;
 }
 
 // Subroutine to wait 10 msec
@@ -148,7 +200,7 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
   while(n){
     time = 727240*2/91;  // 10msec
     while(time){
-	  	time--;
+      time--;
     }
     n--;
   }

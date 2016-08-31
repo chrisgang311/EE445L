@@ -267,6 +267,8 @@ Reset_Handler
         LDR     R1, [R0]
         ORR     R1, #0x00F00000
         STR     R1, [R0]
+		DSB
+		ISB
 
         ;
         ; Call the C library enty point that handles startup.  This will copy
