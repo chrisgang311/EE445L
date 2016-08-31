@@ -509,7 +509,7 @@ int main0(void){
   while(1){
   }
 }
-int main1(void){uint32_t j; // main 1
+int main(void){uint32_t j; // main 1
   PLL_Init(Bus80MHz);                  // set system clock to 80 MHz
   ST7735_InitR(INITR_REDTAB);
   ST7735_OutString("Graphics test\n");
@@ -532,7 +532,7 @@ int main7(void){ int i; // main 7
   while(1){
   }
 }
-int main(void){  // main 2
+int main2(void){  // main 2
   int x, y, dx, dy;
 //  uint8_t red, green, blue;
   PLL_Init(Bus80MHz);                  // set system clock to 80 MHz
