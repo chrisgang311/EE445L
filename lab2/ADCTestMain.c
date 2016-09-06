@@ -82,7 +82,7 @@ int main(void){
   PF2 = 0;                      // turn off LED
   EnableInterrupts();
   while(1){
-    PF1 ^= 0x02;  // toggles when running in main
+    PF1 = PF1 ^ 0x02;  // toggles when running in main
   }
 }
 
