@@ -1,32 +1,25 @@
 Dependencies for Project 'lab1', Target 'Extra Credit': (DO NOT MODIFY !)
-F (.\startup.s)(0x57C7605B)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\PLL.c)(0x57C3767E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (PLL.h)(0x57BF975F)
-I (./tm4c123gh6pm.h)(0x57BF96DF)
-F (.\ST7735.c)(0x57C3766F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (ST7735.h)(0x57BF975F)
-I (./tm4c123gh6pm.h)(0x57BF96DF)
-F (.\extra.s)(0x57C75E9F)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123--list .\extra.lst --xref -o .\extra.o --depend .\extra.d)
-F (.\test.c)(0x57C760BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\test.o --omf_browse .\test.crf --depend .\test.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (ST7735.h)(0x57BF975F)
-I (fixed.h)(0x57C7570F)
-I (PLL.h)(0x57BF975F)
-I (tm4c123gh6pm.h)(0x57BF96DF)
-F (.\fixed.c)(0x57C756E6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\fixed.o --omf_browse .\fixed.crf --depend .\fixed.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (ST7735.h)(0x57BF975F)
-F (.\fixed.c)(0x57C756E6)()
-F (.\lab1.c)(0x57C75699)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\lab1.o --omf_browse .\lab1.crf --depend .\lab1.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\string.h)(0x51C87C24)
-I (ST7735.h)(0x57BF975F)
-I (PLL.h)(0x57BF975F)
-I (fixed.h)(0x57C665E1)
-I (./tm4c123gh6pm.h)(0x57BF96DF)
+F (.\startup.s)(0x57C8884A)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x57C5D7C7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x57C5D7C7)
+I (./tm4c123gh6pm.h)(0x57C5D7C7)
+F (.\ST7735.c)(0x57C5D7C7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x57C5D7C7)
+I (./tm4c123gh6pm.h)(0x57C5D7C7)
+F (.\extra.s)(0x57C8884A)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --16 --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\extra.lst --xref -o .\extra.o --depend .\extra.d)
+F (.\test.c)(0x57C8884A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\test.o --omf_browse .\test.crf --depend .\test.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x57C5D7C7)
+I (fixed.h)(0x57C8884A)
+I (PLL.h)(0x57C5D7C7)
+I (tm4c123gh6pm.h)(0x57C5D7C7)
+F (.\fixed.c)(0x57C8884A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\fixed.o --omf_browse .\fixed.crf --depend .\fixed.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x57C5D7C7)
+F (.\fixed.c)(0x57C8884A)()
+F (.\lab1.c)(0x57C8884A)()

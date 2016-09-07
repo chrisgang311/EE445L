@@ -11,7 +11,10 @@ I (ST7735.h)(0x57C5D7C7)
 I (./tm4c123gh6pm.h)(0x57C5D7C7)
 F (.\extra.s)(0x57C8884A)()
 F (.\test.c)(0x57C8884A)()
-F (.\fixed.c)(0x57C8884A)()
+F (.\fixed.c)(0x57C8884A)(--c99 -c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\fixed.o --omf_browse .\fixed.crf --depend .\fixed.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x57C5D7C7)
 F (.\fixed.c)(0x57C8884A)(--c99 -c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\fixed.o --omf_browse .\fixed.crf --depend .\fixed.d)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
