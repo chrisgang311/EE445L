@@ -54,6 +54,7 @@ volatile uint8_t recordFlag;
 volatile uint32_t ADCvalue;
 volatile uint32_t time[1000];
 volatile uint32_t data[1000];
+void CalculatePmf(void);
 
 int main(void){
 	// hardware initialization
@@ -98,13 +99,27 @@ int main(void){
 	printf("jitter: %u\n", jitter);
 	#endif
 	
-	// plot ADC PMF
-	/** algorithm: build an ADC frequency table
-	 * find x and y ranges
-	 * plot the function with ST7735 ploting
-	 */
+	CalculatePmf();
 	
 }
+
+void CalculatePmf(){
+	/** algorithm: build an ADC frequency table
+	 * find x and y ranges
+	 * plot the function with ST7735 plot functions
+	 */
+	// build pmf function (size 16 buckets)
+	const int size = 4096 >> 3; 
+	uint16_t pmf[size];
+	for(int idx = 0; idx < size; idx++){
+		pmf[idx] = 0;
+	}
+	for(int idx = 0; idx < 1000; idx++){
+		uint32_t x = data[idx] >> 3;
+		pmf[x] = pmf[x] + 1;
+	}
+}
+
 
 void Timer0A_Handler(void){
 	// acknowledge timer0A timeout
@@ -114,7 +129,6 @@ void Timer0A_Handler(void){
   PF2 ^= 0x04; // profile
   
 	// record ADC value
-	DisableInterrupts();
 	ADCvalue = ADC0_InSeq3();
 	if(idx < 1000){
 		time[idx] = TIMER1_TAR_R;
@@ -126,7 +140,6 @@ void Timer0A_Handler(void){
 		NVIC_DIS0_R = 1 << 19;
 		TIMER0_CTL_R &= ~TIMER_CTL_TAEN;
 	}
-	EnableInterrupts();
   PF2 ^= 0x04; // profile
 }
 
