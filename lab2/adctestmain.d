@@ -6,3 +6,4 @@
 .\adctestmain.o: ADCSWTrigger.h
 .\adctestmain.o: ST7735.h
 .\adctestmain.o: PLL.h
+.\adctestmain.o: Timer.h
