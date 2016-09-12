@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>ADCSWTrigger</TargetName>
+      <TargetName>lab2</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -119,7 +119,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>1</UseSimulator>
+            <UseSimulator>0</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -131,7 +131,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>0</UseTarget>
+            <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -141,7 +141,7 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
+            <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>3</TargetSelection>
@@ -221,7 +221,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <RoSelD>3</RoSelD>
@@ -416,24 +416,26 @@
               <FilePath>.\ADCSWTrigger.c</FilePath>
             </File>
             <File>
-              <FileName>ADCTestMain.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ADCTestMain.c</FilePath>
-            </File>
-            <File>
               <FileName>PLL.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\PLL.c</FilePath>
+            </File>
+            <File>
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ST7735.c</FilePath>
             </File>
             <File>
               <FileName>lab2.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lab2.c</FilePath>
             </File>
+            <File>
+              <FileName>Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer.c</FilePath>
+            </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>New Group</GroupName>
         </Group>
       </Groups>
     </Target>

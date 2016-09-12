@@ -426,9 +426,14 @@
               <FilePath>.\PLL.c</FilePath>
             </File>
             <File>
-              <FileName>lab2.c</FileName>
+              <FileName>ST7735.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lab2.c</FilePath>
+              <FilePath>.\ST7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer.c</FilePath>
             </File>
           </Files>
         </Group>

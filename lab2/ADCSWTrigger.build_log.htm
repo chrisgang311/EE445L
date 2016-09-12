@@ -3,15 +3,15 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\ronald\Documents\GitHub\labs\lab2\ADCSWTrigger.uvproj
-Project File Date:  09/06/2016
+C:\Users\ronald\Documents\GitHub\labs\lab2\lab2.uvproj
+Project File Date:  09/10/2016
 
 <h2>Output:</h2>
-Build target 'ADCSWTrigger'
+Build target 'lab2'
+compiling lab2.c...
 linking...
-Program Size: Code=4188 RO-data=2052 RW-data=60 ZI-data=17220  
+Program Size: Code=3392 RO-data=2052 RW-data=56 ZI-data=1024  
 ".\ADCSWTrigger.axf" - 0 Error(s), 0 Warning(s).
- 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\ronald\\Documents\\GitHub\\labs\\lab2\\ADCSWTrigger.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
@@ -22,69 +22,3 @@ Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
 Programming Done.
 Verify OK.
-();
-ADCTestMain.c(61): error:  #165: too few arguments in function call
-        Timer1A_Init(); // Timer1A has Max countdown (53s)
-ADCTestMain.c(64): error:  #20: identifier "recordFlag" is undefined
-        recordFlag = true;
-ADCTestMain.c(65): warning:  #223-D: function "EnableInterrupts" declared implicitly
-        EnableInterrupts();
-ADCTestMain.c(74): error:  #20: identifier "time" is undefined
-        uint32_t minDiff = time[0] - time[1];
-ADCTestMain.c(90): error:  #20: identifier "data" is undefined
-        printf("data[0] %u\n", data[0]);
-ADCTestMain.c(97): warning:  #223-D: function "CalculatePmf" declared implicitly
-        CalculatePmf();
-ADCTestMain.c(101): error:  #159: declaration is incompatible with previous "CalculatePmf" (declared at line 97)
-  void CalculatePmf(){
-ADCTestMain.c(113): error:  #20: identifier "data" is undefined
-                uint32_t x = data[idx] >> 3;
-ADCTestMain.c(127): error:  #20: identifier "ADCvalue" is undefined
-        ADCvalue = ADC0_InSeq3();
-ADCTestMain.c(129): error:  #20: identifier "time" is undefined
-                time[idx] = TIMER1_TAR_R;
-ADCTestMain.c(130): error:  #20: identifier "data" is undefined
-                data[idx] = ADCvalue;
-ADCTestMain.c(134): error:  #20: identifier "recordFlag" is undefined
-                recordFlag = false;
-ADCTestMain.c(146): error:  #159: declaration is incompatible with previous "PortF_Init" (declared at line 57)
-  void PortF_Init(void){
-ADCTestMain.c: 5 warnings, 12 errors
-".\ADCSWTrigger.axf" - 12 Error(s), 5 Warning(s).
-Target not created
-or(int idx = 1; idx < 1000; idx++){
-ADCTestMain.c(78): error:  #20: identifier "idx" is undefined
-                uint32_t diff = time[idx - 1] - time[idx];
-ADCTestMain.c(79): error:  #20: identifier "minDiff" is undefined
-                if(diff < minDiff){
-ADCTestMain.c(82): error:  #20: identifier "maxDiff" is undefined
-                else if(diff > maxDiff){
-ADCTestMain.c(86): error:  #20: identifier "maxDiff" is undefined
-        uint32_t jitter = maxDiff - minDiff;
-ADCTestMain.c(86): error:  #20: identifier "minDiff" is undefined
-        uint32_t jitter = maxDiff - minDiff;
-ADCTestMain.c(89): error:  #79: expected a type specifier
-        printf("time[0] %u\n", time[0]);
-ADCTestMain.c(89): error:  #20: identifier "time" is undefined
-        printf("time[0] %u\n", time[0]);
-ADCTestMain.c(89): error:  #94-D: the size of an array must be greater than zero
-        printf("time[0] %u\n", time[0]);
-ADCTestMain.c(89): error:  #260-D: explicit type is missing ("int" assumed)
-        printf("time[0] %u\n", time[0]);
-ADCTestMain.c(89): error:  #147-D: declaration is incompatible with "int printf(const char *restrict, ...)" (declared at line 365 of "C:\Keil\ARM\ARMCC\bin\..\include\stdio.h")
-        printf("time[0] %u\n", time[0]);
-ADCTestMain.c(90): error:  #79: expected a type specifier
-        printf("data[0] %u\n", data[0]);
-ADCTestMain.c(90): error:  #20: identifier "data" is undefined
-        printf("data[0] %u\n", data[0]);
-ADCTestMain.c(90): error:  #94-D: the size of an array must be greater than zero
-        printf("data[0] %u\n", data[0]);
-ADCTestMain.c(90): error:  #260-D: explicit type is missing ("int" assumed)
-        printf("data[0] %u\n", data[0]);
-ADCTestMain.c(91): error:  #79: expected a type specifier
-        printf("time[999] %u\n", time[999]);
-ADCTestMain.c(91): error:  #20: identifier "time" is undefined
-        printf("time[999] %u\n", time[999]);
-ADCTestMain.c: 4 warnings, 30 errors
-".\ADCSWTrigger.axf" - 30 Error(s), 4 Warning(s).
-Target not created
