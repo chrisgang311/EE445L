@@ -60,6 +60,9 @@ volatile static uint16_t Ymin, Ymax;
 void CalculatePmf(void);
 uint32_t CalculateJitter(void);
 
+// line drawing
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+
 int main(void){
 	// hardware initialization
   PortF_Init();
@@ -95,6 +98,23 @@ int main(void){
 		ST7735_PlotLine(pmf[idx]); 
 		ST7735_PlotNext();
 	}
+	
+	// draw some straight lines
+	uint16_t color = 0xF000;
+	ST7735_Line(50, 100, 50, 50, color);
+	ST7735_Line(100, 100, 100, 50, color);
+	ST7735_Line(50, 50, 100, 50, color);
+	ST7735_Line(50, 100, 100, 100, color);
+	
+	// diaganol lines
+	ST7735_Line(100, 50, 50, 100, color);
+	ST7735_Line(50, 100, 100, 50, color);
+	ST7735_Line(100, 100, 50, 50, color);
+	ST7735_Line(50, 50, 100, 100, color);
+	
+	// out of the park (remember to set the limits)
+	ST7735_Line(100, 50, 50, 120, color);
+	ST7735_Line(100, 100, 101, 95, color);
 	#endif
 	
 }
@@ -180,3 +200,51 @@ void PortF_Init(void){
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
 }
 
+//************* ST7735_Line********************************************
+// Draws one line on the ST7735 color LCD
+// Inputs: (x1,y1) is the start point
+// 				 (x2,y2) is the end point
+// x1,x2 are horizontal positions, columns from the left edge
+// 					must be less than 128
+// 					0 is on the left, 126 is near the right
+// y1,y2 are vertical positions, rows from the top edge
+// 					must be less than 160
+// 					159 is near the wires, 0 is the side opposite the wires
+// color 16-bit color, which can be produced by ST7735_Color565()
+// Output: none
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
+	int16_t rangeX = x2 - x1, rangeY = y2 - y1; 
+	
+	// draw a vertical line
+	if(x1 == x2){
+		if(y2 > y1){
+			ST7735_DrawFastVLine(x1, y1, (y2 - y1), color); 
+		}
+		else {
+			ST7735_DrawFastVLine(x2, y2, (y1 - y2), color); 
+		} return;
+	}
+	// draw a horizontal line
+	else if(y1 == y2){
+		if(x2 > x1){
+		ST7735_DrawFastHLine(x1, y1, (x2 - x1), color); 
+		}
+		else {
+			ST7735_DrawFastHLine(x2, y2, (x1 - x2), color); 
+		} return;
+	}
+	
+	// normal line plotting
+	if(x1 > x2){ // 2nd point on left
+			for(int idx = x2; idx < x1; idx++){
+				uint16_t y = (rangeY * (idx - x1) /rangeX) + y1; 
+				ST7735_DrawPixel(idx, y, color); 
+			}
+	}
+	else{ // 2nd point on right
+		for(int idx = x1; idx < x2; idx++){
+			uint16_t y = (rangeY * (idx - x1) / rangeX) + y1; 
+			ST7735_DrawPixel(idx, y, color); 
+		}
+	}
+}
