@@ -33,7 +33,7 @@
 #include "Timer.h"
 
 // debug flag
-#define DEBUG
+//#define DEBUG
 
 // process managment
 void DisableInterrupts(void); // Disable interrupts
@@ -102,8 +102,7 @@ int main(void){
 	}
 	
 	// Part G) draw some lines
-	//DrawLines();
-	return 0;
+	DrawLines();
 	#endif 
 	
 }
@@ -247,7 +246,7 @@ void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t co
  */
 void DrawLines(){
 	// draw some straight lines
-	uint16_t color = 0xF000;
+	uint16_t color = ST7735_RED;
 	ST7735_Line(50, 100, 50, 50, color);
 	ST7735_Line(100, 100, 100, 50, color);
 	ST7735_Line(50, 50, 100, 50, color);
@@ -262,4 +261,5 @@ void DrawLines(){
 	// out of the park (remember to set the limits)
 	ST7735_Line(100, 50, 50, 120, color);
 	ST7735_Line(100, 100, 101, 95, color);
+	ST7735_Line(25, 100, 101, 75, color);
 }
