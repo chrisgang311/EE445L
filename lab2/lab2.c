@@ -33,7 +33,7 @@
 #include "Timer.h"
 
 // debug flag
-#undef DEBUG
+#define DEBUG
 
 // process managment
 void DisableInterrupts(void); // Disable interrupts
@@ -55,12 +55,14 @@ volatile static uint32_t data[1000];
 	
 // pmf function (size 16 buckets)
 #define PMF_SIZE 4096
+#define PMF_THRESHOLD 5 // ignore noise outlier
 volatile static uint16_t pmf[PMF_SIZE];
-volatile static uint16_t Ymin, Ymax;
+volatile static uint16_t Ymin, Ymax, PmfStart;
 void CalculatePmf(void);
 uint32_t CalculateJitter(void);
 
 // line drawing
+void DrawLines(void);
 void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
 
 int main(void){
@@ -94,28 +96,15 @@ int main(void){
 	CalculatePmf();	// build pmf
 	printf("Ymin: %u Ymax:%u\n", Ymin, Ymax);
 	ST7735_PlotClear(Ymin, Ymax);
-	for(int idx = 600; idx < 800; idx++){
-		ST7735_PlotLine(pmf[idx]); 
+	for(int pdx = PmfStart; pdx < PmfStart + 128; pdx++){
+		ST7735_PlotLine(pmf[pdx]); 
 		ST7735_PlotNext();
 	}
 	
-	// draw some straight lines
-	uint16_t color = 0xF000;
-	ST7735_Line(50, 100, 50, 50, color);
-	ST7735_Line(100, 100, 100, 50, color);
-	ST7735_Line(50, 50, 100, 50, color);
-	ST7735_Line(50, 100, 100, 100, color);
-	
-	// diaganol lines
-	ST7735_Line(100, 50, 50, 100, color);
-	ST7735_Line(50, 100, 100, 50, color);
-	ST7735_Line(100, 100, 50, 50, color);
-	ST7735_Line(50, 50, 100, 100, color);
-	
-	// out of the park (remember to set the limits)
-	ST7735_Line(100, 50, 50, 120, color);
-	ST7735_Line(100, 100, 101, 95, color);
-	#endif
+	// Part G) draw some lines
+	//DrawLines();
+	return 0;
+	#endif 
 	
 }
 
@@ -145,16 +134,20 @@ void CalculatePmf(){
 	for(int idx = 0; idx < PMF_SIZE; idx++){
 		pmf[idx] = 0;
 	}
+	// calculate pmf function and Y range
 	uint16_t minY = pmf[0], maxY = pmf[0];
 	for(int idx = 0; idx < 1000; idx++){
-		// update pmf and Y range
 		uint32_t x = data[idx];
 		pmf[x] = pmf[x] + 1;
 		if(pmf[x] < minY){
 			minY = pmf[x];
 		}
 		else if(pmf[x] > maxY){
-			maxY = pmf[x]; 
+			maxY = pmf[x];
+			PmfStart = x - 64; // center around peak
+			if(PmfStart > 4096){
+				PmfStart = 0;
+			}
 		}
 	}
 	// set global y range
@@ -179,8 +172,8 @@ void Timer0A_Handler(void){
 	else{ // reset sampling
 		idx = 0;
 		recordFlag = false;
-//	Timer0A_Disarm()
-//	Timer0A_Stop();
+		Timer0A_Disarm();
+		Timer0A_Stop();
 	}
   PF2 ^= 0x04; // profile
 }
@@ -214,7 +207,6 @@ void PortF_Init(void){
 // Output: none
 void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
 	int16_t rangeX = x2 - x1, rangeY = y2 - y1; 
-	
 	// draw a vertical line
 	if(x1 == x2){
 		if(y2 > y1){
@@ -227,24 +219,47 @@ void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t co
 	// draw a horizontal line
 	else if(y1 == y2){
 		if(x2 > x1){
-		ST7735_DrawFastHLine(x1, y1, (x2 - x1), color); 
+			ST7735_DrawFastHLine(x1, y1, (x2 - x1), color); 
 		}
 		else {
 			ST7735_DrawFastHLine(x2, y2, (x1 - x2), color); 
 		} return;
 	}
 	
-	// normal line plotting
-	if(x1 > x2){ // 2nd point on left
-			for(int idx = x2; idx < x1; idx++){
-				uint16_t y = (rangeY * (idx - x1) /rangeX) + y1; 
-				ST7735_DrawPixel(idx, y, color); 
-			}
-	}
-	else{ // 2nd point on right
-		for(int idx = x1; idx < x2; idx++){
-			uint16_t y = (rangeY * (idx - x1) / rangeX) + y1; 
-			ST7735_DrawPixel(idx, y, color); 
+	// diagonal line plotting
+	if(x2 > x1){ // 2nd point on right
+		for(int x = x1; x < x2; x++){
+			uint16_t y = (rangeY * (x - x1) / rangeX) + y1; 
+			ST7735_DrawPixel(x, y, color); 
 		}
 	}
+	else if(x1 > x2){ // 2nd point on left
+		for(int x = x2; x < x1; x++){
+			uint16_t y = (rangeY * (x - x1) / rangeX) + y1; 
+			ST7735_DrawPixel(x, y, color); 
+		}
+	}
+}
+
+/** DrawLines() **
+ * Few tests for our line drawing function.
+ * Draw some vertical, horizontal, and diagno lines.
+ */
+void DrawLines(){
+	// draw some straight lines
+	uint16_t color = 0xF000;
+	ST7735_Line(50, 100, 50, 50, color);
+	ST7735_Line(100, 100, 100, 50, color);
+	ST7735_Line(50, 50, 100, 50, color);
+	ST7735_Line(50, 100, 100, 100, color);
+	
+	// diaganol lines
+	ST7735_Line(100, 50, 50, 100, color);
+	ST7735_Line(50, 100, 100, 50, color);
+	ST7735_Line(100, 100, 50, 50, color);
+	ST7735_Line(50, 50, 100, 100, color);
+	
+	// out of the park (remember to set the limits)
+	ST7735_Line(100, 50, 50, 120, color);
+	ST7735_Line(100, 100, 101, 95, color);
 }

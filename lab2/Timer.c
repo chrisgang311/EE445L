@@ -13,10 +13,6 @@
  
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
- 
-// timer initializations
-void Timer0A_Init(uint32_t period);
-void Timer1A_Init(uint32_t period); 
 
 /** Timer0A_Init() **
  * Activate TIMER0A to countdown for period seconds

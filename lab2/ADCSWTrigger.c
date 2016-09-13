@@ -68,8 +68,6 @@ void ADC0_InitSWTriggerSeq3_Ch9(void){
   GPIO_PORTE_AMSEL_R |= 0x10;     // 5) enable analog functionality on PE4
     
 //  while((SYSCTL_PRADC_R&0x0001) != 0x0001){};    // good code, but not yet implemented in simulator
-
-
   ADC0_PC_R &= ~0xF;              // 7) clear max sample rate field
   ADC0_PC_R |= 0x1;               //    configure for 125K samples/sec
   ADC0_SSPRI_R = 0x0123;          // 8) Sequencer 3 is highest priority
@@ -79,7 +77,7 @@ void ADC0_InitSWTriggerSeq3_Ch9(void){
   ADC0_SSMUX3_R += 9;             //    set channel
   ADC0_SSCTL3_R = 0x0006;         // 12) no TS0 D0, yes IE0 END0
   ADC0_IM_R &= ~0x0008;           // 13) disable SS3 interrupts
-	ADC0_SAC_R = ADC_SAC_AVG_64X;
+	ADC0_SAC_R = ADC_SAC_AVG_64X;		// 14) enable Hardware Averaging
 	ADC0_ACTSS_R |= 0x0008;         // 14) enable sample sequencer 3
 }
 
