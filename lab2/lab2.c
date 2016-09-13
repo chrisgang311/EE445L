@@ -32,7 +32,8 @@
 #include "PLL.h"
 #include "Timer.h"
 
-#define DEBUG
+// debug flag
+#undef DEBUG
 
 // process managment
 void DisableInterrupts(void); // Disable interrupts
@@ -54,7 +55,8 @@ volatile static uint32_t data[1000];
 	
 // pmf function (size 16 buckets)
 #define PMF_SIZE 4096
-static uint16_t pmf[PMF_SIZE];
+volatile static uint16_t pmf[PMF_SIZE];
+volatile static uint16_t Ymin, Ymax;
 void CalculatePmf(void);
 uint32_t CalculateJitter(void);
 
@@ -65,32 +67,35 @@ int main(void){
 	ST7735_InitR(INITR_REDTAB);
   ADC0_InitSWTriggerSeq3_Ch9(); 
 	Timer1A_Init(TIMER_MAXHz);	// Timer1A has Max countdown (53s)
-  Timer0A_Init(TIMER_100Hz); // Timer0A has 100 Hz interrupts
+	Timer0A_Init(TIMER_1000Hz); // Timer0A has 100 Hz interrupts
 	
 	// sampling profile
 	recordFlag = true;
 	PF2 = 0; // turn off ISR LED
 	printf("Started sampling...\n");
-  while(true/*recordFlag*/){
-   GPIO_PORTF_DATA_R ^= 0x02;  // toggles while profiling
-  } //printf("Finished Sampling :)\n\n");
+	while(recordFlag){
+		PF1 ^= 0x02;  // toggles while profiling
+	} printf("Finished Sampling :)\n");
 	
-//	// calculate jitter
-//	uint32_t jitter = CalculateJitter();
-
-//	// build pmf
-//	CalculatePmf();
-//	
-//	#ifdef DEBUG // feedback
-//	printf("time[0] %u\n", time[0]);
-//	printf("data[0] %u\n", data[0]);
-//	printf("time[999] %u\n", time[999]);
-//	printf("data[999] %u\n", data[999]);
-//	printf("jitter: %u\n", jitter); 
-//	#endif
-//	
-//	#ifndef DEBUG // Plot PMF
-//	#endif
+	#ifdef DEBUG // feedback
+	// calculate jitter
+	uint32_t jitter = CalculateJitter();
+	printf("time[0] %u\n", time[0]);
+	printf("data[0] %u\n", data[0]);
+	printf("time[999] %u\n", time[999]);
+	printf("data[999] %u\n", data[999]);
+	printf("jitter: %u\n", jitter); 
+	#endif
+	
+	#ifndef DEBUG // Plot PMF
+	CalculatePmf();	// build pmf
+	printf("Ymin: %u Ymax:%u\n", Ymin, Ymax);
+	ST7735_PlotClear(Ymin, Ymax);
+	for(int idx = 600; idx < 800; idx++){
+		ST7735_PlotLine(pmf[idx]); 
+		ST7735_PlotNext();
+	}
+	#endif
 	
 }
 
@@ -120,35 +125,45 @@ void CalculatePmf(){
 	for(int idx = 0; idx < PMF_SIZE; idx++){
 		pmf[idx] = 0;
 	}
+	uint16_t minY = pmf[0], maxY = pmf[0];
 	for(int idx = 0; idx < 1000; idx++){
+		// update pmf and Y range
 		uint32_t x = data[idx];
 		pmf[x] = pmf[x] + 1;
+		if(pmf[x] < minY){
+			minY = pmf[x];
+		}
+		else if(pmf[x] > maxY){
+			maxY = pmf[x]; 
+		}
 	}
+	// set global y range
+	Ymin = minY; Ymax = maxY;
 }
 
 
 void Timer0A_Handler(void){
 	// acknowledge timer0A timeout
   TIMER0_ICR_R = TIMER_ICR_TATOCINT; 
-//	static uint16_t idx = 0;
+	static uint16_t idx = 0;
   PF2 ^= 0x04; // profile
   PF2 ^= 0x04; // profile
   
 	// record ADC value
 	ADCvalue = ADC0_InSeq3();
-//	if(idx < 1000){
-//		time[idx] = TIMER1_TAR_R;
-//		data[idx] = ADCvalue;
-//		idx = idx + 1;
-//	}
-//	else{ // turn off sampling
-//		recordFlag = false;
-//		Timer0A_Disarm();
-//		Timer0A_Stop();
-//	}
+	if(recordFlag && idx < 1000){
+		time[idx] = TIMER1_TAR_R;
+		data[idx] = ADCvalue;
+		idx = idx + 1;
+	}
+	else{ // reset sampling
+		idx = 0;
+		recordFlag = false;
+//	Timer0A_Disarm()
+//	Timer0A_Stop();
+	}
   PF2 ^= 0x04; // profile
 }
-
 
 // ***************** PortF_Init ****************
 // Activate Port F for LED profiling

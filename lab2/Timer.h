@@ -12,6 +12,8 @@
  #define TIMER_1000Hz 79999
  #define TIMER_MAXHz 79999  // 53s at 80MHz clock
  
+ #define TIMER_DELAY1S_1000Hz 519999999
+ 
  
 // timer initializations
 
@@ -28,7 +30,15 @@ void Timer0A_Init(uint32_t period);
  * Inputs:  period (reload value for the timer)
  * Outputs: none
  */
-void Timer1A_Init(uint32_t period); 
+void Timer1A_Init(uint32_t period);
+
+/** Timer0A_Init **
+ * Activate TIMER2A to countdown for period seconds
+ * Initializes Timer2A for period interrupts
+ * Inputs:  period (reload value for the timer)
+ * Outputs: none
+ */
+void Timer2A_Init(uint32_t period);
 
 /** Timer0A_Stop() **
  * Stop the Clock (TIMER 0A)
@@ -44,3 +54,8 @@ void Timer0A_Arm(void);
  * Disable interrupts from Timer0A.
  */
 void Timer0A_Disarm(void);
+
+/** Timer1A_Wait() **
+ * Pause the execution for delay time
+ */
+void Timer1A_Wait(uint32_t delay);
