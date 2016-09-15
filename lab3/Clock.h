@@ -13,10 +13,20 @@
  */
 void Clock_Init(void);
 
+/** Clock_Reset() **
+ * Reset the clock time.
+ */
+ void Clock_Reset(void);
+
 /** Clock_Read() **
  * Read the clock time.
  */
-void Clock_Read(void);
+uint32_t Clock_Read(void);
+
+/** Clock_Increment() **
+ * Increment the clock time.
+ */
+void Clock_Increment(void);
 
 /** Alarm_Set() ** 
  * Set the alarm

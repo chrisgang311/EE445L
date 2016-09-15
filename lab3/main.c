@@ -33,6 +33,7 @@
 #include "LCD.h"
 #include "Clock.h"
 #include "Keypad.h"
+#include "Speaker.h"
 #include "tm4c123gh6pm.h"
 
 
@@ -49,7 +50,6 @@ static void PortF_Init(void);
 // clock routines
 static void DrawClock(void);
 
-
 int main(void){
 	// hardware initialization
 	LCD_Init();
@@ -60,11 +60,21 @@ int main(void){
 	printf("Drawing clock...\n"); 
 	DrawClock();
 
-	#ifdef DEBUG // sampling profile
+	#ifdef DEBUG // alarm poll
 	DebugInit();
 	while(true){
-		PF1 ^= 0x02;  // toggles while profiling
-	} 
+		Clock_Reset();
+		Alarm_Set(10);
+		while(Alarm_Read() != Clock_Read()){
+			PF1 ^= 0x02;  // toggles while waiting for alarm
+		} PF1 = 0;
+		while(Keypad_Read() != 0x3){
+			// spam alarm.
+			Speaker_Expand();
+			PF2 ^= 0x02;  
+			Speaker_Contract();
+		}
+	}
 	#endif // DEBUG
 }
 
@@ -72,7 +82,7 @@ int main(void){
 void Timer0A_Handler(void){
 	// acknowledge timer0A timeout
   TIMER0_ICR_R = TIMER_ICR_TATOCINT; 
-	
+	Clock_Increment();
 	#ifdef DEBUG // sampling in handler
 	static uint16_t idx = 1;
   PF2 ^= 0x04; // profile

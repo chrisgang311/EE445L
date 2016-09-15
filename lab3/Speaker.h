@@ -20,17 +20,17 @@
  * Activate the Speaker for Output processing.
  * Outputs: none
  */
-void Speaker_Init();
+void Speaker_Init(void);
 
 /** Speaker_Expand() **
  * Expand the speaker's diaphragm
  * Speaker current will flow.
  */
-void Speaker_Expand();
+void Speaker_Expand(void);
 
 /** Speaker_Contract() **
  * Contract the speaker's diaphragm
  * Speaker current will stop.
  */
-void Speaker_Contract();
+void Speaker_Contract(void);
 

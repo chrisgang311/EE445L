@@ -27,6 +27,20 @@ void Clock_Init(void){
 	Timer0A_Init(TIMER_1Hz/2);
 }
 
+/** Clock_Reset() **
+ * Reset the clock time.
+ */
+ void Clock_Reset(void){
+	ClockTime = 0;
+}
+
+/** Clock_Reset() **
+ * Reset the clock time.
+ */
+ void Clock_Increment(void){
+	ClockTime = ClockTime + 1;
+}
+
 /** Clock_Read() **
  * Read the clock time.
  */
