@@ -3,7 +3,7 @@
  * Created: September 6th 2016
  * Description: Sample the ADC, and build a pmf / observe time-jitter measurements.
  * utitilizes various timer interrupts
- * Lab: 1
+ * Lab: 2
  * TA: Dylan Zika
  * Date: September 10th 2016
  *********************************************************************************/

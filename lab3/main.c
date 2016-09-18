@@ -57,7 +57,7 @@ int main(void){
 	Clock_Init();
 	
 	// Draw clock in center
-	printf("Drawing clock...\n"); 
+	printf("-EE445L Alarm Clock-\n"); 
 	DrawClock();
 
 	#ifdef DEBUG // alarm poll
