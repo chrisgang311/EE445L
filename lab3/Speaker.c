@@ -67,6 +67,6 @@ static void PortE_Init(){
  * Initialize the PWM for speaker playback.
  * Output is on PE5 / M0PWM5
  */
-static void PWM_Init(uint32_t period, uint32_t duty){
+//static void PWM_Init(uint32_t period, uint32_t duty){
 
-}
+//}

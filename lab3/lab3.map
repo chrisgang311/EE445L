@@ -4,53 +4,15 @@ ARM Linker, 5.03 [Build 76] [MDK-ARM Lite]
 
 Section Cross References
 
-    main.o(i.ClearClock) refers to lcd.o(i.LCD_FillRectangle) for LCD_FillRectangle
-    main.o(i.ConfigureTime) refers to clock.o(i.Clock_Read) for Clock_Read
-    main.o(i.ConfigureTime) refers to lcd.o(i.LCD_SetCursor) for LCD_SetCursor
-    main.o(i.ConfigureTime) refers to printf1.o(i.__0printf$1) for __2printf
-    main.o(i.ConfigureTime) refers to main.o(.data) for RedrawLCD
-    main.o(i.DebugInit) refers to main.o(i.PortF_Init) for PortF_Init
-    main.o(i.DrawClock) refers to lcd.o(i.LCD_DrawBitmap) for LCD_DrawBitmap
-    main.o(i.DrawClock) refers to main.o(.constdata) for CLOCK_IMAGE
-    main.o(i.MainScreen) refers to clock.o(i.Clock_Read) for Clock_Read
-    main.o(i.MainScreen) refers to lcd.o(i.LCD_SetCursor) for LCD_SetCursor
-    main.o(i.MainScreen) refers to printf1.o(i.__0printf$1) for __2printf
-    main.o(i.MainScreen) refers to main.o(i.ClearClock) for ClearClock
-    main.o(i.MainScreen) refers to main.o(i.DrawClock) for DrawClock
-    main.o(i.MainScreen) refers to main.o(i.drawHourHand) for drawHourHand
-    main.o(i.MainScreen) refers to main.o(i.drawMinuteHand) for drawMinuteHand
-    main.o(i.MainScreen) refers to main.o(i.drawSecondHand) for drawSecondHand
-    main.o(i.MainScreen) refers to lcd.o(i.LCD_Init) for LCD_Init
-    main.o(i.MainScreen) refers to main.o(.data) for RedrawLCD
     main.o(i.Timer0A_Handler) refers to clock.o(i.Clock_Increment) for Clock_Increment
     main.o(i.Timer0A_Handler) refers to main.o(.data) for uptick
-    main.o(i.UpdateClock) refers to main.o(i.MainScreen) for MainScreen
-    main.o(i.UpdateClock) refers to main.o(i.ConfigureTime) for ConfigureTime
-    main.o(i.UpdateClock) refers to main.o(i.ConfigureAlarm) for ConfigureAlarm
-    main.o(i.UpdateClock) refers to main.o(i.ControlAlarm) for ControlAlarm
-    main.o(i.drawHourHand) refers to dfltui.o(.text) for __aeabi_ui2d
-    main.o(i.drawHourHand) refers to dmul.o(.text) for __aeabi_dmul
-    main.o(i.drawHourHand) refers to ddiv.o(.text) for __aeabi_ddiv
-    main.o(i.drawHourHand) refers to d2f.o(.text) for __aeabi_d2f
-    main.o(i.drawHourHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
-    main.o(i.drawMinuteHand) refers to dfltui.o(.text) for __aeabi_ui2d
-    main.o(i.drawMinuteHand) refers to dmul.o(.text) for __aeabi_dmul
-    main.o(i.drawMinuteHand) refers to ddiv.o(.text) for __aeabi_ddiv
-    main.o(i.drawMinuteHand) refers to d2f.o(.text) for __aeabi_d2f
-    main.o(i.drawMinuteHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
-    main.o(i.drawSecondHand) refers to dflti.o(.text) for __aeabi_i2d
-    main.o(i.drawSecondHand) refers to dmul.o(.text) for __aeabi_dmul
-    main.o(i.drawSecondHand) refers to ddiv.o(.text) for __aeabi_ddiv
-    main.o(i.drawSecondHand) refers to dadd.o(.text) for __aeabi_drsub
-    main.o(i.drawSecondHand) refers to d2f.o(.text) for __aeabi_d2f
-    main.o(i.drawSecondHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
     main.o(i.main) refers to lcd.o(i.LCD_Init) for LCD_Init
     main.o(i.main) refers to keypad.o(i.Keypad_Init) for Keypad_Init
     main.o(i.main) refers to clock.o(i.Clock_Init) for Clock_Init
-    main.o(i.main) refers to main.o(i.DebugInit) for DebugInit
     main.o(i.main) refers to clock.o(i.Clock_Reset) for Clock_Reset
     main.o(i.main) refers to keypad.o(i.Keypad_Read) for Keypad_Read
-    main.o(i.main) refers to main.o(i.UpdateClock) for UpdateClock
+    main.o(i.main) refers to fsm.o(i.UpdateClock) for UpdateClock
+    main.o(i.main) refers to main.o(.data) for ReadyForInput
     lcd.o(i.LCD_DrawBitmap) refers to st7735.o(i.ST7735_DrawBitmap) for ST7735_DrawBitmap
     lcd.o(i.LCD_DrawCircle) refers to lcd.o(i.ST7735_Circle) for ST7735_Circle
     lcd.o(i.LCD_DrawLine) refers to lcd.o(i.ST7735_Line) for ST7735_Line
@@ -62,15 +24,61 @@ Section Cross References
     lcd.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawFastHLine) for ST7735_DrawFastHLine
     lcd.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
     keypad.o(i.Keypad_Init) refers to keypad.o(i.PortE_Init) for PortE_Init
+    clock.o(i.Alarm_PowerOff) refers to clock.o(.data) for power
+    clock.o(i.Alarm_PowerOn) refers to clock.o(.data) for power
     clock.o(i.Alarm_Read) refers to clock.o(.data) for AlarmTime
+    clock.o(i.Alarm_Ready) refers to clock.o(.data) for power
     clock.o(i.Alarm_Set) refers to clock.o(.data) for AlarmTime
+    clock.o(i.Clock_ClearImage) refers to lcd.o(i.LCD_FillRectangle) for LCD_FillRectangle
+    clock.o(i.Clock_DrawHourHand) refers to clock.o(i.sine) for sine
+    clock.o(i.Clock_DrawHourHand) refers to clock.o(i.cosine) for cosine
+    clock.o(i.Clock_DrawHourHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
+    clock.o(i.Clock_DrawImage) refers to lcd.o(i.LCD_DrawBitmap) for LCD_DrawBitmap
+    clock.o(i.Clock_DrawImage) refers to clock.o(.constdata) for CLOCK_IMAGE
+    clock.o(i.Clock_DrawMinuteHand) refers to clock.o(i.sine) for sine
+    clock.o(i.Clock_DrawMinuteHand) refers to clock.o(i.cosine) for cosine
+    clock.o(i.Clock_DrawMinuteHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
+    clock.o(i.Clock_DrawSecondHand) refers to clock.o(i.sine) for sine
+    clock.o(i.Clock_DrawSecondHand) refers to clock.o(i.cosine) for cosine
+    clock.o(i.Clock_DrawSecondHand) refers to lcd.o(i.LCD_DrawLine) for LCD_DrawLine
     clock.o(i.Clock_Increment) refers to clock.o(.data) for ClockTime
     clock.o(i.Clock_Init) refers to pll.o(i.PLL_Init) for PLL_Init
     clock.o(i.Clock_Init) refers to timer.o(i.Timer0A_Init) for Timer0A_Init
     clock.o(i.Clock_Init) refers to clock.o(.data) for AlarmTime
     clock.o(i.Clock_Read) refers to clock.o(.data) for ClockTime
     clock.o(i.Clock_Reset) refers to clock.o(.data) for ClockTime
+    clock.o(i.Clock_Set) refers to clock.o(.data) for ClockTime
     speaker.o(i.Speaker_Init) refers to speaker.o(i.PortE_Init) for PortE_Init
+    fsm.o(i.ConfigureAlarm) refers to lcd.o(i.LCD_SetCursor) for LCD_SetCursor
+    fsm.o(i.ConfigureAlarm) refers to printf1.o(i.__0printf$1) for __2printf
+    fsm.o(i.ConfigureAlarm) refers to clock.o(i.Alarm_Read) for Alarm_Read
+    fsm.o(i.ConfigureAlarm) refers to lcd.o(i.LCD_Init) for LCD_Init
+    fsm.o(i.ConfigureAlarm) refers to clock.o(i.Alarm_Set) for Alarm_Set
+    fsm.o(i.ConfigureAlarm) refers to fsm.o(.data) for RedrawLCD
+    fsm.o(i.ConfigureTime) refers to lcd.o(i.LCD_SetCursor) for LCD_SetCursor
+    fsm.o(i.ConfigureTime) refers to printf1.o(i.__0printf$1) for __2printf
+    fsm.o(i.ConfigureTime) refers to clock.o(i.Clock_Read) for Clock_Read
+    fsm.o(i.ConfigureTime) refers to lcd.o(i.LCD_Init) for LCD_Init
+    fsm.o(i.ConfigureTime) refers to clock.o(i.Clock_Set) for Clock_Set
+    fsm.o(i.ConfigureTime) refers to fsm.o(.data) for RedrawLCD
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_Read) for Clock_Read
+    fsm.o(i.MainScreen) refers to clock.o(i.Alarm_Read) for Alarm_Read
+    fsm.o(i.MainScreen) refers to clock.o(i.Alarm_Ready) for Alarm_Ready
+    fsm.o(i.MainScreen) refers to printf1.o(i.__0printf$1) for __2printf
+    fsm.o(i.MainScreen) refers to lcd.o(i.LCD_SetCursor) for LCD_SetCursor
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_ClearImage) for Clock_ClearImage
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_DrawImage) for Clock_DrawImage
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_DrawSecondHand) for Clock_DrawSecondHand
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_DrawMinuteHand) for Clock_DrawMinuteHand
+    fsm.o(i.MainScreen) refers to clock.o(i.Clock_DrawHourHand) for Clock_DrawHourHand
+    fsm.o(i.MainScreen) refers to clock.o(i.Alarm_PowerOff) for Alarm_PowerOff
+    fsm.o(i.MainScreen) refers to clock.o(i.Alarm_PowerOn) for Alarm_PowerOn
+    fsm.o(i.MainScreen) refers to lcd.o(i.LCD_Init) for LCD_Init
+    fsm.o(i.MainScreen) refers to fsm.o(.data) for RedrawLCD
+    fsm.o(i.UpdateClock) refers to fsm.o(i.MainScreen) for MainScreen
+    fsm.o(i.UpdateClock) refers to fsm.o(i.ConfigureTime) for ConfigureTime
+    fsm.o(i.UpdateClock) refers to fsm.o(i.ConfigureAlarm) for ConfigureAlarm
+    fsm.o(i.UpdateClock) refers to fsm.o(i.ControlAlarm) for ControlAlarm
     st7735.o(i.Output_Clear) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
     st7735.o(i.Output_Color) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
     st7735.o(i.Output_Init) refers to st7735.o(i.ST7735_InitR) for ST7735_InitR
@@ -411,20 +419,6 @@ Section Cross References
     printfa.o(i._printf_pre_padding) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._snputc) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._sputc) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
-    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    ddiv.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    ddiv.o(.text) refers to depilogue.o(.text) for _double_round
-    dflti.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    dfltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dfltui.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    d2f.o(.text) refers to fepilogue.o(.text) for _float_round
     entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
     entry2.o(.ARM.Collect$$$$00002712) refers to startup.o(STACK) for __initial_sp
     entry2.o(__vectab_stack_and_reset_area) refers to startup.o(STACK) for __initial_sp
@@ -434,23 +428,24 @@ Section Cross References
     entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(i.main) for main
     uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
+    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    ddiv.o(.text) refers to depilogue.o(.text) for _double_round
     dfixul.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     dfixul.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
 
 
 ==============================================================================
 
 Removing Unused input sections from the image.
 
-    Removing main.o(i.DrawDigital), (2 bytes).
     Removing lcd.o(i.LCD_DrawCircle), (28 bytes).
     Removing lcd.o(i.ST7735_Circle), (26 bytes).
-    Removing clock.o(i.Alarm_Read), (12 bytes).
-    Removing clock.o(i.Alarm_Set), (12 bytes).
-    Removing speaker.o(i.PWM_Init), (2 bytes).
     Removing speaker.o(i.PortE_Init), (108 bytes).
     Removing speaker.o(i.Speaker_Init), (8 bytes).
     Removing speaker.o(i.Speaker_Mute), (12 bytes).
@@ -488,10 +483,14 @@ Removing Unused input sections from the image.
     Removing timer.o(i.Timer1A_Init), (68 bytes).
     Removing timer.o(i.Timer1A_Wait), (24 bytes).
     Removing timer.o(i.Timer2A_Init), (108 bytes).
+    Removing dadd.o(.text), (334 bytes).
+    Removing dmul.o(.text), (228 bytes).
+    Removing ddiv.o(.text), (222 bytes).
     Removing dfixul.o(.text), (48 bytes).
     Removing cdrcmple.o(.text), (40 bytes).
+    Removing depilogue.o(.text), (190 bytes).
 
-45 unused section(s) (total 2398 bytes) removed from the image.
+45 unused section(s) (total 3344 bytes) removed from the image.
 
 ==============================================================================
 
@@ -502,48 +501,45 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      660  startup.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
-    ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     Clock.c                                  0x00000000   Number         0  clock.o ABSOLUTE
+    FSM.c                                    0x00000000   Number         0  fsm.o ABSOLUTE
     Keypad.c                                 0x00000000   Number         0  keypad.o ABSOLUTE
     LCD.c                                    0x00000000   Number         0  lcd.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
@@ -569,127 +565,124 @@ Image Symbol Table
     __lit__00000000                          0x000002a4   Data           4  entry2.o(.ARM.Collect$$$$00002712)
     .text                                    0x000002a8   Section       28  startup.o(.text)
     $v0                                      0x000002a8   Number         0  startup.o(.text)
-    .text                                    0x000002c4   Section        0  dadd.o(.text)
-    .text                                    0x00000412   Section        0  dmul.o(.text)
-    .text                                    0x000004f6   Section        0  ddiv.o(.text)
-    .text                                    0x000005d4   Section        0  dflti.o(.text)
-    .text                                    0x000005f6   Section        0  dfltui.o(.text)
-    .text                                    0x00000610   Section        0  d2f.o(.text)
-    .text                                    0x00000648   Section        0  uidiv.o(.text)
-    .text                                    0x00000674   Section        0  llshl.o(.text)
-    .text                                    0x00000692   Section        0  llsshr.o(.text)
-    .text                                    0x000006b6   Section        0  iusefp.o(.text)
-    .text                                    0x000006b6   Section        0  fepilogue.o(.text)
-    .text                                    0x00000722   Section        0  depilogue.o(.text)
-    .text                                    0x000007e0   Section       36  init.o(.text)
-    .text                                    0x00000804   Section        0  llushr.o(.text)
-    i.ClearClock                             0x00000824   Section        0  main.o(i.ClearClock)
-    ClearClock                               0x00000825   Thumb Code    26  main.o(i.ClearClock)
-    i.Clock_Increment                        0x00000840   Section        0  clock.o(i.Clock_Increment)
-    i.Clock_Init                             0x0000087c   Section        0  clock.o(i.Clock_Init)
-    i.Clock_Read                             0x000008a4   Section        0  clock.o(i.Clock_Read)
-    i.Clock_Reset                            0x000008b0   Section        0  clock.o(i.Clock_Reset)
-    i.ConfigureAlarm                         0x000008bc   Section        0  main.o(i.ConfigureAlarm)
-    ConfigureAlarm                           0x000008bd   Thumb Code     6  main.o(i.ConfigureAlarm)
-    i.ConfigureTime                          0x000008c4   Section        0  main.o(i.ConfigureTime)
-    ConfigureTime                            0x000008c5   Thumb Code    84  main.o(i.ConfigureTime)
-    i.ControlAlarm                           0x0000098c   Section        0  main.o(i.ControlAlarm)
-    ControlAlarm                             0x0000098d   Thumb Code     6  main.o(i.ControlAlarm)
-    i.DebugInit                              0x00000994   Section        0  main.o(i.DebugInit)
-    DebugInit                                0x00000995   Thumb Code    14  main.o(i.DebugInit)
-    i.Delay1ms                               0x000009a8   Section        0  st7735.o(i.Delay1ms)
-    i.DrawClock                              0x000009c8   Section        0  main.o(i.DrawClock)
-    DrawClock                                0x000009c9   Thumb Code    24  main.o(i.DrawClock)
-    i.Keypad_Init                            0x000009e4   Section        0  keypad.o(i.Keypad_Init)
-    i.Keypad_Read                            0x000009ec   Section        0  keypad.o(i.Keypad_Read)
-    i.LCD_DrawBitmap                         0x000009fc   Section        0  lcd.o(i.LCD_DrawBitmap)
-    i.LCD_DrawLine                           0x00000a22   Section        0  lcd.o(i.LCD_DrawLine)
-    i.LCD_FillRectangle                      0x00000a46   Section        0  lcd.o(i.LCD_FillRectangle)
-    i.LCD_Init                               0x00000a6c   Section        0  lcd.o(i.LCD_Init)
-    i.LCD_SetCursor                          0x00000a76   Section        0  lcd.o(i.LCD_SetCursor)
-    i.MainScreen                             0x00000a88   Section        0  main.o(i.MainScreen)
-    MainScreen                               0x00000a89   Thumb Code   244  main.o(i.MainScreen)
-    i.PLL_Init                               0x00000c1c   Section        0  pll.o(i.PLL_Init)
-    i.PortE_Init                             0x00000c98   Section        0  keypad.o(i.PortE_Init)
-    PortE_Init                               0x00000c99   Thumb Code    94  keypad.o(i.PortE_Init)
-    i.PortF_Init                             0x00000d04   Section        0  main.o(i.PortF_Init)
-    PortF_Init                               0x00000d05   Thumb Code    84  main.o(i.PortF_Init)
-    i.ST7735_DrawBitmap                      0x00000d64   Section        0  st7735.o(i.ST7735_DrawBitmap)
-    i.ST7735_DrawCharS                       0x00000e84   Section        0  st7735.o(i.ST7735_DrawCharS)
-    i.ST7735_DrawFastHLine                   0x00000f78   Section        0  st7735.o(i.ST7735_DrawFastHLine)
-    i.ST7735_DrawFastVLine                   0x00000ff4   Section        0  st7735.o(i.ST7735_DrawFastVLine)
-    i.ST7735_DrawPixel                       0x00001070   Section        0  st7735.o(i.ST7735_DrawPixel)
-    i.ST7735_DrawString                      0x000010b8   Section        0  st7735.o(i.ST7735_DrawString)
-    i.ST7735_FillRect                        0x00001110   Section        0  st7735.o(i.ST7735_FillRect)
-    i.ST7735_FillScreen                      0x000011bc   Section        0  st7735.o(i.ST7735_FillScreen)
-    i.ST7735_InitR                           0x000011e0   Section        0  st7735.o(i.ST7735_InitR)
-    i.ST7735_Line                            0x0000125c   Section        0  lcd.o(i.ST7735_Line)
-    ST7735_Line                              0x0000125d   Thumb Code   212  lcd.o(i.ST7735_Line)
-    i.ST7735_OutChar                         0x00001330   Section        0  st7735.o(i.ST7735_OutChar)
-    i.ST7735_SetCursor                       0x00001404   Section        0  st7735.o(i.ST7735_SetCursor)
-    i.Timer0A_Handler                        0x00001424   Section        0  main.o(i.Timer0A_Handler)
-    i.Timer0A_Init                           0x00001474   Section        0  timer.o(i.Timer0A_Init)
-    i.UpdateClock                            0x000014ec   Section        0  main.o(i.UpdateClock)
-    UpdateClock                              0x000014ed   Thumb Code    62  main.o(i.UpdateClock)
-    i.__0printf$1                            0x0000152c   Section        0  printf1.o(i.__0printf$1)
-    i.__scatterload_copy                     0x0000154c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0000155a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0000155c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x0000156c   Section        0  printf1.o(i._printf_core)
-    _printf_core                             0x0000156d   Thumb Code   334  printf1.o(i._printf_core)
-    i.commandList                            0x000016c0   Section        0  st7735.o(i.commandList)
-    commandList                              0x000016c1   Thumb Code    86  st7735.o(i.commandList)
-    i.commonInit                             0x00001718   Section        0  st7735.o(i.commonInit)
-    commonInit                               0x00001719   Thumb Code   340  st7735.o(i.commonInit)
-    i.drawHourHand                           0x0000189c   Section        0  main.o(i.drawHourHand)
-    drawHourHand                             0x0000189d   Thumb Code   572  main.o(i.drawHourHand)
-    i.drawMinuteHand                         0x00001b04   Section        0  main.o(i.drawMinuteHand)
-    drawMinuteHand                           0x00001b05   Thumb Code   578  main.o(i.drawMinuteHand)
-    i.drawSecondHand                         0x00001d74   Section        0  main.o(i.drawSecondHand)
-    drawSecondHand                           0x00001d75   Thumb Code   852  main.o(i.drawSecondHand)
-    i.fputc                                  0x000020fc   Section        0  st7735.o(i.fputc)
-    i.main                                   0x0000210c   Section        0  main.o(i.main)
-    i.pushColor                              0x0000214c   Section        0  st7735.o(i.pushColor)
-    pushColor                                0x0000214d   Thumb Code    18  st7735.o(i.pushColor)
-    i.setAddrWindow                          0x00002160   Section        0  st7735.o(i.setAddrWindow)
-    setAddrWindow                            0x00002161   Thumb Code   106  st7735.o(i.setAddrWindow)
-    i.writecommand                           0x000021d4   Section        0  st7735.o(i.writecommand)
-    writecommand                             0x000021d5   Thumb Code    40  st7735.o(i.writecommand)
-    i.writedata                              0x00002204   Section        0  st7735.o(i.writedata)
-    writedata                                0x00002205   Thumb Code    24  st7735.o(i.writedata)
-    .constdata                               0x00002224   Section    12800  main.o(.constdata)
-    .constdata                               0x00005424   Section     2018  st7735.o(.constdata)
-    Font                                     0x00005424   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x0000591f   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x00005986   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x000059c1   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x000059ce   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x000059db   Data          43  st7735.o(.constdata)
-    .data                                    0x20000000   Section       12  main.o(.data)
-    RedrawLCD                                0x20000000   Data           1  main.o(.data)
-    digital                                  0x20000001   Data           1  main.o(.data)
-    oldTime                                  0x20000004   Data           4  main.o(.data)
-    uptick                                   0x20000008   Data           1  main.o(.data)
-    idx                                      0x2000000a   Data           2  main.o(.data)
-    .data                                    0x2000000c   Section        8  clock.o(.data)
-    ClockTime                                0x2000000c   Data           4  clock.o(.data)
-    AlarmTime                                0x20000010   Data           4  clock.o(.data)
-    .data                                    0x20000014   Section       44  st7735.o(.data)
-    _width                                   0x2000001e   Data           2  st7735.o(.data)
-    _height                                  0x20000020   Data           2  st7735.o(.data)
-    ColStart                                 0x20000028   Data           1  st7735.o(.data)
-    RowStart                                 0x20000029   Data           1  st7735.o(.data)
-    Rotation                                 0x2000002a   Data           1  st7735.o(.data)
-    TabColor                                 0x2000002b   Data           1  st7735.o(.data)
-    .data                                    0x20000040   Section        4  stdout.o(.data)
-    STACK                                    0x20000048   Section     1024  startup.o(STACK)
-    StackMem                                 0x20000048   Data           0  startup.o(STACK)
+    .text                                    0x000002c4   Section        0  uidiv.o(.text)
+    .text                                    0x000002f0   Section       36  init.o(.text)
+    i.Alarm_PowerOff                         0x00000314   Section        0  clock.o(i.Alarm_PowerOff)
+    i.Alarm_PowerOn                          0x00000320   Section        0  clock.o(i.Alarm_PowerOn)
+    i.Alarm_Read                             0x0000032c   Section        0  clock.o(i.Alarm_Read)
+    i.Alarm_Ready                            0x00000338   Section        0  clock.o(i.Alarm_Ready)
+    i.Alarm_Set                              0x00000344   Section        0  clock.o(i.Alarm_Set)
+    i.Clock_ClearImage                       0x00000350   Section        0  clock.o(i.Clock_ClearImage)
+    i.Clock_DrawHourHand                     0x0000036c   Section        0  clock.o(i.Clock_DrawHourHand)
+    i.Clock_DrawImage                        0x00000504   Section        0  clock.o(i.Clock_DrawImage)
+    i.Clock_DrawMinuteHand                   0x00000520   Section        0  clock.o(i.Clock_DrawMinuteHand)
+    i.Clock_DrawSecondHand                   0x000006bc   Section        0  clock.o(i.Clock_DrawSecondHand)
+    i.Clock_Increment                        0x00000858   Section        0  clock.o(i.Clock_Increment)
+    i.Clock_Init                             0x00000894   Section        0  clock.o(i.Clock_Init)
+    i.Clock_Read                             0x000008bc   Section        0  clock.o(i.Clock_Read)
+    i.Clock_Reset                            0x000008c8   Section        0  clock.o(i.Clock_Reset)
+    i.Clock_Set                              0x000008d4   Section        0  clock.o(i.Clock_Set)
+    i.ConfigureAlarm                         0x000008e0   Section        0  fsm.o(i.ConfigureAlarm)
+    i.ConfigureTime                          0x00000d54   Section        0  fsm.o(i.ConfigureTime)
+    i.ControlAlarm                           0x000011c8   Section        0  fsm.o(i.ControlAlarm)
+    i.Delay1ms                               0x000011ce   Section        0  st7735.o(i.Delay1ms)
+    i.Keypad_Init                            0x000011ee   Section        0  keypad.o(i.Keypad_Init)
+    i.Keypad_Read                            0x000011f8   Section        0  keypad.o(i.Keypad_Read)
+    i.LCD_DrawBitmap                         0x00001208   Section        0  lcd.o(i.LCD_DrawBitmap)
+    i.LCD_DrawLine                           0x0000122e   Section        0  lcd.o(i.LCD_DrawLine)
+    i.LCD_FillRectangle                      0x00001252   Section        0  lcd.o(i.LCD_FillRectangle)
+    i.LCD_Init                               0x00001278   Section        0  lcd.o(i.LCD_Init)
+    i.LCD_SetCursor                          0x00001282   Section        0  lcd.o(i.LCD_SetCursor)
+    i.MainScreen                             0x00001294   Section        0  fsm.o(i.MainScreen)
+    i.PLL_Init                               0x00001504   Section        0  pll.o(i.PLL_Init)
+    i.PortE_Init                             0x00001580   Section        0  keypad.o(i.PortE_Init)
+    PortE_Init                               0x00001581   Thumb Code    94  keypad.o(i.PortE_Init)
+    i.ST7735_DrawBitmap                      0x000015ec   Section        0  st7735.o(i.ST7735_DrawBitmap)
+    i.ST7735_DrawCharS                       0x0000170c   Section        0  st7735.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawFastHLine                   0x00001800   Section        0  st7735.o(i.ST7735_DrawFastHLine)
+    i.ST7735_DrawFastVLine                   0x0000187c   Section        0  st7735.o(i.ST7735_DrawFastVLine)
+    i.ST7735_DrawPixel                       0x000018f8   Section        0  st7735.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x00001940   Section        0  st7735.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x00001998   Section        0  st7735.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x00001a44   Section        0  st7735.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x00001a68   Section        0  st7735.o(i.ST7735_InitR)
+    i.ST7735_Line                            0x00001ae4   Section        0  lcd.o(i.ST7735_Line)
+    ST7735_Line                              0x00001ae5   Thumb Code   244  lcd.o(i.ST7735_Line)
+    i.ST7735_OutChar                         0x00001bd8   Section        0  st7735.o(i.ST7735_OutChar)
+    i.ST7735_SetCursor                       0x00001cac   Section        0  st7735.o(i.ST7735_SetCursor)
+    i.Timer0A_Handler                        0x00001ccc   Section        0  main.o(i.Timer0A_Handler)
+    i.Timer0A_Init                           0x00001d04   Section        0  timer.o(i.Timer0A_Init)
+    i.UpdateClock                            0x00001d7c   Section        0  fsm.o(i.UpdateClock)
+    i.__0printf$1                            0x00001dbc   Section        0  printf1.o(i.__0printf$1)
+    i.__scatterload_copy                     0x00001ddc   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001dea   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001dec   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00001dfc   Section        0  printf1.o(i._printf_core)
+    _printf_core                             0x00001dfd   Thumb Code   334  printf1.o(i._printf_core)
+    i.commandList                            0x00001f50   Section        0  st7735.o(i.commandList)
+    commandList                              0x00001f51   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x00001fa8   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x00001fa9   Thumb Code   340  st7735.o(i.commonInit)
+    i.cosine                                 0x0000212c   Section        0  clock.o(i.cosine)
+    cosine                                   0x0000212d   Thumb Code   226  clock.o(i.cosine)
+    i.fputc                                  0x00002220   Section        0  st7735.o(i.fputc)
+    i.main                                   0x00002230   Section        0  main.o(i.main)
+    i.pushColor                              0x0000227c   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x0000227d   Thumb Code    18  st7735.o(i.pushColor)
+    i.setAddrWindow                          0x00002290   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x00002291   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.sine                                   0x00002304   Section        0  clock.o(i.sine)
+    sine                                     0x00002305   Thumb Code   186  clock.o(i.sine)
+    i.writecommand                           0x000023d0   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x000023d1   Thumb Code    40  st7735.o(i.writecommand)
+    i.writedata                              0x00002400   Section        0  st7735.o(i.writedata)
+    writedata                                0x00002401   Thumb Code    24  st7735.o(i.writedata)
+    .constdata                               0x00002420   Section    12800  clock.o(.constdata)
+    .constdata                               0x00005620   Section     2018  st7735.o(.constdata)
+    Font                                     0x00005620   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x00005b1b   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x00005b82   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x00005bbd   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x00005bca   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x00005bd7   Data          43  st7735.o(.constdata)
+    .data                                    0x20000000   Section        2  main.o(.data)
+    ReadyForInput                            0x20000000   Data           1  main.o(.data)
+    uptick                                   0x20000001   Data           1  main.o(.data)
+    .data                                    0x20000004   Section       12  clock.o(.data)
+    power                                    0x20000004   Data           1  clock.o(.data)
+    ClockTime                                0x20000008   Data           4  clock.o(.data)
+    AlarmTime                                0x2000000c   Data           4  clock.o(.data)
+    .data                                    0x20000010   Section       40  fsm.o(.data)
+    RedrawLCD                                0x20000010   Data           1  fsm.o(.data)
+    digital                                  0x20000011   Data           1  fsm.o(.data)
+    oldTime                                  0x20000014   Data           4  fsm.o(.data)
+    oldHours                                 0x20000018   Data           1  fsm.o(.data)
+    oldMinutes                               0x20000019   Data           1  fsm.o(.data)
+    oldSeconds                               0x2000001a   Data           1  fsm.o(.data)
+    field                                    0x2000001b   Data           1  fsm.o(.data)
+    minutes                                  0x2000001c   Data           4  fsm.o(.data)
+    hours                                    0x20000020   Data           4  fsm.o(.data)
+    seconds                                  0x20000024   Data           4  fsm.o(.data)
+    field                                    0x20000028   Data           1  fsm.o(.data)
+    minutes                                  0x2000002c   Data           4  fsm.o(.data)
+    hours                                    0x20000030   Data           4  fsm.o(.data)
+    seconds                                  0x20000034   Data           4  fsm.o(.data)
+    .data                                    0x20000038   Section       44  st7735.o(.data)
+    _width                                   0x20000042   Data           2  st7735.o(.data)
+    _height                                  0x20000044   Data           2  st7735.o(.data)
+    ColStart                                 0x2000004c   Data           1  st7735.o(.data)
+    RowStart                                 0x2000004d   Data           1  st7735.o(.data)
+    Rotation                                 0x2000004e   Data           1  st7735.o(.data)
+    TabColor                                 0x2000004f   Data           1  st7735.o(.data)
+    .data                                    0x20000064   Section        4  stdout.o(.data)
+    STACK                                    0x20000068   Section     1024  startup.o(STACK)
+    StackMem                                 0x20000068   Data           0  startup.o(STACK)
 
     Global Symbols
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
     __Vectors                                0x00000000   Data           0  startup.o(RESET)
     _printf_a                                0x00000000   Number         0  stubs.o ABSOLUTE
@@ -875,78 +868,75 @@ Image Symbol Table
     StartCritical                            0x000002b1   Thumb Code     0  startup.o(.text)
     EndCritical                              0x000002b9   Thumb Code     0  startup.o(.text)
     WaitForInterrupt                         0x000002bf   Thumb Code     0  startup.o(.text)
-    __aeabi_dadd                             0x000002c5   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x00000407   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x0000040d   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x00000413   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x000004f7   Thumb Code   222  ddiv.o(.text)
-    __aeabi_i2d                              0x000005d5   Thumb Code    34  dflti.o(.text)
-    __aeabi_ui2d                             0x000005f7   Thumb Code    26  dfltui.o(.text)
-    __aeabi_d2f                              0x00000611   Thumb Code    56  d2f.o(.text)
-    __aeabi_uidiv                            0x00000649   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x00000649   Thumb Code    44  uidiv.o(.text)
-    __aeabi_llsl                             0x00000675   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x00000675   Thumb Code     0  llshl.o(.text)
-    __aeabi_lasr                             0x00000693   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x00000693   Thumb Code     0  llsshr.o(.text)
-    __I$use$fp                               0x000006b7   Thumb Code     0  iusefp.o(.text)
-    _float_round                             0x000006b7   Thumb Code    18  fepilogue.o(.text)
-    _float_epilogue                          0x000006c9   Thumb Code    90  fepilogue.o(.text)
-    _double_round                            0x00000723   Thumb Code    26  depilogue.o(.text)
-    _double_epilogue                         0x0000073d   Thumb Code   164  depilogue.o(.text)
-    __scatterload                            0x000007e1   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x000007e1   Thumb Code     0  init.o(.text)
-    __aeabi_llsr                             0x00000805   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x00000805   Thumb Code     0  llushr.o(.text)
-    Clock_Increment                          0x00000841   Thumb Code    54  clock.o(i.Clock_Increment)
-    Clock_Init                               0x0000087d   Thumb Code    26  clock.o(i.Clock_Init)
-    Clock_Read                               0x000008a5   Thumb Code     6  clock.o(i.Clock_Read)
-    Clock_Reset                              0x000008b1   Thumb Code     8  clock.o(i.Clock_Reset)
-    Delay1ms                                 0x000009a9   Thumb Code    32  st7735.o(i.Delay1ms)
-    Keypad_Init                              0x000009e5   Thumb Code     8  keypad.o(i.Keypad_Init)
-    Keypad_Read                              0x000009ed   Thumb Code    10  keypad.o(i.Keypad_Read)
-    LCD_DrawBitmap                           0x000009fd   Thumb Code    38  lcd.o(i.LCD_DrawBitmap)
-    LCD_DrawLine                             0x00000a23   Thumb Code    36  lcd.o(i.LCD_DrawLine)
-    LCD_FillRectangle                        0x00000a47   Thumb Code    38  lcd.o(i.LCD_FillRectangle)
-    LCD_Init                                 0x00000a6d   Thumb Code    10  lcd.o(i.LCD_Init)
-    LCD_SetCursor                            0x00000a77   Thumb Code    16  lcd.o(i.LCD_SetCursor)
-    PLL_Init                                 0x00000c1d   Thumb Code   118  pll.o(i.PLL_Init)
-    ST7735_DrawBitmap                        0x00000d65   Thumb Code   280  st7735.o(i.ST7735_DrawBitmap)
-    ST7735_DrawCharS                         0x00000e85   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
-    ST7735_DrawFastHLine                     0x00000f79   Thumb Code   116  st7735.o(i.ST7735_DrawFastHLine)
-    ST7735_DrawFastVLine                     0x00000ff5   Thumb Code   116  st7735.o(i.ST7735_DrawFastVLine)
-    ST7735_DrawPixel                         0x00001071   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
-    ST7735_DrawString                        0x000010b9   Thumb Code    86  st7735.o(i.ST7735_DrawString)
-    ST7735_FillRect                          0x00001111   Thumb Code   164  st7735.o(i.ST7735_FillRect)
-    ST7735_FillScreen                        0x000011bd   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
-    ST7735_InitR                             0x000011e1   Thumb Code    90  st7735.o(i.ST7735_InitR)
-    ST7735_OutChar                           0x00001331   Thumb Code   176  st7735.o(i.ST7735_OutChar)
-    ST7735_SetCursor                         0x00001405   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
-    Timer0A_Handler                          0x00001425   Thumb Code    66  main.o(i.Timer0A_Handler)
-    Timer0A_Init                             0x00001475   Thumb Code   102  timer.o(i.Timer0A_Init)
-    __0printf$1                              0x0000152d   Thumb Code    22  printf1.o(i.__0printf$1)
-    __1printf$1                              0x0000152d   Thumb Code     0  printf1.o(i.__0printf$1)
-    __2printf                                0x0000152d   Thumb Code     0  printf1.o(i.__0printf$1)
-    __scatterload_copy                       0x0000154d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0000155b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0000155d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fputc                                    0x000020fd   Thumb Code    16  st7735.o(i.fputc)
-    main                                     0x0000210d   Thumb Code    64  main.o(i.main)
-    CLOCK_IMAGE                              0x00002224   Data       12800  main.o(.constdata)
-    dBfs                                     0x00005a06   Data         512  st7735.o(.constdata)
-    Region$$Table$$Base                      0x00005c08   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00005c28   Number         0  anon$$obj.o(Region$$Table)
-    StX                                      0x20000014   Data           4  st7735.o(.data)
-    StY                                      0x20000018   Data           4  st7735.o(.data)
-    StTextColor                              0x2000001c   Data           2  st7735.o(.data)
-    lastj                                    0x20000024   Data           4  st7735.o(.data)
-    Messageindex                             0x2000002c   Data           4  st7735.o(.data)
-    Ymax                                     0x20000030   Data           4  st7735.o(.data)
-    Ymin                                     0x20000034   Data           4  st7735.o(.data)
-    X                                        0x20000038   Data           4  st7735.o(.data)
-    Yrange                                   0x2000003c   Data           4  st7735.o(.data)
-    __stdout                                 0x20000040   Data           4  stdout.o(.data)
-    __initial_sp                             0x20000448   Data           0  startup.o(STACK)
+    __aeabi_uidiv                            0x000002c5   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x000002c5   Thumb Code    44  uidiv.o(.text)
+    __scatterload                            0x000002f1   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x000002f1   Thumb Code     0  init.o(.text)
+    Alarm_PowerOff                           0x00000315   Thumb Code     8  clock.o(i.Alarm_PowerOff)
+    Alarm_PowerOn                            0x00000321   Thumb Code     8  clock.o(i.Alarm_PowerOn)
+    Alarm_Read                               0x0000032d   Thumb Code     6  clock.o(i.Alarm_Read)
+    Alarm_Ready                              0x00000339   Thumb Code     8  clock.o(i.Alarm_Ready)
+    Alarm_Set                                0x00000345   Thumb Code     6  clock.o(i.Alarm_Set)
+    Clock_ClearImage                         0x00000351   Thumb Code    26  clock.o(i.Clock_ClearImage)
+    Clock_DrawHourHand                       0x0000036d   Thumb Code   396  clock.o(i.Clock_DrawHourHand)
+    Clock_DrawImage                          0x00000505   Thumb Code    24  clock.o(i.Clock_DrawImage)
+    Clock_DrawMinuteHand                     0x00000521   Thumb Code   394  clock.o(i.Clock_DrawMinuteHand)
+    Clock_DrawSecondHand                     0x000006bd   Thumb Code   394  clock.o(i.Clock_DrawSecondHand)
+    Clock_Increment                          0x00000859   Thumb Code    54  clock.o(i.Clock_Increment)
+    Clock_Init                               0x00000895   Thumb Code    26  clock.o(i.Clock_Init)
+    Clock_Read                               0x000008bd   Thumb Code     6  clock.o(i.Clock_Read)
+    Clock_Reset                              0x000008c9   Thumb Code     8  clock.o(i.Clock_Reset)
+    Clock_Set                                0x000008d5   Thumb Code     6  clock.o(i.Clock_Set)
+    ConfigureAlarm                           0x000008e1   Thumb Code   924  fsm.o(i.ConfigureAlarm)
+    ConfigureTime                            0x00000d55   Thumb Code   924  fsm.o(i.ConfigureTime)
+    ControlAlarm                             0x000011c9   Thumb Code     6  fsm.o(i.ControlAlarm)
+    Delay1ms                                 0x000011cf   Thumb Code    32  st7735.o(i.Delay1ms)
+    Keypad_Init                              0x000011ef   Thumb Code     8  keypad.o(i.Keypad_Init)
+    Keypad_Read                              0x000011f9   Thumb Code    10  keypad.o(i.Keypad_Read)
+    LCD_DrawBitmap                           0x00001209   Thumb Code    38  lcd.o(i.LCD_DrawBitmap)
+    LCD_DrawLine                             0x0000122f   Thumb Code    36  lcd.o(i.LCD_DrawLine)
+    LCD_FillRectangle                        0x00001253   Thumb Code    38  lcd.o(i.LCD_FillRectangle)
+    LCD_Init                                 0x00001279   Thumb Code    10  lcd.o(i.LCD_Init)
+    LCD_SetCursor                            0x00001283   Thumb Code    16  lcd.o(i.LCD_SetCursor)
+    MainScreen                               0x00001295   Thumb Code   402  fsm.o(i.MainScreen)
+    PLL_Init                                 0x00001505   Thumb Code   118  pll.o(i.PLL_Init)
+    ST7735_DrawBitmap                        0x000015ed   Thumb Code   280  st7735.o(i.ST7735_DrawBitmap)
+    ST7735_DrawCharS                         0x0000170d   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
+    ST7735_DrawFastHLine                     0x00001801   Thumb Code   116  st7735.o(i.ST7735_DrawFastHLine)
+    ST7735_DrawFastVLine                     0x0000187d   Thumb Code   116  st7735.o(i.ST7735_DrawFastVLine)
+    ST7735_DrawPixel                         0x000018f9   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x00001941   Thumb Code    86  st7735.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x00001999   Thumb Code   164  st7735.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x00001a45   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x00001a69   Thumb Code    90  st7735.o(i.ST7735_InitR)
+    ST7735_OutChar                           0x00001bd9   Thumb Code   176  st7735.o(i.ST7735_OutChar)
+    ST7735_SetCursor                         0x00001cad   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
+    Timer0A_Handler                          0x00001ccd   Thumb Code    42  main.o(i.Timer0A_Handler)
+    Timer0A_Init                             0x00001d05   Thumb Code   102  timer.o(i.Timer0A_Init)
+    UpdateClock                              0x00001d7d   Thumb Code    62  fsm.o(i.UpdateClock)
+    __0printf$1                              0x00001dbd   Thumb Code    22  printf1.o(i.__0printf$1)
+    __1printf$1                              0x00001dbd   Thumb Code     0  printf1.o(i.__0printf$1)
+    __2printf                                0x00001dbd   Thumb Code     0  printf1.o(i.__0printf$1)
+    __scatterload_copy                       0x00001ddd   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001deb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001ded   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    fputc                                    0x00002221   Thumb Code    16  st7735.o(i.fputc)
+    main                                     0x00002231   Thumb Code    72  main.o(i.main)
+    CLOCK_IMAGE                              0x00002420   Data       12800  clock.o(.constdata)
+    dBfs                                     0x00005c02   Data         512  st7735.o(.constdata)
+    Region$$Table$$Base                      0x00005e04   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00005e24   Number         0  anon$$obj.o(Region$$Table)
+    StX                                      0x20000038   Data           4  st7735.o(.data)
+    StY                                      0x2000003c   Data           4  st7735.o(.data)
+    StTextColor                              0x20000040   Data           2  st7735.o(.data)
+    lastj                                    0x20000048   Data           4  st7735.o(.data)
+    Messageindex                             0x20000050   Data           4  st7735.o(.data)
+    Ymax                                     0x20000054   Data           4  st7735.o(.data)
+    Ymin                                     0x20000058   Data           4  st7735.o(.data)
+    X                                        0x2000005c   Data           4  st7735.o(.data)
+    Yrange                                   0x20000060   Data           4  st7735.o(.data)
+    __stdout                                 0x20000064   Data           4  stdout.o(.data)
+    __initial_sp                             0x20000468   Data           0  startup.o(STACK)
 
 
 
@@ -956,121 +946,115 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00005c6c, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00005e8c, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00005c28, Max: 0xffffffff, ABSOLUTE)
-
-    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x00000000   0x00000294   Code   RO          563  * RESET               startup.o
-    0x00000294   0x00000000   Code   RO          619  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000294   0x00000004   Code   RO          895    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000298   0x00000004   Code   RO          898    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000029c   0x00000000   Code   RO          900    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000029c   0x00000000   Code   RO          902    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000029c   0x00000008   Code   RO          903    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x000002a4   0x00000000   Code   RO          905    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x000002a4   0x00000000   Code   RO          907    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x000002a4   0x00000004   Code   RO          896    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x000002a8   0x0000001c   Code   RO          564    .text               startup.o
-    0x000002c4   0x0000014e   Code   RO          883    .text               mf_w.l(dadd.o)
-    0x00000412   0x000000e4   Code   RO          885    .text               mf_w.l(dmul.o)
-    0x000004f6   0x000000de   Code   RO          887    .text               mf_w.l(ddiv.o)
-    0x000005d4   0x00000022   Code   RO          889    .text               mf_w.l(dflti.o)
-    0x000005f6   0x0000001a   Code   RO          891    .text               mf_w.l(dfltui.o)
-    0x00000610   0x00000038   Code   RO          893    .text               mf_w.l(d2f.o)
-    0x00000648   0x0000002c   Code   RO          910    .text               mc_w.l(uidiv.o)
-    0x00000674   0x0000001e   Code   RO          914    .text               mc_w.l(llshl.o)
-    0x00000692   0x00000024   Code   RO          916    .text               mc_w.l(llsshr.o)
-    0x000006b6   0x00000000   Code   RO          918    .text               mc_w.l(iusefp.o)
-    0x000006b6   0x0000006c   Code   RO          919    .text               mf_w.l(fepilogue.o)
-    0x00000722   0x000000be   Code   RO          921    .text               mf_w.l(depilogue.o)
-    0x000007e0   0x00000024   Code   RO          927    .text               mc_w.l(init.o)
-    0x00000804   0x00000020   Code   RO          929    .text               mc_w.l(llushr.o)
-    0x00000824   0x0000001a   Code   RO            1    i.ClearClock        main.o
-    0x0000083e   0x00000002   PAD
-    0x00000840   0x0000003c   Code   RO          192    i.Clock_Increment   clock.o
-    0x0000087c   0x00000028   Code   RO          193    i.Clock_Init        clock.o
-    0x000008a4   0x0000000c   Code   RO          194    i.Clock_Read        clock.o
-    0x000008b0   0x0000000c   Code   RO          195    i.Clock_Reset       clock.o
-    0x000008bc   0x00000006   Code   RO            2    i.ConfigureAlarm    main.o
-    0x000008c2   0x00000002   PAD
-    0x000008c4   0x000000c8   Code   RO            3    i.ConfigureTime     main.o
-    0x0000098c   0x00000006   Code   RO            4    i.ControlAlarm      main.o
-    0x00000992   0x00000002   PAD
-    0x00000994   0x00000014   Code   RO            5    i.DebugInit         main.o
-    0x000009a8   0x00000020   Code   RO          289    i.Delay1ms          st7735.o
-    0x000009c8   0x0000001c   Code   RO            6    i.DrawClock         main.o
-    0x000009e4   0x00000008   Code   RO          167    i.Keypad_Init       keypad.o
-    0x000009ec   0x00000010   Code   RO          168    i.Keypad_Read       keypad.o
-    0x000009fc   0x00000026   Code   RO          112    i.LCD_DrawBitmap    lcd.o
-    0x00000a22   0x00000024   Code   RO          114    i.LCD_DrawLine      lcd.o
-    0x00000a46   0x00000026   Code   RO          115    i.LCD_FillRectangle  lcd.o
-    0x00000a6c   0x0000000a   Code   RO          116    i.LCD_Init          lcd.o
-    0x00000a76   0x00000010   Code   RO          117    i.LCD_SetCursor     lcd.o
-    0x00000a86   0x00000002   PAD
-    0x00000a88   0x00000194   Code   RO            8    i.MainScreen        main.o
-    0x00000c1c   0x0000007c   Code   RO          277    i.PLL_Init          pll.o
-    0x00000c98   0x0000006c   Code   RO          169    i.PortE_Init        keypad.o
-    0x00000d04   0x00000060   Code   RO            9    i.PortF_Init        main.o
-    0x00000d64   0x00000120   Code   RO          296    i.ST7735_DrawBitmap  st7735.o
-    0x00000e84   0x000000f4   Code   RO          298    i.ST7735_DrawCharS  st7735.o
-    0x00000f78   0x0000007c   Code   RO          299    i.ST7735_DrawFastHLine  st7735.o
-    0x00000ff4   0x0000007c   Code   RO          300    i.ST7735_DrawFastVLine  st7735.o
-    0x00001070   0x00000048   Code   RO          301    i.ST7735_DrawPixel  st7735.o
-    0x000010b8   0x00000056   Code   RO          302    i.ST7735_DrawString  st7735.o
-    0x0000110e   0x00000002   PAD
-    0x00001110   0x000000ac   Code   RO          303    i.ST7735_FillRect   st7735.o
-    0x000011bc   0x00000024   Code   RO          304    i.ST7735_FillScreen  st7735.o
-    0x000011e0   0x0000007c   Code   RO          306    i.ST7735_InitR      st7735.o
-    0x0000125c   0x000000d4   Code   RO          119    i.ST7735_Line       lcd.o
-    0x00001330   0x000000d4   Code   RO          308    i.ST7735_OutChar    st7735.o
-    0x00001404   0x00000020   Code   RO          319    i.ST7735_SetCursor  st7735.o
-    0x00001424   0x00000050   Code   RO           10    i.Timer0A_Handler   main.o
-    0x00001474   0x00000078   Code   RO          573    i.Timer0A_Init      timer.o
-    0x000014ec   0x0000003e   Code   RO           11    i.UpdateClock       main.o
-    0x0000152a   0x00000002   PAD
-    0x0000152c   0x00000020   Code   RO          667    i.__0printf$1       mc_w.l(printf1.o)
-    0x0000154c   0x0000000e   Code   RO          933    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0000155a   0x00000002   Code   RO          934    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0000155c   0x0000000e   Code   RO          935    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0000156a   0x00000002   PAD
-    0x0000156c   0x00000154   Code   RO          674    i._printf_core      mc_w.l(printf1.o)
-    0x000016c0   0x00000056   Code   RO          323    i.commandList       st7735.o
-    0x00001716   0x00000002   PAD
-    0x00001718   0x00000184   Code   RO          324    i.commonInit        st7735.o
-    0x0000189c   0x00000268   Code   RO           12    i.drawHourHand      main.o
-    0x00001b04   0x00000270   Code   RO           13    i.drawMinuteHand    main.o
-    0x00001d74   0x00000388   Code   RO           14    i.drawSecondHand    main.o
-    0x000020fc   0x00000010   Code   RO          328    i.fputc             st7735.o
-    0x0000210c   0x00000040   Code   RO           15    i.main              main.o
-    0x0000214c   0x00000012   Code   RO          329    i.pushColor         st7735.o
-    0x0000215e   0x00000002   PAD
-    0x00002160   0x00000074   Code   RO          330    i.setAddrWindow     st7735.o
-    0x000021d4   0x00000030   Code   RO          331    i.writecommand      st7735.o
-    0x00002204   0x00000020   Code   RO          332    i.writedata         st7735.o
-    0x00002224   0x00003200   Data   RO           16    .constdata          main.o
-    0x00005424   0x000007e2   Data   RO          334    .constdata          st7735.o
-    0x00005c06   0x00000002   PAD
-    0x00005c08   0x00000020   Data   RO          931    Region$$Table       anon$$obj.o
-
-
-    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000044, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00005e24, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0000000c   Data   RW           17    .data               main.o
-    0x2000000c   0x00000008   Data   RW          196    .data               clock.o
-    0x20000014   0x0000002c   Data   RW          335    .data               st7735.o
-    0x20000040   0x00000004   Data   RW          909    .data               mc_w.l(stdout.o)
+    0x00000000   0x00000294   Code   RO          599  * RESET               startup.o
+    0x00000294   0x00000000   Code   RO          655  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000294   0x00000004   Code   RO          919    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000298   0x00000004   Code   RO          922    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000029c   0x00000000   Code   RO          924    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000029c   0x00000000   Code   RO          926    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000029c   0x00000008   Code   RO          927    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x000002a4   0x00000000   Code   RO          929    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x000002a4   0x00000000   Code   RO          931    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x000002a4   0x00000004   Code   RO          920    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x000002a8   0x0000001c   Code   RO          600    .text               startup.o
+    0x000002c4   0x0000002c   Code   RO          934    .text               mc_w.l(uidiv.o)
+    0x000002f0   0x00000024   Code   RO          949    .text               mc_w.l(init.o)
+    0x00000314   0x0000000c   Code   RO          124    i.Alarm_PowerOff    clock.o
+    0x00000320   0x0000000c   Code   RO          125    i.Alarm_PowerOn     clock.o
+    0x0000032c   0x0000000c   Code   RO          126    i.Alarm_Read        clock.o
+    0x00000338   0x0000000c   Code   RO          127    i.Alarm_Ready       clock.o
+    0x00000344   0x0000000c   Code   RO          128    i.Alarm_Set         clock.o
+    0x00000350   0x0000001a   Code   RO          129    i.Clock_ClearImage  clock.o
+    0x0000036a   0x00000002   PAD
+    0x0000036c   0x00000198   Code   RO          130    i.Clock_DrawHourHand  clock.o
+    0x00000504   0x0000001c   Code   RO          131    i.Clock_DrawImage   clock.o
+    0x00000520   0x0000019c   Code   RO          132    i.Clock_DrawMinuteHand  clock.o
+    0x000006bc   0x0000019c   Code   RO          133    i.Clock_DrawSecondHand  clock.o
+    0x00000858   0x0000003c   Code   RO          134    i.Clock_Increment   clock.o
+    0x00000894   0x00000028   Code   RO          135    i.Clock_Init        clock.o
+    0x000008bc   0x0000000c   Code   RO          136    i.Clock_Read        clock.o
+    0x000008c8   0x0000000c   Code   RO          137    i.Clock_Reset       clock.o
+    0x000008d4   0x0000000c   Code   RO          138    i.Clock_Set         clock.o
+    0x000008e0   0x00000474   Code   RO          275    i.ConfigureAlarm    fsm.o
+    0x00000d54   0x00000474   Code   RO          276    i.ConfigureTime     fsm.o
+    0x000011c8   0x00000006   Code   RO          277    i.ControlAlarm      fsm.o
+    0x000011ce   0x00000020   Code   RO          325    i.Delay1ms          st7735.o
+    0x000011ee   0x00000008   Code   RO          101    i.Keypad_Init       keypad.o
+    0x000011f6   0x00000002   PAD
+    0x000011f8   0x00000010   Code   RO          102    i.Keypad_Read       keypad.o
+    0x00001208   0x00000026   Code   RO           46    i.LCD_DrawBitmap    lcd.o
+    0x0000122e   0x00000024   Code   RO           48    i.LCD_DrawLine      lcd.o
+    0x00001252   0x00000026   Code   RO           49    i.LCD_FillRectangle  lcd.o
+    0x00001278   0x0000000a   Code   RO           50    i.LCD_Init          lcd.o
+    0x00001282   0x00000010   Code   RO           51    i.LCD_SetCursor     lcd.o
+    0x00001292   0x00000002   PAD
+    0x00001294   0x00000270   Code   RO          278    i.MainScreen        fsm.o
+    0x00001504   0x0000007c   Code   RO          313    i.PLL_Init          pll.o
+    0x00001580   0x0000006c   Code   RO          103    i.PortE_Init        keypad.o
+    0x000015ec   0x00000120   Code   RO          332    i.ST7735_DrawBitmap  st7735.o
+    0x0000170c   0x000000f4   Code   RO          334    i.ST7735_DrawCharS  st7735.o
+    0x00001800   0x0000007c   Code   RO          335    i.ST7735_DrawFastHLine  st7735.o
+    0x0000187c   0x0000007c   Code   RO          336    i.ST7735_DrawFastVLine  st7735.o
+    0x000018f8   0x00000048   Code   RO          337    i.ST7735_DrawPixel  st7735.o
+    0x00001940   0x00000056   Code   RO          338    i.ST7735_DrawString  st7735.o
+    0x00001996   0x00000002   PAD
+    0x00001998   0x000000ac   Code   RO          339    i.ST7735_FillRect   st7735.o
+    0x00001a44   0x00000024   Code   RO          340    i.ST7735_FillScreen  st7735.o
+    0x00001a68   0x0000007c   Code   RO          342    i.ST7735_InitR      st7735.o
+    0x00001ae4   0x000000f4   Code   RO           53    i.ST7735_Line       lcd.o
+    0x00001bd8   0x000000d4   Code   RO          344    i.ST7735_OutChar    st7735.o
+    0x00001cac   0x00000020   Code   RO          355    i.ST7735_SetCursor  st7735.o
+    0x00001ccc   0x00000038   Code   RO            1    i.Timer0A_Handler   main.o
+    0x00001d04   0x00000078   Code   RO          609    i.Timer0A_Init      timer.o
+    0x00001d7c   0x0000003e   Code   RO          279    i.UpdateClock       fsm.o
+    0x00001dba   0x00000002   PAD
+    0x00001dbc   0x00000020   Code   RO          703    i.__0printf$1       mc_w.l(printf1.o)
+    0x00001ddc   0x0000000e   Code   RO          961    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001dea   0x00000002   Code   RO          962    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001dec   0x0000000e   Code   RO          963    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00001dfa   0x00000002   PAD
+    0x00001dfc   0x00000154   Code   RO          710    i._printf_core      mc_w.l(printf1.o)
+    0x00001f50   0x00000056   Code   RO          359    i.commandList       st7735.o
+    0x00001fa6   0x00000002   PAD
+    0x00001fa8   0x00000184   Code   RO          360    i.commonInit        st7735.o
+    0x0000212c   0x000000f4   Code   RO          139    i.cosine            clock.o
+    0x00002220   0x00000010   Code   RO          364    i.fputc             st7735.o
+    0x00002230   0x0000004c   Code   RO            2    i.main              main.o
+    0x0000227c   0x00000012   Code   RO          365    i.pushColor         st7735.o
+    0x0000228e   0x00000002   PAD
+    0x00002290   0x00000074   Code   RO          366    i.setAddrWindow     st7735.o
+    0x00002304   0x000000cc   Code   RO          140    i.sine              clock.o
+    0x000023d0   0x00000030   Code   RO          367    i.writecommand      st7735.o
+    0x00002400   0x00000020   Code   RO          368    i.writedata         st7735.o
+    0x00002420   0x00003200   Data   RO          141    .constdata          clock.o
+    0x00005620   0x000007e2   Data   RO          370    .constdata          st7735.o
+    0x00005e02   0x00000002   PAD
+    0x00005e04   0x00000020   Data   RO          959    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_ZI (Base: 0x20000044, Size: 0x00000404, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000068, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000044   0x00000004   PAD
-    0x20000048   0x00000400   Zero   RW          561    STACK               startup.o
+    0x20000000   0x00000002   Data   RW            3    .data               main.o
+    0x20000002   0x00000002   PAD
+    0x20000004   0x0000000c   Data   RW          142    .data               clock.o
+    0x20000010   0x00000028   Data   RW          280    .data               fsm.o
+    0x20000038   0x0000002c   Data   RW          371    .data               st7735.o
+    0x20000064   0x00000004   Data   RW          933    .data               mc_w.l(stdout.o)
+
+
+    Execution Region ER_ZI (Base: 0x20000068, Size: 0x00000400, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000068   0x00000400   Zero   RW          597    STACK               startup.o
 
 
 ==============================================================================
@@ -1080,19 +1064,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       124         30          0          8          0       1878   clock.o
-       132         20          0          0          0       1472   keypad.o
-       350          0          0          0          0       4379   lcd.o
-      3136        454      12800         12          0      13895   main.o
-       124          6          0          0          0        455   pll.o
-      2250        214       2018         44          0      14625   st7735.o
-       688        622          0          0       1024        928   startup.o
-       120         18          0          0          0        759   timer.o
+      1930        148      12800         12          0       9064   clock.o
+      2972        684          0         40          0       4411   fsm.o
+       132         20          0          0          0       1492   keypad.o
+       382          0          0          0          0       4407   lcd.o
+       132         18          0          2          0       6605   main.o
+       124          6          0          0          0        451   pll.o
+      2250        214       2018         44          0      14621   st7735.o
+       688        622          0          0       1024        920   startup.o
+       120         18          0          0          0        783   timer.o
 
     ----------------------------------------------------------------------
-      6940       1364      14852         64       1024      38391   Object Totals
+      8744       1730      14852        100       1024      42754   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        16          0          2          0          0          0   (incl. Padding)
+        14          0          2          2          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1108,35 +1093,22 @@ Image component sizes
          8          4          0          0          0          0   entry9a.o
         30          0          0          0          0          0   handlers.o
         36          8          0          0          0         68   init.o
-         0          0          0          0          0          0   iusefp.o
-        30          0          0          0          0         68   llshl.o
-        36          0          0          0          0         68   llsshr.o
-        32          0          0          0          0         68   llushr.o
        372         16          0          0          0        180   printf1.o
          0          0          0          4          0          0   stdout.o
         44          0          0          0          0         80   uidiv.o
-        56          0          0          0          0         88   d2f.o
-       334          0          0          0          0        148   dadd.o
-       222          0          0          0          0        100   ddiv.o
-       190          0          0          0          0        176   depilogue.o
-        34          0          0          0          0         76   dflti.o
-        26          0          0          0          0         76   dfltui.o
-       228          0          0          0          0         96   dmul.o
-       108          0          0          0          0        168   fepilogue.o
 
     ----------------------------------------------------------------------
-      1800         32          0          4          4       1460   Library Totals
-         2          0          0          0          4          0   (incl. Padding)
+       504         32          0          4          0        328   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       600         32          0          4          0        532   mc_w.l
-      1198          0          0          0          0        928   mf_w.l
+       502         32          0          4          0        328   mc_w.l
 
     ----------------------------------------------------------------------
-      1800         32          0          4          4       1460   Library Totals
+       504         32          0          4          0        328   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1145,15 +1117,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      8740       1396      14852         68       1028      34975   Grand Totals
-      8740       1396      14852         68       1028      34975   ELF Image Totals
-      8740       1396      14852         68          0          0   ROM Totals
+      9248       1762      14852        104       1024      38230   Grand Totals
+      9248       1762      14852        104       1024      38230   ELF Image Totals
+      9248       1762      14852        104          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                23592 (  23.04kB)
-    Total RW  Size (RW Data + ZI Data)              1096 (   1.07kB)
-    Total ROM Size (Code + RO Data + RW Data)      23660 (  23.11kB)
+    Total RO  Size (Code + RO Data)                24100 (  23.54kB)
+    Total RW  Size (RW Data + ZI Data)              1128 (   1.10kB)
+    Total ROM Size (Code + RO Data + RW Data)      24204 (  23.64kB)
 
 ==============================================================================
 

@@ -4,6 +4,7 @@
 ".\keypad.o"
 ".\clock.o"
 ".\speaker.o"
+".\fsm.o"
 ".\pll.o"
 ".\st7735.o"
 ".\startup.o"

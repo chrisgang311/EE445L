@@ -114,12 +114,14 @@ static void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint
 		for(int x = x1; x < x2; x++){
 			uint16_t y = (rangeY * (x - x1) / rangeX) + y1; 
 			ST7735_DrawPixel(x, y, color); 
+			ST7735_DrawPixel(x, y+1, color); 
 		}
 	}
 	else if(x1 > x2){ // 2nd point on left
 		for(int x = x2; x < x1; x++){
 			uint16_t y = (rangeY * (x - x1) / rangeX) + y1; 
 			ST7735_DrawPixel(x, y, color); 
+			ST7735_DrawPixel(x, y+1, color); 
 		}
 	}
 }
