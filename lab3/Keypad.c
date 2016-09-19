@@ -10,8 +10,8 @@
  
 /** hardware connections **
  * Keypad Tactile Switches
- * SW1-4 connected on PE1-4
- * SW1-4 reads right to left on the breadboard.
+ * SWa-d connected on PE1-4
+ * SWa-d reads left to right on the breadboard.
  */
  
 #include <stdint.h>
@@ -32,7 +32,7 @@ void Keypad_Init(){
  * Sample the keypad for user input
  * A Set bit indicates the Switch is pressed.
  * Outputs: 8 bit number. 
- * bits0-3 represent switches 1-4
+ * bits0-3 represent switches a-d
  */
 uint8_t Keypad_Read(){
 	// mask logic switch input on bits 0-3
@@ -41,7 +41,7 @@ uint8_t Keypad_Read(){
 
 /** PortE_Init() **
  * Initialize PortE for Input Processing
- * Four Switch inputs: SW1-4 on PE1-4 
+ * Four Switch inputs: SWa-d on PE1-4 
  * Outputs: none
  */
 static void PortE_Init(){

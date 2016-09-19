@@ -22,15 +22,15 @@
  */
 void Speaker_Init(void);
 
-/** Speaker_Expand() **
- * Expand the speaker's diaphragm
+/** Speaker_Play() **
+ * Start playing a sound on the speaker
  * Speaker current will flow.
  */
-void Speaker_Expand(void);
+void Speaker_Play(void);
 
-/** Speaker_Contract() **
- * Contract the speaker's diaphragm
+/** Speaker_Mute() **
+ * Mute the speaker
  * Speaker current will stop.
  */
-void Speaker_Contract(void);
+void Speaker_Mute(void);
 

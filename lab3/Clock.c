@@ -11,6 +11,7 @@
 #include "tm4c123gh6pm.h"
 #include "Timer.h"
 #include "PLL.h"
+#include "LCD.H"
 
 // alarm and clock time values
 // 32-bit packed time value. top 16bits are hour, bottom 16 are minute.
@@ -38,7 +39,28 @@ void Clock_Init(void){
  * Reset the clock time.
  */
  void Clock_Increment(void){
-	ClockTime = ClockTime + 1;
+	uint32_t time = ClockTime;
+	uint32_t minutes, hours, seconds;
+	hours = (time & 0xFF0000) >> 16;
+	minutes = (time & 0x00FF00) >> 8;
+	seconds = (time & 0x0000FF) >> 0;
+	
+	// increment clock
+	seconds = seconds + 1;
+	if(seconds >= 60){
+		seconds = 0;
+		minutes = minutes + 1;
+		if(minutes >= 60){
+			minutes = 0;
+			hours = hours + 1;
+			if(hours >= 24){
+				hours = 0;
+			}
+		}
+	}
+	hours = (hours << 16);
+	minutes = (minutes << 8);
+	ClockTime = hours + minutes + seconds;
 }
 
 /** Clock_Read() **

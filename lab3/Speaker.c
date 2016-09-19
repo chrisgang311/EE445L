@@ -29,19 +29,21 @@ void Speaker_Init(){
 	PortE_Init();
 }
 
-/** Speaker_Expand() **
- * Expand the speaker's diaphragm
+/** Speaker_Play() **
+ * Start playing a sound on the speaker
+ * Kick off the PWM on PE5
  * Speaker current will flow.
  */
-void Speaker_Expand(){
+void Speaker_Play(){
 	PE0 = 0x01;
 }
 
-/** Speaker_Contract() **
- * Contract the speaker's diaphragm
+/** Speaker_Mute() **
+ * Mute the speaker
+ * Stop the PWM on PE5
  * Speaker current will stop.
  */
-void Speaker_Contract(){
+void Speaker_Mute(){
 	PE0 = 0x00;
 }
 
@@ -59,4 +61,12 @@ static void PortE_Init(){
 	GPIO_PORTE_PCTL_R &= ~0x01;  // 4) choose GPIO functionality
 	GPIO_PORTE_DIR_R |= 0x01;   // 5) set PE0-3 to read inputs
 	GPIO_PORTE_DEN_R |= 0x1E;    // 6) inputs are digital
+}
+
+/** PWM_Init() **
+ * Initialize the PWM for speaker playback.
+ * Output is on PE5 / M0PWM5
+ */
+static void PWM_Init(uint32_t period, uint32_t duty){
+
 }

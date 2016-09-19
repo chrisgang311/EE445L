@@ -50,6 +50,20 @@ void LCD_DrawBitmap(const uint16_t *image, uint16_t x, uint16_t y, uint16_t widt
 	ST7735_DrawBitmap(x, y, image, width, height);
 }
 
+/** LCD_DrawBitMap() **
+ * Draws a bitmap to the LCD Screen.
+ */
+void LCD_FillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
+	ST7735_FillRect(x, y, width, height, color);
+}
+
+/** LCD_SetCursor() **
+ * Resets the cursor to the desired location
+ */
+void LCD_SetCursor(uint16_t x, uint16_t y){
+	ST7735_SetCursor(x, y);
+}
+
  /** LCD_DrawCircle() **
  * Draws circle on the ST7735 color LCD
  * Inputs: (x,y) is the circle's center coordinate

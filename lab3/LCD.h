@@ -21,6 +21,8 @@ typedef struct Bitmap Bitmap;
 
 #define LCD_WIDTH 128
 #define LCD_HEIGHT 160
+#define CURSOR_WIDTH 20
+#define CURSOR_HEIGHT 15
 
 /** LCD_Init() **
  * Set up the LCD Screen with red tabbing
@@ -42,6 +44,16 @@ void LCD_Init(void);
  * output: none
  */
 void LCD_DrawBitmap(const uint16_t *image, uint16_t x, uint16_t y, uint16_t width, uint16_t height);
+
+/** LCD_FillRectangle() **
+ * Draws a bitmap to the LCD Screen.
+ */
+void LCD_FillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
+ 
+/** LCD_SetCursor() **
+ * Resets the cursor to the desired location
+ */
+void LCD_SetCursor(uint16_t x, uint16_t y);
  
 /** LCD_DrawLine() **
  * Draws one line on the ST7735 color LCD
