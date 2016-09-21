@@ -3,104 +3,24 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\ronny\Desktop\EE\445L\labs\lab3\lab3.uvproj
+C:\Users\ronald\Documents\GitHub\labs\lab3\lab3.uvproj
 Project File Date:  09/18/2016
 
 <h2>Output:</h2>
 Build target 'lab3'
 compiling FSM.c...
 linking...
-Program Size: Code=9248 RO-data=14852 RW-data=104 ZI-data=1024  
+Program Size: Code=9372 RO-data=14852 RW-data=112 ZI-data=1024  
 ".\lab3.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab3\\lab3.axf" 
+Load "C:\\Users\\ronald\\Documents\\GitHub\\labs\\lab3\\lab3.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
 Programming Done.
 Verify OK.
-
-m.o).
-Not enough information to list image symbols.
+</pre>
+</body>
+</html>
+to list image symbols.
 Finished: 1 information, 0 warning and 1 error messages.
-".\lab3.axf" - 1 Error(s), 1 Warning(s).
-Target not created
-
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\lab3.axf" - 1 Error(s), 3 Warning(s).
-Target not created
-: 1 warning, 4 errors
-compiling FSM.c...
-Clock.h(44): warning:  #1295-D: Deprecated declaration Alarm_Ready - give arg types
-  bool Alarm_Ready();
-FSM.c(70): warning:  #223-D: function "Alarm_On" declared implicitly
-        if(time == Alarm_Read() && Alarm_On()){
-FSM.c: 2 warnings, 0 errors
-".\lab3.axf" - 4 Error(s), 4 Warning(s).
-Target not created
-efined
-  uint32_t ControlAlarm(uint32_t input);
-FSM.c(30): error:  #20: identifier "uint32_t" is undefined
-  uint32_t UpdateClock(uint32_t state, uint32_t input){
-FSM.c(30): error:  #20: identifier "uint32_t" is undefined
-  uint32_t UpdateClock(uint32_t state, uint32_t input){
-FSM.c(30): error:  #20: identifier "uint32_t" is undefined
-  uint32_t UpdateClock(uint32_t state, uint32_t input){
-FSM.c(50): error:  #20: identifier "uint32_t" is undefined
-  uint32_t MainScreen(uint32_t input){
-FSM.c(50): error:  #20: identifier "uint32_t" is undefined
-  uint32_t MainScreen(uint32_t input){
-FSM.c(52): error:  #20: identifier "uint8_t" is undefined
-        static uint8_t digital = 0x00;
-FSM.c(53): error:  #20: identifier "uint32_t" is undefined
-        static uint32_t oldTime = 0x000000;
-FSM.c(54): error:  #20: identifier "uint32_t" is undefined
-        uint32_t time = Clock_Read();
-FSM.c(54): warning:  #223-D: function "Clock_Read" declared implicitly
-        uint32_t time = Clock_Read();
-FSM.c(55): error:  #20: identifier "uint8_t" is undefined
-        uint8_t minutes, hours, seconds;
-FSM.c(61): warning:  #223-D: function "LCD_SetCursor" declared implicitly
-                LCD_SetCursor(0, 0);
-FSM.c(62): warning:  #223-D: function "printf" declared implicitly
-                printf("-EE445L Alarm Clock-\n"); 
-FSM.c(65): error:  #20: identifier "CURSOR_HEIGHT" is undefined
-                LCD_SetCursor(0, CURSOR_HEIGHT * 7 / 8);
-FSM.c(72): warning:  #223-D: function "Clock_ClearImage" declared implicitly
-                        Clock_ClearImage();
-FSM.c(73): error:  #20: identifier "CURSOR_WIDTH" is undefined
-                        LCD_SetCursor(CURSOR_WIDTH / 5, CURSOR_HEIGHT / 3);
-FSM.c(78): warning:  #223-D: function "Clock_DrawImage" declared implicitly
-                        Clock_DrawImage();
-FSM.c(79): error:  #20: identifier "false" is undefined
-                } RedrawLCD = false;    
-FSM.c(88): warning:  #223-D: function "LCD_SetCursor" declared implicitly
-                                        LCD_SetCursor(CURSOR_WIDTH / 4, CURSOR_HEIGHT / 2);
-FSM.c(88): error:  #20: identifier "CURSOR_WIDTH" is undefined
-                                        LCD_SetCursor(CURSOR_WIDTH / 4, CURSOR_HEIGHT / 2);
-FSM.c(88): error:  #20: identifier "CURSOR_HEIGHT" is undefined
-                                        LCD_SetCursor(CURSOR_WIDTH / 4, CURSOR_HEIGHT / 2);
-FSM.c(89): warning:  #223-D: function "printf" declared implicitly
-                                        printf("- %.2d:%.2d:%.2d -", hours, minutes, seconds);
-FSM.c(92): error:  #20: identifier "uint8_t" is undefined
-                                        static uint8_t oldHours = 0, oldMinutes = 0, oldSeconds = 0;
-FSM.c(93): warning:  #223-D: function "Clock_DrawSecondHand" declared implicitly
-                                        Clock_DrawSecondHand(oldSeconds, CLOCK_COLOR);
-FSM.c(93): error:  #20: identifier "CLOCK_COLOR" is undefined
-                                        Clock_DrawSecondHand(oldSeconds, CLOCK_COLOR);
-FSM.c(94): warning:  #223-D: function "Clock_DrawMinuteHand" declared implicitly
-                                        Clock_DrawMinuteHand(oldMinutes, CLOCK_COLOR);
-FSM.c(95): warning:  #223-D: function "Clock_DrawHourHand" declared implicitly
-                                        Clock_DrawHourHand(oldHours, CLOCK_COLOR);
-FSM.c(111): warning:  #223-D: function "LCD_Init" declared implicitly
-                        LCD_Init();
-FSM.c(125): error:  #20: identifier "uint32_t" is undefined
-  uint32_t ConfigureTime(uint32_t input){
-FSM.c(125): error:  #20: identifier "uint32_t" is undefined
-  uint32_t ConfigureTime(uint32_t input){
-FSM.c(127): error:  #20: identifier "uint8_t" is undefined
-        static uint8_t field = 0; 
-FSM.c(128): error:  #20: identifier "uint32_t" is undefined
-        static uint32_t minutes, hours, seconds;
-FSM.c: 11 warnings, 30 errors
-".\lab3.axf" - 30 Error(s), 11 Warning(s).
+".\lab3.axf" - 1 Error(s), 0 Warning(s).
 Target not created

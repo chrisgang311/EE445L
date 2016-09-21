@@ -264,10 +264,10 @@ void Clock_DrawSecondHand(uint8_t seconds, uint16_t color){
  */
 static float sine(float angle){
 		return angle - ((angle*angle*angle)/6) 
-		+ ((angle * angle * angle * angle * angle ) / 120) 
-		- ((angle * angle * angle * angle * angle * angle * angle )/5040) 
-		+ (angle * angle * angle * angle * angle * angle * angle * angle * angle / 362880 ) 
-		- (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 39916800);
+		+ ((angle * angle * angle * angle * angle ) / 120);
+		//- ((angle * angle * angle * angle * angle * angle * angle )/5040);
+		//+ (angle * angle * angle * angle * angle * angle * angle * angle * angle / 362880 ) 
+		//- (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 39916800);
 }
 
 /** cosine() ** 
@@ -276,11 +276,11 @@ static float sine(float angle){
  */
 static float cosine(float angle){
 		return 1 - ((angle*angle)/2) 
-		+ ((angle * angle * angle * angle) / 24) 
-		- ((angle * angle * angle * angle * angle * angle) / 720 ) 
-		+ (angle * angle * angle * angle * angle * angle * angle * angle / 40320) 
-		- (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 3628800)
-		+ (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 479001600);
+		+ ((angle * angle * angle * angle) / 24);
+		//- ((angle * angle * angle * angle * angle * angle) / 720 )
+		//+ (angle * angle * angle * angle * angle * angle * angle * angle / 40320) 
+		//- (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 3628800)
+		//+ (angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle * angle / 479001600);
 }
 
 

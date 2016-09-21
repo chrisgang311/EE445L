@@ -81,7 +81,7 @@ void Timer2A_Init(uint32_t period){
 
 	// Timer 2 interupts
 	TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
-	NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x60000000; 
+	NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0xE0000000; 
   NVIC_EN0_R |= 1 << 23;           // 9) enable IRQ 19 in NVIC
 	TIMER2_CTL_R = 0x00000001;    // 10) Turn on Timer 2
 	EnableInterrupts();
@@ -106,6 +106,20 @@ void Timer0A_Arm(){
  */
 void Timer0A_Disarm(){
 	NVIC_DIS0_R = 1 << 19;
+}
+
+/** Timer2A_Arm() **
+ * Enable interrupts from Timer0A.
+ */
+void Timer2A_Arm(){
+	NVIC_EN0_R = 1 << 23;
+}
+
+/** Timer0A_Disarm() **
+ * Disable interrupts from Timer0A.
+ */
+void Timer2A_Disarm(){
+	NVIC_DIS0_R = 1 << 23;
 }
 
 void Timer1A_Wait(uint32_t delay){
