@@ -55,6 +55,13 @@ void Timer0A_Arm(void);
  */
 void Timer0A_Disarm(void);
 
+void Timer2A_Arm(void);
+
+/** Timer0A_Disarm() **
+ * Disable interrupts from Timer0A.
+ */
+void Timer2A_Disarm(void);
+
 /** Timer1A_Wait() **
  * Pause the execution for delay time
  */

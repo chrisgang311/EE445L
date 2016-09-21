@@ -67,10 +67,13 @@ uint32_t MainScreen(uint32_t input){
 	seconds = (time & 0x0000FF) >> 0;
 	
 	// check for alarm!
+	static bool playAlarm = false;
 	if(time == Alarm_Read() && Alarm_Ready()){
-		printf("Alarm!\n");
+		Speaker_Play();
+		playAlarm = true;
 	} else if(!Alarm_Ready()){
-		// stop alarm
+		Speaker_Mute();
+		playAlarm = false;
 	}
 	
 	if(RedrawLCD){
@@ -83,6 +86,13 @@ uint32_t MainScreen(uint32_t input){
 		printf("- B to set alarm\n");
 		printf("- C to enable alarm");
 		
+		LCD_SetCursor(0, 2);
+		if(Alarm_Ready()){
+			printf("-Alarm is <on> ");
+		} else{
+			printf("-Alarm is <off>");
+		} 
+		
 		// draw clock
 		if(digital){
 			Clock_ClearImage();
@@ -90,12 +100,7 @@ uint32_t MainScreen(uint32_t input){
 			printf("-Digital Clock-\n"); // banner
 			LCD_SetCursor(CURSOR_WIDTH / 5, CURSOR_HEIGHT / 2);
 			printf("- %.2d:%.2d:%.2d -", hours, minutes, seconds);
-			LCD_SetCursor(CURSOR_WIDTH / 5, CURSOR_HEIGHT * 2 / 3);
-			if(Alarm_Ready()){
-				printf("- Alarm is on -");
-			} else{
-				printf("- Alarm is off -");
-			} 
+
 		} else{ // Draw clock in center
 			Clock_DrawImage();
 		} RedrawLCD = false;	
@@ -124,7 +129,13 @@ uint32_t MainScreen(uint32_t input){
 					oldMinutes = minutes;
 					oldSeconds = seconds;
 				} oldTime = time;
-			} return 0x00; 
+			} 
+			// send to animation?
+			if(playAlarm){
+				LCD_FillRectangle(0, 0, 128, 160, 0x0000);
+				RedrawLCD = true;
+				return 0x03;
+			} return 0x00;
 		case 0x01: // change display
 			digital ^= 0x01;
 			RedrawLCD = true;
@@ -134,6 +145,11 @@ uint32_t MainScreen(uint32_t input){
 				Alarm_PowerOff();
 			} else{
 				Alarm_PowerOn();
+			} LCD_SetCursor(0, 2);
+			if(Alarm_Ready()){
+				printf("-Alarm is <on> ");
+			} else{
+				printf("-Alarm is <off>");
 			} return 0x00;
 		case 0x04: // configure time
 			LCD_Init();
@@ -446,12 +462,33 @@ uint32_t ConfigureAlarm(uint32_t input){
 	}
 }
 
-/** ConfigureTime() **
- * Process the user's input from the keypad.
- * Play or mute the speaker.
- * Display the on-board animation.
- * Also displays some help controls.
+/** ControlAlarm() **
+ * Plays the alarm and animation
  */
 uint32_t ControlAlarm(uint32_t input){
-	return 0x00;
+	// 0 = hours, 1 = minutes, 2 = seconds, 3 = submit
+	static uint8_t field = 0; 
+		
+	// decide next state.
+	switch(input){
+		case 0x00: // idle
+			// animation goes here
+			if(field >= 6 && field < 22){
+				printf("            Alarm!!!\n");
+			} else{
+				printf("Alarm!!!            \n");
+			} field = (field + 1) & 0x1F;
+			return 0x03; 
+		case 0x01: case 0x02: case 0x04: case 0x08:
+			LCD_Init();
+			field = 0;
+			RedrawLCD = true;
+			if(Alarm_Ready()){
+				Alarm_PowerOff();
+			} else{
+				Alarm_PowerOn();
+			} return 0x00;
+		default:
+			return 0x00;
+	}
 }

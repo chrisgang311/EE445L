@@ -56,6 +56,7 @@ int main(void){
 	LCD_Init();
 	Keypad_Init();
 	Clock_Init();
+	Speaker_Init();
 
 	#ifdef DEBUG // alarm poll
 	DebugInit();
