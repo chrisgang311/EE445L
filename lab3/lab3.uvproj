@@ -430,6 +430,11 @@
               <FileType>1</FileType>
               <FilePath>.\Speaker.c</FilePath>
             </File>
+            <File>
+              <FileName>FSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FSM.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
