@@ -1,0 +1,15 @@
+netsh
+wlan set hostednetwork mode=allow ssid=ronny key=utexas17\
+wlan start hostednetwork
+// win+x > network_connections > rclick wifi > properties >> sharing >> allow other networks to connect ....
+
+
+
+wlan start hostednetwork ;wlan stop hosted network
+wlan show hostednetwork setting=security
+
+
+// delete a hosted network
+regedit > eenter, open with admin rights
+HKEY_LOCAL_MACHINE/system/currentcontrolset/services/wlansvc/parameeters/hostednetworksettings
+right click HostedNetowrkSettings and hit delete
