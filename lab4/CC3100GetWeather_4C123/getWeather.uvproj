@@ -416,11 +416,6 @@
               <FilePath>..\cc3100\platform\ek-tm4c123gxl\board.c</FilePath>
             </File>
             <File>
-              <FileName>Nokia5110.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Nokia5110.c</FilePath>
-            </File>
-            <File>
               <FileName>LED.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\LED.c</FilePath>
@@ -491,14 +486,39 @@
               <FilePath>..\cc3100\simplelink\source\wlan.c</FilePath>
             </File>
             <File>
+              <FileName>ADCSWTrigger.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADCSWTrigger.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ST7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>Weather.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Weather.c</FilePath>
+            </File>
+            <File>
               <FileName>uartstdio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\utils\uartstdio.c</FilePath>
+              <FilePath>.\utils\uartstdio.c</FilePath>
             </File>
             <File>
               <FileName>ustdlib.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\utils\ustdlib.c</FilePath>
+              <FilePath>.\utils\ustdlib.c</FilePath>
+            </File>
+            <File>
+              <FileName>Stopwatch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Stopwatch.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -508,7 +528,7 @@
             <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\driverlib\rvmdk\driverlib.lib</FilePath>
+              <FilePath>..\..\..\valvano_ware\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
           </Files>
         </Group>

@@ -112,6 +112,7 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 //weather parsing
 #include "Weather.h"
 #include "ADCSWTrigger.h"
+#include "Stopwatch.h"
 
 #define BAUD_RATE   115200
 void UART_Init(void){
@@ -224,7 +225,7 @@ void Crash(uint32_t time){
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 static int sl_Init(int retVal);
-static int PostToServer(char *postString);
+static int PostToServer(char *domain, char *postString);
 static int HTTPGet(int retVal, char *domain, const char *request);
 int main(void){
 	// HARDWARE Initialization
@@ -237,9 +238,17 @@ int main(void){
 	retVal = sl_Init(retVal); // connect to CC3100 simple link
 	
 	while(1){
-		char *wstring;
+		// stopwatch triggers
+		uint32_t begin = 0, end = 0; 
+		uint32_t sendTime = 0, postTime = 0;
+		
+		// fetch weather data
+		begin = Stopwatch_Start();
 		retVal = HTTPGet(retVal, "api.openweathermap.org", WEATHER_REQUEST); 
-		wstring = strstr(Recvbuff, "\r\n\r\n");
+		end = Stopwatch_Stop();
+		sendTime = end - begin;
+		
+		char *wstring = strstr(Recvbuff, "\r\n\r\n");
 		UARTprintf("Response:%s\n\n", wstring);
 		Weather weather = Weather_Construct(wstring);
 		
@@ -259,7 +268,16 @@ int main(void){
 		// poast to 445L web server
 		char postString[30];
 		sprintf(postString, "Board%%20Temperature:%%20~%.2fC", boardTemperature); 
-		PostToServer(postString);
+		
+		begin = Stopwatch_Start();
+		//PostToServer("embedded-systems-server.appspot.com", postString);
+		PostToServer("server-144411.appspot.com", postString); // ronny's server
+		end = Stopwatch_Stop();
+		postTime = end - begin;
+		
+		// stopwatch stats
+		printf("send time: %lu\n", sendTime);
+		printf("post time: %lu\n", postTime);
 		
 		while(Board_Input()==0){}; // wait for touch
 		LED_GreenOff();
@@ -268,18 +286,20 @@ int main(void){
 	
 }
 
+
 /** PostToServer() **
  * Post a postString to the EE445L server.
  * String is posted as the gree parameter
  */
-#define SERVER_POST "GET /query?city=Austin%%2C%%20Texas&id=ronny&greet=%s&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
-static int PostToServer(char *data){
+//#define SERVER_POST "GET /query?city=Austin%%2C%%20Texas&id=Ronald%%20Macmaster%%20and%%20Parth%%20Adhia&greet=%s&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
+#define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=%s HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
+static int PostToServer(char *domain, char *data){
 	char postString[300]; // post buffer
 	sprintf(postString, SERVER_POST, data);
 	
 	/** Connect to 445L server **/
 	UARTprintf("\n\n\nPOST:%s\n", postString);
-	return HTTPGet(0, "embedded-systems-server.appspot.com", postString);
+	return HTTPGet(0, domain, postString);
 }
 
 
