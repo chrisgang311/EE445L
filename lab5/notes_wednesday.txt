@@ -1,0 +1,35 @@
+EE 445L - Lecture ...
+
+Requirements Document and System
+What do you do when you're lost!??
+1) Go to OH and ask questions.
+2) Come to class and pay attention.
+
+Do you actually understand what you did in the lab!?
+
+SPI - Timing diagrams, logic analyzer, DR and DA
+Sound generation && Speaker
+Sampling / DAC : R-2R Ladder, Binary Weight, Resistor String (445L way), 
+Nyquist Theorem 3 Frequencies and 3 Amplitudes. Range resolution precision, samp rate, num samples, freq res
+
+Requirements Document is really, really, really important.
+What goes into the system?
+Microprocessor : TM4C123 with software and I/O
+Enclosure: Box to hold it.
+Power: Batteries, charge and on/off switch it.
+Regulator: How much current do you need?
+Transducer: Anything that's mechanical data collector.
+Interface Electronics: connect the transducers up to the MC
+Displays and Wifis.
+
+Pay attention to the PCB schedule
+PCB Ordered by 1 Month from now.  12 Noon on th 27th of October
+
+Lab3 power
+3.7V Li ion 3.3V LDO Regulator
+
+Building a part:
+assigned by TA, schematic symbol:
+Power on top, groun on bottom, input on left, output on right.
+Save it in another library than the reuglar part.
+No multiboard layouts.
