@@ -61,7 +61,7 @@ void ADC0_Init(void){
   ADC0_SSMUX3_R += 9;             //    set channel
   ADC0_SSCTL3_R = 0x000E;         // 12) yes TS0 IE0 END0 (set TS0 to sample the board's temperature sensor)
   ADC0_IM_R &= ~0x0008;           // 13) disable SS3 interrupts
-	//ADC0_SAC_R = ADC_SAC_AVG_64X;		// 14) enable Hardware Averaging 64x
+	ADC0_SAC_R = ADC_SAC_AVG_64X;		// 14) enable Hardware Averaging 64x
 	ADC0_ACTSS_R |= 0x0008;         // 14) enable sample sequencer 3
 }
 

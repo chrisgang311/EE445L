@@ -22,7 +22,7 @@
 ".\rvmdk\uartstdio.o"
 ".\rvmdk\ustdlib.o"
 ".\rvmdk\stopwatch.o"
-"..\..\..\valvano_ware\driverlib\rvmdk\driverlib.lib"
+"..\..\..\..\..\Desktop\EE\445L\valvano_ware\driverlib\rvmdk\driverlib.lib"
 --library_type=microlib --strict --scatter "cc31000_starter.sct"
 
 --entry Reset_Handler --summary_stderr --info summarysizes --map --xref --callgraph --symbols

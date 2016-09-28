@@ -225,6 +225,7 @@ void Crash(uint32_t time){
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 static int sl_Init(int retVal);
+static int GetWeather(int retVal); // main wifi loop
 static int PostToServer(char *domain, char *postString);
 static int HTTPGet(int retVal, char *domain, const char *request);
 int main(void){
@@ -238,6 +239,17 @@ int main(void){
 	retVal = sl_Init(retVal); // connect to CC3100 simple link
 	
 	while(1){
+		retVal = GetWeather(retVal); // wifi loop
+		while(Board_Input()==0){}; // wait for touch
+		LED_GreenOff();
+	}
+	
+}
+
+/** GetWeather() **
+ * Post some network statistics and weather data to the LCD
+ */
+static int GetWeather(int retVal){
 		// stopwatch triggers
 		uint32_t begin = 0, end = 0; 
 		uint32_t sendTime = 0, postTime = 0;
@@ -270,6 +282,7 @@ int main(void){
 		sprintf(postString, "Board%%20Temperature:%%20~%.2fC", boardTemperature); 
 		
 		begin = Stopwatch_Start();
+		//PostToServer("embsysmooc.appspot.com", postString);
 		//PostToServer("embedded-systems-server.appspot.com", postString);
 		PostToServer("server-144411.appspot.com", postString); // ronny's server
 		end = Stopwatch_Stop();
@@ -278,14 +291,8 @@ int main(void){
 		// stopwatch stats
 		printf("send time: %lu\n", sendTime);
 		printf("post time: %lu\n", postTime);
-		
-		while(Board_Input()==0){}; // wait for touch
-		LED_GreenOff();
-		
-	}
-	
+		return retVal;
 }
-
 
 /** PostToServer() **
  * Post a postString to the EE445L server.

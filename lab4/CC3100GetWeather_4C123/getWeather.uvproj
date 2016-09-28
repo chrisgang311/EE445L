@@ -528,7 +528,7 @@
             <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\valvano_ware\driverlib\rvmdk\driverlib.lib</FilePath>
+              <FilePath>..\..\..\..\..\Desktop\EE\445L\valvano_ware\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
           </Files>
         </Group>

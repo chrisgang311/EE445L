@@ -2,7 +2,7 @@
 .\rvmdk\driver.o: ..\cc3100\simplelink\source\datatypes.h
 .\rvmdk\driver.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\driver.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\driver.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\driver.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\driver.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\driver.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\driver.o: ..\cc3100\simplelink\include\../source/nonos.h

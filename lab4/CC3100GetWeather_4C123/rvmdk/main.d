@@ -1,8 +1,8 @@
 .\rvmdk\main.o: main.c
-.\rvmdk\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdio.h
+.\rvmdk\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\rvmdk\main.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\main.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\main.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\main.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\main.o: ..\cc3100\simplelink\include\../source/nonos.h
@@ -35,7 +35,7 @@
 .\rvmdk\main.o: driverlib/sysctl.h
 .\rvmdk\main.o: driverlib/uart.h
 .\rvmdk\main.o: utils/uartstdio.h
-.\rvmdk\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\rvmdk\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\rvmdk\main.o: utils/cmdline.h
 .\rvmdk\main.o: application_commands.h
 .\rvmdk\main.o: LED.h
