@@ -32,10 +32,10 @@ void Keypad_Init(){
  * Sample the keypad for user input
  * A Set bit indicates the Switch is pressed.
  * Outputs: 8 bit number. 
- * bits0-3 represent switches a-c
+ * bits0-2 represent switches a-c
  */
 uint8_t Keypad_Read(){
-	// mask logic switch input on bits 0-3
+	// mask logic switch input on bits 0-2
 	return (GPIO_PORTE_DATA_R >> 1)&0x07; 
 }
 
