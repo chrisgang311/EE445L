@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "Timer.h"
-#include "Keypad.h"
+#include "Switch.h"
 #include "mp3.h"
 
 

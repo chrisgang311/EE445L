@@ -1,4 +1,4 @@
-/** Keypad.c **
+/** Switch.c **
  * Authors: Ronald Macmaster and Parth Adhia
  * Created: September 14th 2016
  * Description: Keyboard routines for our Alarm Clock
