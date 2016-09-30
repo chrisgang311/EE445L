@@ -12,7 +12,6 @@
 #include "PLL.h"
 #include "Timer.h"
 #include "Switch.h"
-#include "mp3.h"
 
 
 #define PF1       (*((volatile uint32_t *)0x40025008))

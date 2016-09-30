@@ -10,6 +10,7 @@
  
  #include <stdint.h>
  #include "tm4c123gh6pm.h"
+ #include "mp3.h"
  
 // process managment
 void DisableInterrupts(void); // Disable interrupts

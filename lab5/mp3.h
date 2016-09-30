@@ -51,17 +51,18 @@
 #define DF7	18039	 // 138.6 Hz
 #define C6	19111	 // 130.8 Hz
 
-/** Song **
+/** mp3 **
  * Stores the meta data for a song to play
  * length: number of notes / beats in a song
  * bass, harmony, melody: pointers to the note arrays
  */
-struct Song {
+struct mp3 {
 	int length; 
 	const unsigned long *melody;
 	const unsigned long *bass;
 	//const unsigned long *harmony;
 };
+typedef struct mp3 mp3;
 
 //LEGEND OF ZELDA File Select
 //melody

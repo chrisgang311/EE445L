@@ -1,22 +1,22 @@
 Dependencies for Project 'lab5', Target 'lab5': (DO NOT MODIFY !)
-F (.\startup.s)(0x57EC3D4C)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\PLL.c)(0x57EC3D4C)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (PLL.h)(0x57EC3D4C)
-I (tm4c123gh6pm.h)(0x57EC3D4D)
-F (.\Timer.c)(0x57EC3D4C)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x57EC3D4D)
-F (.\DAC.c)(0x57ECAAE1)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\dac.o --omf_browse .\dac.crf --depend .\dac.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x57EC3D4D)
-F (.\main.c)(0x57ECAB79)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (tm4c123gh6pm.h)(0x57EC3D4D)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (PLL.h)(0x57EC3D4C)
-I (Timer.h)(0x57EC3D4C)
-I (Switch.h)(0x57EC3D4C)
-I (mp3.h)(0x57ECAAC8)
-F (.\Switch.c)(0x57ECAB18)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x57EC3D4D)
+F (.\startup.s)(0x57C60D5E)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x57EB4228)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x57C60D5E)
+I (tm4c123gh6pm.h)(0x57DB0E9E)
+F (.\Timer.c)(0x57ED32EA)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (tm4c123gh6pm.h)(0x57DB0E9E)
+I (mp3.h)(0x57ED369E)
+F (.\DAC.c)(0x57EB44BC)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\dac.o --omf_browse .\dac.crf --depend .\dac.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (tm4c123gh6pm.h)(0x57DB0E9E)
+F (.\main.c)(0x57ED5502)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (tm4c123gh6pm.h)(0x57DB0E9E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x57C60D5E)
+I (Timer.h)(0x57EB5303)
+I (Switch.h)(0x57ECB94B)
+F (.\Switch.c)(0x57ECB94A)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (tm4c123gh6pm.h)(0x57DB0E9E)
