@@ -416,11 +416,6 @@
               <FilePath>.\PLL.c</FilePath>
             </File>
             <File>
-              <FileName>Keypad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Keypad.c</FilePath>
-            </File>
-            <File>
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Timer.c</FilePath>
@@ -434,6 +429,11 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>Switch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Switch.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -9,47 +9,131 @@
  
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
+#include <stdio.h>
 #include "PLL.h"
-#include "Timer.h"
+#include "Debug.h"
 #include "Switch.h"
+#include "LCD.h"
+#include "Player.h"
+#include "mp3.h"
 
-
-#define PF1       (*((volatile uint32_t *)0x40025008))
-#define PF2       (*((volatile uint32_t *)0x40025010))
-#define PF3       (*((volatile uint32_t *)0x40025020))
-	
-
-// periods calculated for tempo at 144 bpm
-// beat period = (60s/tempo)*bus speed 
-#define sixteenth_note 6750000
-#define eigth_note 13500000
-#define quarter_note 27000000
-#define half_note 54000000
-
-// slower 120bpm
-//#define sixteenth_note 10000000
-//#define eigth_note 20000000
-//#define quarter_note 40000000
-//#define half_note 80000000
+// Music Player FSM
+static uint32_t PlayerFSM(uint32_t state, uint32_t input);
 
 int main(void){ 
   PLL_Init(Bus80MHz); // bus clock at 80 MHz
+	Debug_Init();
+	LCD_Init();
+	Keypad_Init();
+	
+	// initialize music player
+	mp3 song = ZELDA;
+	Player_Init(song);
+	Player_SetTempoMultiplier(1.5);
+	printf("Now Playing ...\n");
+	printf("%s", song.name);
+	
+	// Music Player FSM
+	uint32_t state = 0x00, last = 0x00, keypad = 0x00;
+	while(true){
+		// sample and debounce the keypad
+		keypad = Keypad_Read(); 
+		Debug_Wait10ms(); 
+		
+		// change FSM state
+		if(keypad == last){
+			// single pulse / idle
+			state = PlayerFSM(state, 0x00);
+		} else{
+			last = keypad;
+			state = PlayerFSM(state, keypad);
+		}
+	}	
 }
 
-// ************Debug_Init**********************
-// Activates Port F For the Debugging tools
-// We will use LEDS.
-void Debug_Init(void){
-	volatile uint32_t delay;
-	SYSCTL_RCGC2_R |= 0x20;
-	delay = SYSCTL_RCGCTIMER_R; // allow time to finish activating
-	
-	GPIO_PORTF_LOCK_R = 0x4C4F434B;	//	unlock port f
-	GPIO_PORTF_CR_R = 0x1F;
-	GPIO_PORTF_PUR_R = 0x11;
-	GPIO_PORTF_DIR_R = 0x0E;
-	GPIO_PORTF_AMSEL_R = 0x00;
-	GPIO_PORTF_AFSEL_R = 0x00;
-	GPIO_PORTF_DEN_R = 0x1F;
+/** PlayerFSM **
+ * perform music player FSM output
+ * update music player state.
+ */
+// input table
+#define SW0 0x01
+#define SW1 0x02
+#define SW2 0x04
+// state table
+#define PLAY 0x00
+#define PAUSE 0x01
+mp3 songs[3]; // playlist
+static int songno = 0;
+static uint32_t PlayState(uint32_t input);
+static uint32_t PauseState(uint32_t input);
+static uint32_t PlayerFSM(uint32_t state, uint32_t input){
+	uint32_t rval = 0x00; // idle by defualt
+	switch(state){
+		case PLAY: // play
+			Player_Play();
+			rval = PlayState(input);
+			break;
+		case PAUSE: // pause
+			Player_Pause();
+			rval = PauseState(input);
+			break;
+	}
+	return rval;
 }
+
+
+/** PlayState **
+ * Play state of the FSM
+ */
+static uint32_t PlayState(uint32_t input){
+	static int songno = 0;
+	mp3 songs[3] = {ZELDA, POKEMON, CERULEAN};
+	switch(input){
+		case SW1: // pause
+			return PAUSE;
+		case SW2: // rewind
+			Player_Pause();
+			for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			Player_Rewind();
+			return PLAY;
+		case SW0: // switch songs
+			songno = (songno + 1) % 3;
+			Player_Init(songs[songno]);
+			LCD_SetCursor(0,0);
+			printf("Now Playing ...\n");
+			printf("%s", songs[songno].name);
+			return PLAY;
+		default: // play
+			return PLAY;
+	}
+}
+
+/** PauseState **
+ * Pause state of the FSM
+ */
+static uint32_t PauseState(uint32_t input){
+
+	switch(input){
+		case SW1: // play
+			return PLAY;
+		case SW2: // rewind
+			Player_Pause();
+			for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			Player_Rewind();
+			return PAUSE;
+		case SW0: // switch songs
+			songno = (songno + 1) % 3;
+			Player_Init(songs[songno]);
+			LCD_SetCursor(0,0);
+			printf("Now Playing ...\n");
+			printf("%s", songs[songno].name);
+			return PLAY;
+		default: // pause
+			return PAUSE;
+	}
+}
+
+
+
+
 

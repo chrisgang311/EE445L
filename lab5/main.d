@@ -1,6 +1,12 @@
 .\main.o: main.c
 .\main.o: tm4c123gh6pm.h
-.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdio.h
 .\main.o: PLL.h
-.\main.o: Timer.h
+.\main.o: Debug.h
+.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdbool.h
 .\main.o: Switch.h
+.\main.o: LCD.h
+.\main.o: Player.h
+.\main.o: mp3.h
+.\main.o: mp3.h

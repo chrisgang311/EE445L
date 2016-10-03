@@ -3,71 +3,67 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\ronald\Documents\GitHub\labs\lab5\lab5.uvproj
+C:\Users\ronny\Desktop\EE\445L\labs\lab5\lab5.uvproj
 Project File Date:  09/29/2016
 
 <h2>Output:</h2>
 Build target 'lab5'
-compiling main.c...
+compiling mp3.c...
 linking...
-Program Size: Code=1072 RO-data=16 RW-data=0 ZI-data=1120  
+Program Size: Code=5584 RO-data=8572 RW-data=84 ZI-data=1076  
 ".\lab5.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab5\\lab5.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
 </pre>
 </body>
 </html>
-ow multiply defined (by main.o and timer.o).
-.\lab5.axf: Error: L6200E: Symbol pokemon_high multiply defined (by main.o and timer.o).
-.\lab5.axf: Error: L6200E: Symbol pokemon_middle multiply defined (by main.o and timer.o).
-.\lab5.axf: Error: L6200E: Symbol pokemon_low multiply defined (by main.o and timer.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 5 error messages.
-".\lab5.axf" - 5 Error(s), 0 Warning(s).
+one.
+Verify OK.
+= song.instrument[hcursor];
+Player.c(145): error:  #136: struct "mp3" has no field "instrument"
+        bass = song.instrument[bcursor];
+Player.c: 0 warnings, 4 errors
+compiling mp3.c...
+".\lab5.axf" - 4 Error(s), 0 Warning(s).
 Target not created
-0" is undefined
-        G,C0,A0,F0,
-mp3.c(11): error:  #20: identifier "F" is undefined
-        F,C0,A0,F0,
-mp3.c(12): error:  #20: identifier "E" is undefined
-        E,C0,A0,F0,
-mp3.c(15): error:  #20: identifier "E0" is undefined
-        F,BF0,G0,E0,
-mp3.c(17): error:  #20: identifier "EF" is undefined
-        EF,BF0,G0,E0,
-mp3.c(20): error:  #20: identifier "D0" is undefined
-        E,A0,F0,D0,
-mp3.c(22): error:  #20: identifier "DF" is undefined
-        DF,A0,F0,D0,
-mp3.c(30): error:  #20: identifier "BF" is undefined
-        BF,EF,C0,A0,
-mp3.c(32): error:  #20: identifier "AF" is undefined
-        AF,EF,C0,A0,
-mp3.c(35): error:  #20: identifier "C" is undefined
-        C,D,BF0,G0,
-mp3.c(49): error:  #20: identifier "BF7" is undefined
-        BF7,BF7,D0,A0,
-mp3.c(54): error:  #20: identifier "A7" is undefined
-        A7,A7,C7,G0,
-mp3.c(54): error:  #20: identifier "C7" is undefined
-        A7,A7,C7,G0,
-mp3.c(59): error:  #20: identifier "G7" is undefined
-        G7,G7,C7,F0,
-mp3.c(64): error:  #20: identifier "F7" is undefined
-        F7,F7,A7,E0,
-mp3.c(104): error:  #20: identifier "B0" is undefined
-        D,DF,B0,A0,
-mp3.c(114): error:  #20: identifier "GF0" is undefined
-        GF0,G0,A0,B0,
-mp3.c(129): error:  #20: identifier "B" is undefined
-        B,B,0,0,
-mp3.c(168): error:  #20: identifier "DF0" is undefined
-        DF0,D0,E0,G0,
-mp3.c(188): error:  #20: identifier "D7" is undefined
-        D7,GF7,D7,GF7,
-mp3.c(188): error:  #20: identifier "GF7" is undefined
-        D7,GF7,D7,GF7,
-mp3.c(190): error:  #20: identifier "E7" is undefined
-        E7,A7,E7,A7,
-mp3.c: 0 warnings, 30 errors
-".\lab5.axf" - 30 Error(s), 0 Warning(s).
+= PlayerFSM(state, keypad);
+main.c: 0 warnings, 6 errors
+compiling Player.c...
+compiling mp3.c...
+".\lab5.axf" - 6 Error(s), 0 Warning(s).
+Target not created
+:  #20: identifier "TIMER_ICR_TATOCINT" is undefined
+        TIMER2_ICR_R = TIMER_ICR_TATOCINT; 
+Player.c: 0 warnings, 6 errors
+compiling Debug.c...
+compiling mp3.c...
+compiling LCD.c...
+compiling ST7735.c...
+".\lab5.axf" - 6 Error(s), 0 Warning(s).
+Target not created
+ "GPIO_PORTF_CR_R" is undefined
+        GPIO_PORTF_CR_R = 0x1F;
+Debug.c(34): error:  #20: identifier "GPIO_PORTF_PUR_R" is undefined
+        GPIO_PORTF_PUR_R = 0x11;
+Debug.c(35): error:  #20: identifier "GPIO_PORTF_DIR_R" is undefined
+        GPIO_PORTF_DIR_R = 0x0E;
+Debug.c(36): error:  #20: identifier "GPIO_PORTF_AMSEL_R" is undefined
+        GPIO_PORTF_AMSEL_R = 0x00;
+Debug.c(37): error:  #20: identifier "GPIO_PORTF_AFSEL_R" is undefined
+        GPIO_PORTF_AFSEL_R = 0x00;
+Debug.c(38): error:  #20: identifier "GPIO_PORTF_DEN_R" is undefined
+        GPIO_PORTF_DEN_R = 0x1F;
+Debug.c(51): error:  #20: identifier "NVIC_ST_CTRL_R" is undefined
+    NVIC_ST_CTRL_R = 0;                   // disable SysTick during setup
+Debug.c(52): error:  #20: identifier "NVIC_ST_RELOAD_R" is undefined
+    NVIC_ST_RELOAD_R = NVIC_ST_RELOAD_M;  // maximum reload value
+Debug.c(53): error:  #20: identifier "NVIC_ST_CURRENT_R" is undefined
+    NVIC_ST_CURRENT_R = 0;                // any write to current clears it
+Debug.c(61): error:  #20: identifier "NVIC_ST_CURRENT_R" is undefined
+    uint32_t startTime = NVIC_ST_CURRENT_R;
+Debug.c: 1 warning, 13 errors
+".\lab5.axf" - 16 Error(s), 2 Warning(s).
 Target not created

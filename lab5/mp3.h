@@ -51,244 +51,60 @@
 #define DF7	18039	 // 138.6 Hz
 #define C6	19111	 // 130.8 Hz
 
+// periods calculated for tempo at 144 bpm
+// beat period = (60s/tempo)*bus speed 
+#define sixteenth_notes 6750000
+#define eigth_notes 13500000
+#define quarter_notes 27000000
+#define half_notes 54000000
+
+// slower 120bpm
+//#define sixteenth_note 10000000
+//#define eigth_note 20000000
+//#define quarter_note 40000000
+//#define half_note 80000000
+
+
 /** mp3 **
  * Stores the meta data for a song to play
  * length: number of notes / beats in a song
+ * tempo: recommended tempo of the song
  * bass, harmony, melody: pointers to the note arrays
  */
+#ifndef MP3_H
+#define MP3_H
+struct instrument {
+	const unsigned short *melody;
+	const unsigned short *harmony;
+	const unsigned short *bass;
+};
+typedef const struct instrument instrument;
+
 struct mp3 {
 	int length; 
+	int tempo;
+	char name[20];
+	struct instrument sound;
 	const unsigned long *melody;
+	const unsigned long *harmony;
 	const unsigned long *bass;
 	//const unsigned long *harmony;
 };
-typedef struct mp3 mp3;
+typedef const struct mp3 mp3;
+
+#endif // MP3_H
+
+/** Song Data **/
 
 //LEGEND OF ZELDA File Select
-//melody
-const unsigned long zelda_high[128] = {			
-	
-	A,D,BF0,G0,
-	G,D,BF0,G0,
-	GF,D,BF0,G0,
-	G,D,BF0,G0,
-		
-	G,C0,A0,F0,
-	F,C0,A0,F0,
-	E,C0,A0,F0,
-	F,C0,A0,F0,
-	
-	F,BF0,G0,E0,
-	E,BF0,G0,E0,
-	EF,BF0,G0,E0,
-	E,BF0,G0,E0,
+extern const mp3 ZELDA;
 
-	E,A0,F0,D0,
-	D,A0,F0,D0,
-	DF,A0,F0,D0,
-	D,A0,F0,D0,
+//Pokemon Center
+extern const mp3 POKEMON;
 
-	A,D,BF0,G0,
-	G,D,BF0,G0,
-	GF,D,BF0,G0,
-	G,D,BF0,G0,
-	
-	BF,EF,C0,A0,
-	A,EF,C0,A0,
-	AF,EF,C0,A0,
-	A,EF,C0,A0,
-
-	C,D,BF0,G0,
-	BF,D,BF0,G0,
-	A,D,BF0,G0,
-	BF,D,BF0,G0,
-	
-	A,BF0,G0,E0,
-	G,BF0,G0,E0,
-	F,BF0,G0,E0,
-	E,BF0,G0,E0
-	
-};	
-
-const unsigned long zelda_low[128] = {			
-	
-	BF7,BF7,D0,A0,
-	A0,A0,A0,A0,
-	A0,D0,A0,G0,
-	C0,A0,G0,D0,
-		
-	A7,A7,C7,G0,
-	G0,G0,G0,G0,
-	G0,A7,G0,F0,
-	C0,A0,G0,C7,
-	
-	G7,G7,C7,F0,
-	F0,F0,F0,F0,
-	F0,G7,F0,E0,
-	G0,E0,C7,C7,
-
-	F7,F7,A7,E0,
-	E0,E0,E0,E0,
-	F7,C7,E0,D0,
-	G0,F0,C7,BF7,
-
-	BF7,BF7,D0,A0,
-	A0,A0,A0,A0,
-	BF7,D0,A0,G0,
-	D,A0,G0,D0,
-	
-	A7,A7,C7,C0,
-	C0,C0,C0,C0,
-	D0,D0,C0,A0,
-	EF,D,C0,A0,
-
-	G7,BF7,D0,BF0,
-	BF0,BF0,BF0,BF0,
-	G0,D0,BF0,A0,
-	C0,BF0,G0,D0,
-	
-	C7,C7,G0,BF0,
-	BF0,BF0,BF0,BF0,
-	C7,C7,BF0,G0,
-	E,D,G,E
-	
-};	
+// cerulean city theme
+extern const mp3 CERULEAN;
 
 
-//poke center
-// melody
-const unsigned long pokemon_high[128] = {			
-	
-	D,A0,D,A,
-	A,G,G,GF,
-	E,DF,0,0,
-	A0,A0,G0,A0,
-		
-	DF,A0,DF,GF,
-	GF,E,E,DF,
-	D,GF,0,0,
-	D,DF,B0,A0,
-	
-	D,A0,D,A,
-	A,G,G,GF,
-	E,DF,0,0,
-	A0,A0,G0,A0,
-		
-	DF,A0,DF,GF,
-	GF,E,E,DF,
-	D,D,D,0,
-	GF0,G0,A0,B0,
 
-	GF,GF,GF,GF,
-	A,A,0,0,
-	G,A,G,GF,
-	E,E,0,0,
-	
-	DF,DF,DF,0,
-	E,E,0,0,
-	GF,G,GF,E,
-	D,D,D,0,
 
-	GF,GF,GF,0,
-	A,A,0,0,
-	G,GF,G,A,
-	B,B,0,0,
-	
-	
-	A,A,G,GF,
-	G,G,0,0,
-	GF,G,GF,E,
-	D,D,0,0
-	
-};	
-
-// MIDDLE
-const unsigned long pokemon_middle[128] = {			
-	
-	GF0,F0,GF0,D,
-	D,DF,B0,A0,
-	B0,A0,G0,GF0,
-	E0,GF0,E0,0,
-		
-	A0,E0,A0,DF,
-	DF,B0,A0,G0,
-	GF0,A0,B0,DF,
-	A0,0,E0,0,
-	
-	GF0,F0,GF0,D,
-	D,DF,B0,A0,
-	B0,A0,G0,GF0,
-	E0,GF0,E0,0,
-		
-	A0,E0,A0,DF,
-	DF,B0,A0,G0,
-	GF0,E0,D0,E0,
-	D0,0,E0,0,
-
-	GF0,E0,D0,0,
-	E0,GF0,G0,A0,
-	B0,A0,G0,0,
-	E0,GF0,G0,A0,
-	
-	G0,GF0,E0,0,
-	DF0,D0,E0,G0,
-	GF0,G0,A0,B0,
-	A0,A0,A0,0,
-
-	D,DF,B0,0,
-	A0,B0,DF,D,
-	E,D,DF,0,
-	B0,DF,D,E,
-	
-	
-	DF,B0,A0,0,
-	G0,A0,B0,G0,
-	A0,G0,GF0,E0,
-	D0,E0,GF0,G0
-	
-};	
-
-// LOW
-const unsigned long pokemon_low[128] = {			
-	
-	D7,GF7,D7,GF7,
-	D7,GF7,G7,GF7,
-	E7,A7,E7,A7,
-	E7,A7,E7,A7,
-		
-	E7,A7,E7,A7,
-	E7,A7,G7,A7,
-	GF7,A7,GF7,A7,
-	GF7,A7,G7,A7,
-	
-	D7,GF7,D7,GF7,
-	D7,GF7,G7,GF7,
-	E7,A7,E7,A7,
-	E7,A7,E7,A7,
-		
-	E7,A7,E7,A7,
-	E7,A7,G7,A7,
-	D7,GF7,D7,GF7,
-	D7,A7,G7,GF7,
-
-	GF7,A7,GF7,A7,
-	GF7,A7,GF7,A7,
-	G7,BF7,G7,BF7,
-	G7,BF7,G7,BF7,
-	
-	E7,G7,E7,G7,
-	E7,G7,E7,G7,
-	GF7,A7,GF7,A7,
-	GF7,A7,GF7,A7,
-
-	GF7,A7,GF7,A7,
-	GF7,A7,GF7,A7,
-	G7,BF7,G7,BF7,
-	G7,BF7,G7,BF7,
-	
-	E7,G7,E7,G7,
-	E7,G7,E7,G7,
-	GF7,A7,GF7,A7,
-	GF7,A7,GF7,A7,
-	
-};	

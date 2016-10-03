@@ -43,6 +43,16 @@ void Timer1A_Init(uint32_t period, uint32_t priority);
  */
 void Timer2A_Init(uint32_t period, uint32_t priority);
 
+/** Timer3A_Init() **
+ * Activate TIMER3A to countdown for period seconds
+ * Initializes Timer3A for period interrupts
+ * Inputs:  period (reload value for the timer)
+            priority interrupt importance 0-7. 0 is highest priority
+ * Outputs: none
+ */
+void Timer3A_Init(uint32_t period, uint32_t priority);
+
+
 /******************* Timer0A Methods ****************************/
 
 /** Timer0A_Start() **
@@ -64,6 +74,16 @@ void Timer0A_Arm(void);
  * Disable interrupts from Timer0A.
  */
 void Timer0A_Disarm(void);
+
+/** Timer0A_Period() **
+ * Acknowledge a Timer0A interrupt
+ */
+void Timer0A_Acknowledge(void);
+
+/** Timer0A_Period() **
+ * Reset the period on Timer0A
+ */
+void Timer0A_Period(uint32_t period);
 
 /******************* Timer1A Methods ****************************/
 
@@ -87,6 +107,16 @@ void Timer1A_Arm(void);
  */
 void Timer1A_Disarm(void);
 
+/** Timer1A_Period() **
+ * Acknowledge a Timer1A interrupt
+ */
+void Timer1A_Acknowledge(void);
+
+/** Timer1A_Period() **
+ * Reset the period on Timer1A
+ */
+void Timer1A_Period(uint32_t period);
+
 /******************* Timer2A Methods ****************************/
 
 /** Timer2A_Start() **
@@ -108,3 +138,47 @@ void Timer2A_Arm(void);
  * Disable interrupts from Timer2A.
  */
 void Timer2A_Disarm(void);
+
+/** Timer2A_Period() **
+ * Acknowledge a Timer2A interrupt
+ */
+void Timer2A_Acknowledge(void);
+
+
+/** Timer2A_Period() **
+ * Reset the period on Timer2A
+ */
+void Timer2A_Period(uint32_t period);
+
+/******************* Timer3A Methods ****************************/
+
+/** Timer3A_Start() **
+ * Restart the Clock (TIMER 3A)
+ */
+void Timer3A_Start(void);
+
+/** Timer3A_Stop() **
+ * Stop the Clock (TIMER 3A)
+ */
+void Timer3A_Stop(void);
+
+/** Timer3A_Arm() **
+ * Enable interrupts from Timer3A.
+ */
+void Timer3A_Arm(void);
+
+/** Timer3A_Disarm() **
+ * Disable interrupts from Timer3A.
+ */
+void Timer3A_Disarm(void);
+
+/** Timer3A_Period() **
+ * Acknowledge a Timer3A interrupt
+ */
+void Timer3A_Acknowledge(void);
+
+
+/** Timer3A_Period() **
+ * Reset the period on Timer3A
+ */
+void Timer3A_Period(uint32_t period);
