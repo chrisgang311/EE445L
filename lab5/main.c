@@ -29,9 +29,20 @@ int main(void){
 	// initialize music player
 	mp3 song = ZELDA;
 	Player_Init(song);
-	Player_SetTempoMultiplier(1.5);
+	//Player_SetTempoMultiplier(1.5);
 	printf("Now Playing ...\n");
 	printf("%s", song.name);
+	printf("\n\n");
+	
+	// controls
+	printf("rewind : SW0 \n");
+	printf("pause : SW1 \n");
+	printf("change song : SW2 \n\n");
+	
+	printf("speedup : SW1 + SW2\n");
+	printf("slowdown : SW1 + SW0\n");
+	printf("reset : all at once\n");
+	printf("\n L-R -> SW0.SW1.SW2");
 	
 	// Music Player FSM
 	uint32_t state = 0x00, last = 0x00, keypad = 0x00;
@@ -62,8 +73,8 @@ int main(void){
 // state table
 #define PLAY 0x00
 #define PAUSE 0x01
-mp3 songs[3]; // playlist
 static int songno = 0;
+static float speed = 1.0;
 static uint32_t PlayState(uint32_t input);
 static uint32_t PauseState(uint32_t input);
 static uint32_t PlayerFSM(uint32_t state, uint32_t input){
@@ -86,14 +97,13 @@ static uint32_t PlayerFSM(uint32_t state, uint32_t input){
  * Play state of the FSM
  */
 static uint32_t PlayState(uint32_t input){
-	static int songno = 0;
-	mp3 songs[3] = {ZELDA, POKEMON, CERULEAN};
+	mp3 songs[3] = {ZELDA, POKEMON, CERULEAN};; // playlist
 	switch(input){
 		case SW1: // pause
 			return PAUSE;
 		case SW2: // rewind
 			Player_Pause();
-			for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			//for(int i = 0; i < 100; i++) Debug_Wait10ms();
 			Player_Rewind();
 			return PLAY;
 		case SW0: // switch songs
@@ -102,6 +112,18 @@ static uint32_t PlayState(uint32_t input){
 			LCD_SetCursor(0,0);
 			printf("Now Playing ...\n");
 			printf("%s", songs[songno].name);
+			return PLAY;
+		case SW1 + SW2: // slow down
+			speed = speed - 0.1f;
+			Player_SetTempoMultiplier(speed);
+			return PLAY;
+		case SW1 + SW0: // speed up
+			speed = speed + 0.1f;
+			Player_SetTempoMultiplier(speed);
+			return PLAY;
+		case SW0 + SW1 + SW2: // reset speed
+			speed = 1.0;
+			Player_SetTempoMultiplier(speed);
 			return PLAY;
 		default: // play
 			return PLAY;
@@ -112,13 +134,13 @@ static uint32_t PlayState(uint32_t input){
  * Pause state of the FSM
  */
 static uint32_t PauseState(uint32_t input){
-
+	mp3 songs[3] = {ZELDA, POKEMON, CERULEAN};; // playlist
 	switch(input){
 		case SW1: // play
 			return PLAY;
 		case SW2: // rewind
 			Player_Pause();
-			for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			//for(int i = 0; i < 100; i++) Debug_Wait10ms();
 			Player_Rewind();
 			return PAUSE;
 		case SW0: // switch songs
@@ -128,6 +150,18 @@ static uint32_t PauseState(uint32_t input){
 			printf("Now Playing ...\n");
 			printf("%s", songs[songno].name);
 			return PLAY;
+		case SW1 + SW2: // slow down
+			speed = speed - 0.1f;
+			Player_SetTempoMultiplier(speed);
+			return PAUSE;
+		case SW1 + SW0: // speed up
+			speed = speed + 0.1f;
+			Player_SetTempoMultiplier(speed);
+			return PAUSE;
+		case SW0 + SW1 + SW2: // reset speed
+			speed = 1.0;
+			Player_SetTempoMultiplier(speed);
+			return PAUSE;
 		default: // pause
 			return PAUSE;
 	}

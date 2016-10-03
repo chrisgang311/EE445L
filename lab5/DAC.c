@@ -46,6 +46,18 @@ void DAC_Out(uint16_t amplitude){
 	} SSI2_DR_R = amplitude; 
 }
 
+/** DAC_Test() **
+ * Test the output of a new DAC
+ * Function is an endless profile that will never finish...
+ */
+void DAC_Test(uint16_t precision, uint16_t resolution){
+	while(1){
+		for(int out = 0; out < precision; out += resolution){
+			DAC_Out(out); // output test voltage
+		}
+	}
+}
+
 /** SSI2_Init() **
  * Run the SSI Clock at 10MHz
  * Transition and transmit SSI2Tx on rising clock edge.
@@ -63,7 +75,7 @@ static void SSI2_Init(void){
 	SSI2_CR1_R = 0x00000000;  //2) Disable SSI, master mode
 	SSI2_CPSR_R = 0x08;  //3) 10Mhz SSIClk Fssi = Fbus / (CPSDVSR * (1 + SCR))
 	SSI2_CR0_R &= ~(0x0000FFFF);  //3) SCR = 0, Freescale frame format.
-	SSI2_CR0_R |= 0x4F;  //5)) DSS = 12 bit data,  SPH = 0 and SP0 = 1 ( use 16 bit data??)
+	SSI2_CR0_R |= 0x4F;  //5)) DSS = 16 bit data,  SPH = 0 and SP0 = 1 ( use 16 bit data??)
 	SSI2_CR1_R |= SSI_CR1_SSE;  //4) enable SSI / set the SSE
 }
 

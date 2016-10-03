@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\lab5.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\lab5.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Sep 30 04:10:37 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Oct 03 18:48:45 2016
 <BR><P>
 <H3>Maximum Stack Usage =        352 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -595,17 +595,17 @@ Global Symbols
 <P><STRONG><a name="[cd]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[bd]"></a>DisableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
+<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
 </UL>
 
 <P><STRONG><a name="[be]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
+<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
 </UL>
 
 <P><STRONG><a name="[ce]"></a>StartCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
@@ -616,10 +616,10 @@ Global Symbols
 
 <P><STRONG><a name="[d1]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[94]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
+<P><STRONG><a name="[92]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
@@ -663,8 +663,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Wait10ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
 <P><STRONG><a name="[c5]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
@@ -699,7 +697,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
@@ -712,64 +710,65 @@ Global Symbols
 <LI>Call Chain = Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Start
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Start
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Start
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Start
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Start
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Init
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Start
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Init
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Start
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Start
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
-<P><STRONG><a name="[92]"></a>Player_Pause</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, player.o(i.Player_Pause))
+<P><STRONG><a name="[93]"></a>Player_Pause</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, player.o(i.Player_Pause))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Player_Pause
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Disarm
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Disarm
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Disarm
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Disarm
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Disarm
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Disarm
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Disarm
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Disarm
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
-<P><STRONG><a name="[99]"></a>Player_Play</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, player.o(i.Player_Play))
+<P><STRONG><a name="[9a]"></a>Player_Play</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, player.o(i.Player_Play))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Player_Play
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Arm
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Arm
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Arm
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Arm
+<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Arm
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Arm
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Arm
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Arm
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
 </UL>
 
-<P><STRONG><a name="[93]"></a>Player_Rewind</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, player.o(i.Player_Rewind))
+<P><STRONG><a name="[94]"></a>Player_Rewind</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, player.o(i.Player_Rewind))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Player_Rewind
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Period
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Period
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Period
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Period
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Acknowledge
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Period
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Period
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Period
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Period
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Acknowledge
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
-<P><STRONG><a name="[af]"></a>Player_SetTempoMultiplier</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, player.o(i.Player_SetTempoMultiplier))
+<P><STRONG><a name="[97]"></a>Player_SetTempoMultiplier</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, player.o(i.Player_SetTempoMultiplier))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Player_SetTempoMultiplier
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Period
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Period
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
 <P><STRONG><a name="[b0]"></a>ST7735_DrawCharS</STRONG> (Thumb, 232 bytes, Stack size 48 bytes, st7735.o(i.ST7735_DrawCharS))
@@ -862,30 +861,30 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 </UL>
 
-<P><STRONG><a name="[ae]"></a>Timer0A_Acknowledge</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Acknowledge))
+<P><STRONG><a name="[af]"></a>Timer0A_Acknowledge</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Acknowledge))
 <BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
 </UL>
 
-<P><STRONG><a name="[a6]"></a>Timer0A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Arm))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
+<P><STRONG><a name="[a7]"></a>Timer0A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Arm))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
 </UL>
 
-<P><STRONG><a name="[a2]"></a>Timer0A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Disarm))
-<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<P><STRONG><a name="[a3]"></a>Timer0A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Disarm))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 </UL>
 
-<P><STRONG><a name="[1d]"></a>Timer0A_Handler</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, player.o(i.Timer0A_Handler))
+<P><STRONG><a name="[1d]"></a>Timer0A_Handler</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, player.o(i.Timer0A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer0A_Handler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Period
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Period
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Period
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Acknowledge
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Period
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Period
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Period
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Acknowledge
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[9a]"></a>Timer0A_Init</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, timer.o(i.Timer0A_Init))
+<P><STRONG><a name="[9b]"></a>Timer0A_Init</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, timer.o(i.Timer0A_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Timer0A_Init
 </UL>
@@ -895,12 +894,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
-<P><STRONG><a name="[ad]"></a>Timer0A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Period))
-<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_SetTempoMultiplier
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<P><STRONG><a name="[ae]"></a>Timer0A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Period))
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_SetTempoMultiplier
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
 </UL>
 
-<P><STRONG><a name="[9e]"></a>Timer0A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Start))
+<P><STRONG><a name="[9f]"></a>Timer0A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Start))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
@@ -908,15 +907,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Handler
 </UL>
 
-<P><STRONG><a name="[a7]"></a>Timer1A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Arm))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
+<P><STRONG><a name="[a8]"></a>Timer1A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Arm))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
 </UL>
 
-<P><STRONG><a name="[a3]"></a>Timer1A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Disarm))
-<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<P><STRONG><a name="[a4]"></a>Timer1A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Disarm))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 </UL>
 
-<P><STRONG><a name="[1f]"></a>Timer1A_Handler</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, player.o(i.Timer1A_Handler))
+<P><STRONG><a name="[1f]"></a>Timer1A_Handler</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, player.o(i.Timer1A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer1A_Handler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out
@@ -924,7 +923,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[9b]"></a>Timer1A_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, timer.o(i.Timer1A_Init))
+<P><STRONG><a name="[9c]"></a>Timer1A_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, timer.o(i.Timer1A_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Timer1A_Init
 </UL>
@@ -934,12 +933,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
-<P><STRONG><a name="[aa]"></a>Timer1A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Period))
+<P><STRONG><a name="[ab]"></a>Timer1A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Period))
 <BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
 </UL>
 
-<P><STRONG><a name="[9f]"></a>Timer1A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Start))
+<P><STRONG><a name="[a0]"></a>Timer1A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Start))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
@@ -947,15 +946,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer2A_Handler
 </UL>
 
-<P><STRONG><a name="[a8]"></a>Timer2A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Arm))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
+<P><STRONG><a name="[a9]"></a>Timer2A_Arm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Arm))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
 </UL>
 
-<P><STRONG><a name="[a4]"></a>Timer2A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Disarm))
-<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<P><STRONG><a name="[a5]"></a>Timer2A_Disarm</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Disarm))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 </UL>
 
-<P><STRONG><a name="[21]"></a>Timer2A_Handler</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, player.o(i.Timer2A_Handler))
+<P><STRONG><a name="[21]"></a>Timer2A_Handler</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, player.o(i.Timer2A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer2A_Handler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out
@@ -963,7 +962,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[9c]"></a>Timer2A_Init</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, timer.o(i.Timer2A_Init))
+<P><STRONG><a name="[9d]"></a>Timer2A_Init</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, timer.o(i.Timer2A_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Timer2A_Init
 </UL>
@@ -973,12 +972,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
-<P><STRONG><a name="[ab]"></a>Timer2A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Period))
+<P><STRONG><a name="[ac]"></a>Timer2A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Period))
 <BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
 </UL>
 
-<P><STRONG><a name="[a0]"></a>Timer2A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Start))
+<P><STRONG><a name="[a1]"></a>Timer2A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer2A_Start))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
@@ -986,12 +985,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer3A_Handler
 </UL>
 
-<P><STRONG><a name="[a9]"></a>Timer3A_Arm</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Arm))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
+<P><STRONG><a name="[aa]"></a>Timer3A_Arm</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Arm))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
 </UL>
 
-<P><STRONG><a name="[a5]"></a>Timer3A_Disarm</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Disarm))
-<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<P><STRONG><a name="[a6]"></a>Timer3A_Disarm</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Disarm))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 </UL>
 
 <P><STRONG><a name="[2d]"></a>Timer3A_Handler</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, player.o(i.Timer3A_Handler))
@@ -1002,7 +1001,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[9d]"></a>Timer3A_Init</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, timer.o(i.Timer3A_Init))
+<P><STRONG><a name="[9e]"></a>Timer3A_Init</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, timer.o(i.Timer3A_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Timer3A_Init
 </UL>
@@ -1012,12 +1011,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
-<P><STRONG><a name="[ac]"></a>Timer3A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Period))
+<P><STRONG><a name="[ad]"></a>Timer3A_Period</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Period))
 <BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
 </UL>
 
-<P><STRONG><a name="[a1]"></a>Timer3A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Start))
+<P><STRONG><a name="[a2]"></a>Timer3A_Start</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.Timer3A_Start))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 </UL>
 
@@ -1031,7 +1030,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
@@ -1048,21 +1047,20 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf2.o(i.__0printf$2)
 </UL>
-<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 118 bytes, Stack size 88 bytes, main.o(i.main))
+<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 158 bytes, Stack size 88 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
 <LI>Call Chain = main &rArr; PlayerFSM &rArr; PlayState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_SetTempoMultiplier
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Keypad_Read
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Keypad_Init
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Init
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
@@ -1081,43 +1079,43 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init
 </UL>
 
-<P><STRONG><a name="[91]"></a>PauseState</STRONG> (Thumb, 176 bytes, Stack size 48 bytes, main.o(i.PauseState))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88 + Unknown Stack Size
+<P><STRONG><a name="[91]"></a>PauseState</STRONG> (Thumb, 278 bytes, Stack size 208 bytes, main.o(i.PauseState))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = PauseState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_SetTempoMultiplier
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
 </UL>
 
-<P><STRONG><a name="[97]"></a>PlayState</STRONG> (Thumb, 206 bytes, Stack size 208 bytes, main.o(i.PlayState))
+<P><STRONG><a name="[98]"></a>PlayState</STRONG> (Thumb, 278 bytes, Stack size 208 bytes, main.o(i.PlayState))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = PlayState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_SetTempoMultiplier
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Rewind
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
 </UL>
 
-<P><STRONG><a name="[98]"></a>PlayerFSM</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, main.o(i.PlayerFSM))
+<P><STRONG><a name="[99]"></a>PlayerFSM</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, main.o(i.PlayerFSM))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
 <LI>Call Chain = PlayerFSM &rArr; PlayState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Play
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

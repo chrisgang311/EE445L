@@ -549,7 +549,7 @@ const unsigned short Trumpet[32] = {
 
 
  //LEGEND OF ZELDA File Select
-const mp3 ZELDA = {128,  1.2 * eigth_notes, "zelda theme", {Wave, Flute, Wave}, zelda_high, zelda_high, zelda_low};
+const mp3 ZELDA = {128,  1.2 * eigth_notes, "zelda theme", {Wave, Flute, Wave}, zelda_high, zelda_high, zelda_high};
 
  //Pokemon Center
 const mp3 POKEMON = {128, quarter_notes, "pokemon center", {Wave, Flute, Wave}, pokemon_high, pokemon_middle, pokemon_low};

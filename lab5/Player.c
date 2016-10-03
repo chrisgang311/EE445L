@@ -12,6 +12,12 @@
  #include "Timer.h"
  #include "mp3.h"
  #include "DAC.h"
+ #include "Debug.h"
+ 
+ // GPIO port F
+#define PF1       (*((volatile uint32_t *)0x40025008))	// Tempo Interrupt
+#define PF2       (*((volatile uint32_t *)0x40025010))	// Melody Interrupt
+#define PF3       (*((volatile uint32_t *)0x40025020))	// Harmony Interrupt
  
  // song data
  static struct mp3 song;
@@ -27,6 +33,9 @@
 void Player_Init(mp3 _song){
 	// initialize the DAC
 	DAC_Init();
+	
+	// test the DAC
+	//DAC_Test(4096, 8);
 	
 	// song params
 	song = _song;
@@ -94,17 +103,19 @@ void Player_SetTempoMultiplier(float multiplier){
  */
 void Timer0A_Handler(){
 	Timer0A_Acknowledge();
+	PF1 ^= 0x02; PF1 ^= 0x02; // mark start
 	cursor = (cursor + 1) % song.length;
 	Timer1A_Period(*(song.melody + cursor));
 	Timer2A_Period(*(song.harmony + cursor));
 	Timer3A_Period(*(song.bass + cursor));
+	PF1 ^= 0x02; // mark end
 }
 
 
 /** song EQ **/
-uint32_t melody = 0;
-uint32_t harmony = 0;
-uint32_t bass = 0;
+static uint32_t melody = 0;
+static uint32_t harmony = 0;
+static uint32_t bass = 0;
 
 /** Melody controller **
  * Update the instrument's cursor
@@ -114,10 +125,12 @@ void Timer1A_Handler(){
 	Timer1A_Acknowledge();
 	static uint16_t mcursor = 0;
 	uint16_t output = 0;
+	PF2 ^= 0x04; PF2 ^= 0x04; // mark start
 	melody = song.sound.melody[mcursor];
 	mcursor = (mcursor + 1) % 32;
-	output = (melody + harmony + bass) / 8;
+	output = (melody + harmony + bass) / 16;
 	DAC_Out(output);
+	PF2 ^= 0x04; // mark end
 }
 
 /** Harmony controller **
@@ -128,10 +141,12 @@ void Timer2A_Handler(){
 	Timer2A_Acknowledge();
 	static uint16_t hcursor = 0;
 	uint16_t output = 0;
+	PF3 ^= 0x08; PF3 ^= 0x08; // mark start
 	harmony = song.sound.harmony[hcursor];
 	hcursor = (hcursor + 1) % 32;
-	output = (melody + harmony + bass) / 8;
+	output = (melody + harmony + bass) / 16;
 	DAC_Out(output);
+	PF3 ^= 0x08;	// mark end
 }
 
 /** Bass controller **
@@ -144,7 +159,7 @@ void Timer3A_Handler(){
 	uint16_t output = 0;
 	bass = song.sound.bass[bcursor];
 	bcursor = (bcursor + 1) % 32;
-	output = (melody + harmony + bass) / 8;
+	output = (melody + harmony + bass) / 16;
 	DAC_Out(output);
 }
 

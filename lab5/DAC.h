@@ -31,3 +31,9 @@ void DAC_Init(void);
  * Input: amplitude represented as a 12-bit number
  */
 void DAC_Out(uint16_t amplitude);
+
+/** DAC_Test() **
+ * Test the output of a new DAC
+ * Function is an endless profile that will never finish...
+ */
+void DAC_Test(uint16_t precision, uint16_t resolution);
