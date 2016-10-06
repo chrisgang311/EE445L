@@ -128,7 +128,7 @@ void Timer1A_Handler(){
 	PF2 ^= 0x04; PF2 ^= 0x04; // mark start
 	melody = song.sound.melody[mcursor];
 	mcursor = (mcursor + 1) % 32;
-	output = (melody + harmony + bass) / 16;
+	output = (melody + harmony + bass) / 8;
 	DAC_Out(output);
 	PF2 ^= 0x04; // mark end
 }
@@ -144,7 +144,7 @@ void Timer2A_Handler(){
 	PF3 ^= 0x08; PF3 ^= 0x08; // mark start
 	harmony = song.sound.harmony[hcursor];
 	hcursor = (hcursor + 1) % 32;
-	output = (melody + harmony + bass) / 16;
+	output = (melody + harmony + bass) / 8;
 	DAC_Out(output);
 	PF3 ^= 0x08;	// mark end
 }
@@ -159,7 +159,7 @@ void Timer3A_Handler(){
 	uint16_t output = 0;
 	bass = song.sound.bass[bcursor];
 	bcursor = (bcursor + 1) % 32;
-	output = (melody + harmony + bass) / 16;
+	output = (melody + harmony + bass) / 8;
 	DAC_Out(output);
 }
 

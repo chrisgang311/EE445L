@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\lab5.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\lab5.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Oct 03 18:48:45 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Oct 04 17:02:11 2016
 <BR><P>
 <H3>Maximum Stack Usage =        352 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -663,6 +663,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Wait10ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayState
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PauseState
 </UL>
 
 <P><STRONG><a name="[c5]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
@@ -1079,7 +1081,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init
 </UL>
 
-<P><STRONG><a name="[91]"></a>PauseState</STRONG> (Thumb, 278 bytes, Stack size 208 bytes, main.o(i.PauseState))
+<P><STRONG><a name="[91]"></a>PauseState</STRONG> (Thumb, 292 bytes, Stack size 208 bytes, main.o(i.PauseState))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = PauseState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
@@ -1088,13 +1090,14 @@ Local Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PlayerFSM
 </UL>
 
-<P><STRONG><a name="[98]"></a>PlayState</STRONG> (Thumb, 278 bytes, Stack size 208 bytes, main.o(i.PlayState))
+<P><STRONG><a name="[98]"></a>PlayState</STRONG> (Thumb, 292 bytes, Stack size 208 bytes, main.o(i.PlayState))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = PlayState &rArr; Player_Init &rArr; DAC_Init &rArr; SSI2_Init
 </UL>
@@ -1103,6 +1106,7 @@ Local Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Pause
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Player_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_Wait10ms
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>

@@ -1,4 +1,4 @@
-/** mp3.c **
+ /** mp3.c **
  * Authors: Ronald Macmaster and Parth Adhia
  * Created: September 29th 2016
  * Description: Song metadata. contains all the song data

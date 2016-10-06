@@ -103,7 +103,7 @@ static uint32_t PlayState(uint32_t input){
 			return PAUSE;
 		case SW2: // rewind
 			Player_Pause();
-			//for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			for(int i = 0; i < 100; i++) Debug_Wait10ms();
 			Player_Rewind();
 			return PLAY;
 		case SW0: // switch songs
@@ -140,7 +140,7 @@ static uint32_t PauseState(uint32_t input){
 			return PLAY;
 		case SW2: // rewind
 			Player_Pause();
-			//for(int i = 0; i < 100; i++) Debug_Wait10ms();
+			for(int i = 0; i < 100; i++) Debug_Wait10ms();
 			Player_Rewind();
 			return PAUSE;
 		case SW0: // switch songs
