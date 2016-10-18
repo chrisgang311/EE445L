@@ -137,3 +137,9 @@ static void ST7735_Circle(uint16_t x, uint16_t y, uint16_t radius, uint16_t colo
 	ST7735_DrawPixel(x, y, color); // plot center
 }
 
+ /** LCD_OutString() **
+ * Outputs a string to the LCD
+ */
+void LCD_OutString(char *ptr){
+  ST7735_OutString(ptr);
+}

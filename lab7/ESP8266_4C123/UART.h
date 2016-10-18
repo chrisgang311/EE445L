@@ -123,11 +123,11 @@ void UART_OutUHex(uint32_t number);
 // -- Modified by Agustinus Darmawan + Mingjie Qiu --
 void UART_InString(char *bufPt, uint16_t max);
 
-//------------Output_Init------------
+//------------UART_OutputInit------------
 // Initialize the UART for 115,200 baud rate (assuming 80 MHz bus clock),
 // 8 bit word length, no parity bits, one stop bit, FIFOs enabled
 // Input: none
 // Output: none
-void Output_Init(void);
+void UART_OutputInit(void);
 
 #endif

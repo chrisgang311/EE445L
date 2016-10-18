@@ -9,3 +9,6 @@
 .\main.o: UART.h
 .\main.o: esp8266.h
 .\main.o: LED.h
+.\main.o: Keypad.h
+.\main.o: LCD.h
+.\main.o: Debug.h

@@ -34,7 +34,7 @@ void SysTick_Wait10ms(void);
  * Initializes our debugging tools
  */
 void Debug_Init(void){
-	PortF_Init();
+	//PortF_Init();
 	SysTick_Init();
 }
 

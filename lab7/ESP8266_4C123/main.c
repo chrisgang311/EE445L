@@ -29,6 +29,10 @@
 #include "esp8266.h"
 #include "LED.h"
 
+#include "Keypad.h"
+#include "LCD.h"
+#include "Debug.h"
+
 // prototypes for functions defined in startup.s
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -44,7 +48,30 @@ char Fetch[] = "GET /data/2.5/weather?q=Austin%20Texas&APPID=1234567890abcdef123
 int main(void){  
   DisableInterrupts();
   PLL_Init(Bus80MHz);
-
+	LCD_Init();
+	Keypad_Init();
+	Debug_Init();
+	LCD_OutString("Hello World!\n");
+	LCD_OutString("Final Project!\n");
+	
+	uint32_t last = 0x00, keypad = 0x00;
+	while(true){
+		// sample and debounce the keypad
+		keypad = Keypad_Read(); 
+		Debug_Wait10ms(); 
+		
+		// change FSM state
+		if(keypad == last){
+			// single pulse / idle
+			//state = PlayerFSM(state, 0x00);
+		} else{
+			last = keypad;
+			char number[10];
+			sprintf(number, "x%.4x\n", keypad);
+			if(keypad != 0){LCD_OutString(number);}
+			//state = PlayerFSM(state, keypad);
+		}
+	}	
 
 }
 
@@ -52,7 +79,7 @@ int WIFImain(void){
   DisableInterrupts();
   PLL_Init(Bus80MHz);
   LED_Init();  
-  Output_Init();       // UART0 only used for debugging
+  UART_OutputInit();       // UART0 only used for debugging
   printf("\n\r-----------\n\rSystem starting...\n\r");
   ESP8266_Init(115200);      // connect to access point, set up as client
   ESP8266_GetVersionNumber();
@@ -76,7 +103,7 @@ int main2(void){  char data;
   DisableInterrupts();
   PLL_Init(Bus80MHz);
   LED_Init();  
-  Output_Init();       // UART0 as a terminal
+  UART_OutputInit();       // UART0 as a terminal
   printf("\n\r-----------\n\rSystem starting at 9600 baud...\n\r");
 //  ESP8266_Init(38400);
   ESP8266_InitUART(9600,true);

@@ -382,12 +382,12 @@ int uart_rename(const char *old_name, const char *new_name){
   return 0;
 }
 
-//------------Output_Init------------
+//------------UART_OutputInit------------
 // Initialize the UART for 115,200 baud rate (assuming 80 MHz bus clock),
 // 8 bit word length, no parity bits, one stop bit
 // Input: none
 // Output: none
-void Output_Init(void){int ret_val; FILE *fptr;
+void UART_OutputInit(void){int ret_val; FILE *fptr;
   UART_Init();
   ret_val = add_device("uart", _SSA, uart_open, uart_close, uart_read, uart_write, uart_lseek, uart_unlink, uart_rename);
   if(ret_val) return; // error
@@ -399,12 +399,12 @@ void Output_Init(void){int ret_val; FILE *fptr;
 }
 #else
 //Keil uVision Code
-//------------Output_Init------------
+//------------UART_OutputInit------------
 // Initialize the UART for 115,200 baud rate (assuming 80 MHz bus clock),
 // 8 bit word length, no parity bits, one stop bit, FIFOs enabled
 // Input: none
 // Output: none
-void Output_Init(void){
+void UART_OutputInit(void){
   UART_Init();
 }
 #endif

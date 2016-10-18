@@ -78,3 +78,11 @@ void LCD_SetCursor(uint16_t x, uint16_t y);
  * Output: none
  */
  void LCD_DrawCircle(uint16_t x, uint16_t y, uint16_t radius, uint16_t color);
+
+
+ /** LCD_OutString() **
+ * Outputs a string to the LCD
+ */
+void LCD_OutString(char *ptr);
+
+
