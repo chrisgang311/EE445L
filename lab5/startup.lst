@@ -1083,9 +1083,10 @@ ARM Macro Assembler    Page 17
                        ***********************
   674 0000001C                 END
 Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
-rtup.d -o.\startup.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Ke
-il\ARM\Inc\Luminary --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1"
- --list=.\startup.lst startup.s
+rtup.d -o.\startup.o -IC:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC -IC:\Us
+ers\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include -IC:\Users\ronny\Desktop\EE\44
+5L\keil\ARM\Inc\Luminary --predefine="__EVAL SETA 1" --predefine="__MICROLIB SE
+TA 1" --list=.\startup.lst startup.s
 
 
 
