@@ -1,0 +1,16 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\Lab7_Macmaster_Adhia (PCB - Forward Design Changes Report).txt
+Report Written:     Tuesday, October 25, 2016
+Design Path:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\Lab7_Macmaster_Adhia.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/24/2016 4:45:29 PM
+Editing Time:       3662 min
+Units:              mil (precision 0)
+
+The designs are the same, so no design changes to forward.
+
+
+End Of Report.

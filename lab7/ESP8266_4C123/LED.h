@@ -41,17 +41,6 @@
 // Output: none
 void LED_Init(void);
 
-
-//------------Board_Input------------
-// Read and return the status of the switches.
-// Input: none
-// Output: 2 if only Switch 1 is pressed
-//         1 if only Switch 2 is pressed
-//         3 if both switches are pressed
-//         0 if no switches are pressed
-uint32_t Board_Input(void);
-
-
 //------------LED_RedOn------------
 // Turn on red LED
 // Input: none

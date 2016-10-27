@@ -58,7 +58,7 @@ void LED_Init(void){
   GPIO_PORTF_DIR_R = 0x0E;       // 5) make PF0 and PF4 in PF3-1 output                        
   GPIO_PORTF_AFSEL_R = 0;        // 6) disable alt funct on PF0 and PF4
   GPIO_PORTF_PUR_R = 0x11;       // enable weak pull-up on PF0 and PF4
-  GPIO_PORTF_DEN_R = 0x1F;       // 7) enable digital I/O on PF0-PF4
+  GPIO_PORTF_DEN_R = 0x1F;       // 7) enable digital I/O on PF0-PF4z
 }
 
 //------------Board_Input------------

@@ -57,8 +57,8 @@ ESP8266    TM4C123
 #include "esp8266.h"
 #include "UART.h"
 // Access point parameters
-#define SSID_NAME  "ValvanoAP"
-#define PASSKEY    "12345678"
+#define SSID_NAME  "ronny"
+#define PASSKEY    "Physics17"
 //#define SEC_TYPE   ESP8266_ENCRYPT_MODE_WPA2_PSK
 
 #define BUFFER_SIZE 1024

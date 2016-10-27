@@ -1,13 +1,13 @@
 Design Rule Check Report
 ------------------------
 
-Report File:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\Lab7_Macmaster_Adhia (PCB - Design Rule Check Report).txt
+Report File:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313 (PCB - Design Rule Check Report).txt
 Report Written:     Tuesday, October 25, 2016
-Design Path:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\Lab7_Macmaster_Adhia.pcb
+Design Path:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/24/2016 4:45:29 PM
-Editing Time:       3663 min
+Last Saved:         10/25/2016 5:03:52 PM
+Editing Time:       3811 min
 Units:              mil (precision 0)
 
 

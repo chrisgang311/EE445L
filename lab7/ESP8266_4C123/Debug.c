@@ -11,13 +11,13 @@
  #include <stdbool.h>
  #include "tm4c123gh6pm.h"
 
-// GPIO port F
-#define PF0       (*((volatile uint32_t *)0x40025004))
-#define PF1       (*((volatile uint32_t *)0x40025008))
-#define PF2       (*((volatile uint32_t *)0x40025010))
-#define PF3       (*((volatile uint32_t *)0x40025020))
-#define PF4       (*((volatile uint32_t *)0x40025040))
-static void PortF_Init(void);
+// GPIO LED PortB
+#define PB0                     (*((volatile uint32_t *)0x40005004))
+#define PB1                     (*((volatile uint32_t *)0x40005008))
+#define PB2                     (*((volatile uint32_t *)0x40005010))
+#define PB3                     (*((volatile uint32_t *)0x40005020))
+#define PB4                     (*((volatile uint32_t *)0x40005040))
+static void LED_Init(void);
 
 // SysTick countdown
 #define NVIC_ST_CTRL_COUNT      0x00010000  // Count flag
@@ -25,16 +25,16 @@ static void PortF_Init(void);
 #define NVIC_ST_CTRL_INTEN      0x00000002  // Interrupt enable
 #define NVIC_ST_CTRL_ENABLE     0x00000001  // Counter mode
 #define NVIC_ST_RELOAD_M        0x00FFFFFF  // Counter load value
-void SysTick_Init(void);
-void SysTick_Wait(uint32_t delay);
-void SysTick_Wait10ms(void);
+static void SysTick_Init(void);
+static void SysTick_Wait(uint32_t delay);
+static void SysTick_Wait10ms(void);
 
  
 /** Debug_Init() **
  * Initializes our debugging tools
  */
 void Debug_Init(void){
-	//PortF_Init();
+	LED_Init();
 	SysTick_Init();
 }
 
@@ -46,42 +46,64 @@ void Debug_Wait10ms(void){
 	SysTick_Wait10ms();
 }
 
-/** Debug_Switch1() **
- * Return the value of board switch 1
+/** LED_Init() **
+ * Initialize PortB for LED Output
+ * LEDS on PB2 and PB3
+ * Outputs: none
  */
-bool Debug_Switch1(void){
-	if(PF0){
-		return true;
-	} else{
-		return false;
-	}
-}
-
-/** Debug_Switch2() **
- * Return the value of board switch 2
- */
-bool Debug_Switch2(void){
-	if(PF4){
-		return true;
-	} else{
-		return false;
-	}
-}
-
-// Activates Port F For the Debugging tools
-// We will use LEDS.
-static void PortF_Init(){
+void LED_Init(void){       
 	volatile uint32_t delay;
-	SYSCTL_RCGC2_R |= 0x20;
-	delay = SYSCTL_RCGCTIMER_R; // allow time to finish activating
-	
-	GPIO_PORTF_LOCK_R = 0x4C4F434B;	//	unlock port f
-	GPIO_PORTF_CR_R = 0x1F;
-	GPIO_PORTF_PUR_R = 0x11;
-	GPIO_PORTF_DIR_R = 0x0E;
-	GPIO_PORTF_AMSEL_R = 0x00;
-	GPIO_PORTF_AFSEL_R = 0x00;
-	GPIO_PORTF_DEN_R = 0x1F;
+	SYSCTL_RCGCGPIO_R |= 0x02;    		 // turn on port B
+	delay = SYSCTL_RCGCTIMER_R; 			 // allow time to finish activating
+	GPIO_PORTB_AFSEL_R |= 0x0C;        // disable alt funtion on PB2 and PB3
+  GPIO_PORTB_PCTL_R &= ~0x0000FF00;
+  GPIO_PORTB_AMSEL_R &= ~0x0C;       // disable analog functionality on PB2 and PB3
+  GPIO_PORTB_DEN_R |= 0x0C;          // enable digital I/O on PB2 and PB3
+	GPIO_PORTB_DIR_R |= 0x0C;					// Set PB2 PB3 as outputs 
+}
+
+//------------LED_RedOn------------
+// Turn on red LED
+// Input: none
+// Output: none
+void LED_RedOn(void){
+  PB2 = 0x02;
+}
+//------------LED_RedOff------------
+// Turn off red LED
+// Input: none
+// Output: none
+void LED_RedOff(void){
+  PB2 = 0x00;
+}
+//------------LED_RedToggle------------
+// Toggle red LED
+// Input: none
+// Output: none
+void LED_RedToggle(void){
+  PB2 ^= 0x02;
+}
+
+//------------LED_YellowToggle------------
+// Toggle yellow LED
+// Input: none
+// Output: none
+void LED_YellowToggle(void){
+  PB3 ^= 0x08;
+}
+//------------LED_YellowOn------------
+// Turn on yellow LED
+// Input: none
+// Output: none
+void LED_YellowOn(void){
+  PB3 = 0x08;
+}
+//------------LED_YellowOff------------
+// Turn off yellow LED
+// Input: none
+// Output: none
+void LED_YellowOff(void){
+  PB3 = 0x00;
 }
 
 // Initialize SysTick with busy wait running at bus clock.
@@ -91,6 +113,7 @@ void SysTick_Init(void){
   NVIC_ST_CURRENT_R = 0;                // any write to current clears it
   NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_CLK_SRC; // enable SysTick with core clock
 }
+
 // Time delay using busy wait.
 // The delay parameter is in units of the core clock. (units of 12.5 nsec for 80 MHz clock)
 void SysTick_Wait(uint32_t delay){

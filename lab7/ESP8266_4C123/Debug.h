@@ -20,12 +20,39 @@ void Debug_Init(void);
  */
 void Debug_Wait10ms(void);
 
-/** Debug_Switch1() **
- * Return the value of board switch 1
- */
-bool Debug_Switch1(void);
+//------------LED_RedOn------------
+// Turn on red LED
+// Input: none
+// Output: none
+void LED_RedOn(void);
+  
+//------------LED_RedOff------------
+// Turn off red LED
+// Input: none
+// Output: none
+void LED_RedOff(void);
 
-/** Debug_Switch2() **
- * Return the value of board switch 2
- */
-bool Debug_Switch2(void);
+//------------LED_RedToggle------------
+// Toggle red LED
+// Input: none
+// Output: none
+void LED_RedToggle(void);
+  
+//------------LED_YellowToggle------------
+// Toggle yellow LED
+// Input: none
+// Output: none
+void LED_YellowToggle(void);
+
+//------------LED_YellowOn------------
+// Turn on yellow LED
+// Input: none
+// Output: none
+void LED_YellowOn(void);
+
+//------------LED_YellowOff------------
+// Turn off yellow LED
+// Input: none
+// Output: none
+void LED_YellowOff(void);
+

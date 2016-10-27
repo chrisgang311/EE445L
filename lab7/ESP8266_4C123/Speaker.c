@@ -10,7 +10,7 @@
  
 /** hardware connections **
  * 32 Ohm Speaker
- * Output goes on PE0
+ * Output goes on PB6
  */
  
 #include <stdint.h>
@@ -25,6 +25,7 @@
 
 // port init for Speaker
 static void PWM_Init(uint32_t period, uint32_t duty);
+static void PortB_Init(void); 
 	
 /** Speaker_Init() **
  * Activate the Speaker for Output processing.
@@ -32,6 +33,7 @@ static void PWM_Init(uint32_t period, uint32_t duty);
  */
 void Speaker_Init(){
 	const uint32_t period = PWM_1000Hz / 2;
+	PortB_Init();
 	PWM_Init(period, period / 2);
 }
 

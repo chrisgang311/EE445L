@@ -1,0 +1,18 @@
+Design Consistency Status Report
+--------------------------------
+
+Report File:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313 (PCB - Design Consistency Status Report).txt
+Report Written:     Tuesday, October 25, 2016
+Design Path:        C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/25/2016 5:17:12 PM
+Editing Time:       3827 min
+Units:              mil (precision 0)
+
+
+Checking integrity of Schematic "C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313.sch" with PCB "C:\Users\ronald\Documents\GitHub\labs\lab7\pcb\UTX-2016F313.pcb"
+============================================================================================================================================================================
+
+
+End Of Report.

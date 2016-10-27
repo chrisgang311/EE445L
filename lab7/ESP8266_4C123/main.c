@@ -27,7 +27,6 @@
 #include "pll.h"
 #include "UART.h"
 #include "esp8266.h"
-#include "LED.h"
 
 #include "Keypad.h"
 #include "LCD.h"
@@ -78,7 +77,7 @@ int main(void){
 int WIFImain(void){  
   DisableInterrupts();
   PLL_Init(Bus80MHz);
-  LED_Init();  
+  Debug_Init();  
   UART_OutputInit();       // UART0 only used for debugging
   printf("\n\r-----------\n\rSystem starting...\n\r");
   ESP8266_Init(115200);      // connect to access point, set up as client
@@ -86,13 +85,13 @@ int WIFImain(void){
   while(1){
     ESP8266_GetStatus();
     if(ESP8266_MakeTCPConnection("openweathermap.org")){ // open socket in server
-      LED_GreenOn();
+      LED_YellowOn();
       ESP8266_SendTCP(Fetch);
     }
     ESP8266_CloseTCPConnection();
-    while(Board_Input()==0){// wait for touch
-    }; 
-    LED_GreenOff();
+    //while(Board_Input()==0){// wait for touch
+    //}; 
+    LED_YellowOff();
     LED_RedToggle();
   }
 }
@@ -102,7 +101,7 @@ void ESP8266SendCommand(char *);
 int main2(void){  char data;
   DisableInterrupts();
   PLL_Init(Bus80MHz);
-  LED_Init();  
+  Debug_Init(); 
   UART_OutputInit();       // UART0 as a terminal
   printf("\n\r-----------\n\rSystem starting at 9600 baud...\n\r");
 //  ESP8266_Init(38400);
