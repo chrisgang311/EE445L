@@ -32,6 +32,7 @@
 #include "LCD.h"
 #include "Debug.h"
 #include "Sensor.h"
+#include "Speaker.h"
 
 // prototypes for functions defined in startup.s
 void DisableInterrupts(void); // Disable interrupts
@@ -49,6 +50,11 @@ int WIFImain(void);
 int main2(void);
 int main(void){  
 	//WIFImain();
+	LCD_Init();
+	Speaker_Init();
+	Speaker_Play();
+	while(1){	LCD_OutString("sound....\n");}
+	
   DisableInterrupts();
   PLL_Init(Bus80MHz);
 	LCD_Init();

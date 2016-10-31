@@ -54,10 +54,14 @@ static bool ReadyForInput = true;
 int main(void){
 	// hardware initialization
 	LCD_Init();
-	Keypad_Init();
-	Clock_Init();
+//	Keypad_Init();
+//	Clock_Init();
 	Speaker_Init();
 
+	while(1){
+		Speaker_Play();
+	} Speaker_Mute();
+	
 	#ifdef DEBUG // alarm poll
 	DebugInit();
 	#endif // DEBUG

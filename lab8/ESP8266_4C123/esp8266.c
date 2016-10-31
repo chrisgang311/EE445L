@@ -398,10 +398,10 @@ void ESP8266_Init(uint32_t baud){
 int ESP8266_Reset(){int try=MAXTRY;
   SearchStart("ready");
   while(try){
-    GPIO_PORTB_DATA_R &= ~0x20; // reset low
-    DelayMs(10);
-    GPIO_PORTB_DATA_R |= 0x20; // reset high
-    ESP8266SendCommand("AT+RST\r\n");
+    //GPIO_PORTB_DATA_R &= ~0x20; // reset low
+    //DelayMs(10);
+    //GPIO_PORTB_DATA_R |= 0x20; // reset high
+    ESP8266SendCommand("AT+GMR\r\n");
     DelayMsSearching(500);
     if(SearchFound) return 1; // success
     try--;
