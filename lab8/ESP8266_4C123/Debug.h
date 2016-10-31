@@ -20,6 +20,9 @@ void Debug_Init(void);
  */
 void Debug_Wait10ms(void);
 
+// LED Hardware Connections
+// RED LED ON PB2, YELLOW on PB3
+
 //------------LED_RedOn------------
 // Turn on red LED
 // Input: none

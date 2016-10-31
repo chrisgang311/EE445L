@@ -12,6 +12,7 @@
  #include "tm4c123gh6pm.h"
 
 // GPIO LED PortB
+// RED LED ON PB2, YELLOW on PB3
 #define PB0                     (*((volatile uint32_t *)0x40005004))
 #define PB1                     (*((volatile uint32_t *)0x40005008))
 #define PB2                     (*((volatile uint32_t *)0x40005010))
@@ -55,7 +56,7 @@ void LED_Init(void){
 	volatile uint32_t delay;
 	SYSCTL_RCGCGPIO_R |= 0x02;    		 // turn on port B
 	delay = SYSCTL_RCGCTIMER_R; 			 // allow time to finish activating
-	GPIO_PORTB_AFSEL_R |= 0x0C;        // disable alt funtion on PB2 and PB3
+	GPIO_PORTB_AFSEL_R &= ~0x0C;        // disable alt funtion on PB2 and PB3
   GPIO_PORTB_PCTL_R &= ~0x0000FF00;
   GPIO_PORTB_AMSEL_R &= ~0x0C;       // disable analog functionality on PB2 and PB3
   GPIO_PORTB_DEN_R |= 0x0C;          // enable digital I/O on PB2 and PB3

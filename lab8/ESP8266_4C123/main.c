@@ -50,11 +50,6 @@ int WIFImain(void);
 int main2(void);
 int main(void){  
 	//WIFImain();
-	LCD_Init();
-	Speaker_Init();
-	Speaker_Play();
-	while(1){	LCD_OutString("sound....\n");}
-	
   DisableInterrupts();
   PLL_Init(Bus80MHz);
 	LCD_Init();
@@ -78,9 +73,12 @@ int main(void){
 			char number[10];
 			sprintf(number, "x%.4x\n", keypad);
 			if(keypad != 0){LCD_OutString(number);}
-			if(keypad&0x1111){LED_YellowOn();}
-			if(keypad&0x2222){LED_YellowOff();}
-			if(keypad&0xCCCC){LED_YellowToggle();}
+			if(keypad&0x0011){LED_YellowOn();}
+			if(keypad&0x0022){LED_YellowOff();}
+			if(keypad&0x00CC){LED_YellowToggle();}
+			if(keypad&0x1100){LED_RedOn();}
+			if(keypad&0x2200){LED_RedOff();}
+			if(keypad&0xCC00){LED_RedToggle();}
 			//state = PlayerFSM(state, keypad);
 		}
 	}	
