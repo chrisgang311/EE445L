@@ -11,3 +11,4 @@
 .\fsm.o: tm4c123gh6pm.h
 .\fsm.o: Sensor.h
 .\fsm.o: Keypad.h
+.\fsm.o: WIFI.h

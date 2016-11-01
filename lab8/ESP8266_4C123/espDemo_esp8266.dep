@@ -1,6 +1,6 @@
 Dependencies for Project 'espDemo', Target 'esp8266': (DO NOT MODIFY !)
 F (.\startup.s)(0x58178572)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\main.c)(0x58181D13)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\main.c)(0x58184867)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdbool.h)(0x51C87C24)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
@@ -35,7 +35,7 @@ I (tm4c123gh6pm.h)(0x58178572)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (FIFO.h)(0x58178572)
 I (UART.h)(0x58178572)
-F (.\FSM.c)(0x581801D0)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\fsm.o --omf_browse .\fsm.crf --depend .\fsm.d)
+F (.\FSM.c)(0x581848AE)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\fsm.o --omf_browse .\fsm.crf --depend .\fsm.d)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdbool.h)(0x51C87C24)
@@ -48,6 +48,7 @@ I (Speaker.h)(0x58178572)
 I (tm4c123gh6pm.h)(0x58178572)
 I (Sensor.h)(0x5817C24D)
 I (Keypad.h)(0x5817B093)
+I (WIFI.h)(0x58181C47)
 F (.\WIFI.c)(0x58181C62)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\wifi.o --omf_browse .\wifi.crf --depend .\wifi.d)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdbool.h)(0x51C87C24)

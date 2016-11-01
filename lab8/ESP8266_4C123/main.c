@@ -42,17 +42,20 @@ void WaitForInterrupt(void);  // low power mode
 
 // HTTP Data
 #define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=ronny%20loves%20his%20family. HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
+#define NOTIFY_POST "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n"
 int main(void){  
   DisableInterrupts();
   PLL_Init(Bus80MHz);
 	LCD_Init();
 	Keypad_Init();
 	Alarm_Init();
+	
+	LCD_OutString("Connecting to WIFI...");
 	WIFI_Init();
 	
 	// debug // call tests here after WIFI_Init()
 	Debug_Init(); // LEDS and Delay
-	WIFI_Send("server-144411.appspot.com", SERVER_POST);
+	//WIFI_Send("server-144411.appspot.com", SERVER_POST);
 
 	uint32_t state = 0x00; // fsm state
 	uint32_t last = 0x00, keypad = 0x00;
