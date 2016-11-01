@@ -5,7 +5,7 @@
  * Send a play or stop signal to the speaker to make a sound.
  * Lab: 7
  * TA: Dylan Zika
- * Date: September 17th 2016
+ * Date: October 31st 2016
  *********************************************************************************/
  
 /** hardware connections **
@@ -32,7 +32,7 @@ static void PortB_Init(void);
  * Outputs: none
  */
 void Speaker_Init(){
-	const uint32_t period = PWM_1000Hz / 2;
+	const uint32_t period = PWM_500Hz / 2;
 	PortB_Init();
 	PWM_Init(period, period / 2);
 }

@@ -27,6 +27,16 @@ void Sensor_Init(void);
  */
 void Sensor_Reset(void);
 
+/** Sensor_Enable() **
+ * Enable the motion sensor edge trigger
+ */
+void Sensor_Enable(void);
+
+/** Sensor_Disable() **
+ * Disable the motion sensor edge trigger
+ */
+void Sensor_Disable(void);
+
 /** Sensor_Triggered() **
  * Check if the motion sensor was triggered
  * returns true if sensor was triggered

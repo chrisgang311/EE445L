@@ -15,10 +15,12 @@
  
  #include <stdint.h>
  #include <stdbool.h>
+ 
 #include "tm4c123gh6pm.h"
 
 // sensor flag
 static bool triggered;
+static bool enabled;
 
 // port init for Sensor
 static void PortB_Init(void); 
@@ -30,6 +32,7 @@ static void PortB_Init(void);
 void Sensor_Init(void){
 	PortB_Init();
 	triggered = false;
+	enabled = false;
 }
 
 /** Sensor_Reset() **
@@ -45,12 +48,33 @@ void Sensor_Reset(void){
  * returns true if sensor was triggered
  */
 bool Sensor_Triggered(void){
-	return triggered;
+	return triggered && enabled;
 }
 
+/** Sensor_Enable() **
+ * Enable the motion sensor edge trigger
+ */
+void Sensor_Enable(void){
+	enabled = true;
+	triggered = false;
+	GPIO_PORTB_IM_R |= 0x80; // arm interrupt
+}
+
+/** Sensor_Disable() **
+ * Disable the motion sensor edge trigger
+ */
+void Sensor_Disable(void){
+	enabled = false;
+	triggered = false;
+	GPIO_PORTB_IM_R &= ~0x80; // disarm interrupt
+}
+
+// sensor edge interrupt
 void GPIOPortB_Handler(void){
-  GPIO_PORTB_ICR_R = 0x80;      // acknowledge sensor interrupt
-  triggered = true;
+  GPIO_PORTB_ICR_R = 0x80; // acknowledge sensor interrupt
+	if(enabled){
+		triggered = true;
+	}
 }
 
 /** PortB_Init() **
@@ -74,7 +98,7 @@ static void PortB_Init(){
 	GPIO_PORTB_IBE_R &= ~0x80;
 	GPIO_PORTB_IEV_R |= 0x80; 					// rising edge.
 	GPIO_PORTB_ICR_R |= 0x80;						// acknowledge flag clear
-	GPIO_PORTB_IM_R |= 0x80;						// arm interrupt
+	//GPIO_PORTB_IM_R |= 0x80;						// arm interrupt
 
   NVIC_PRI0_R = (NVIC_PRI0_R&0xFFFF00FF)|0x00004000; // priority 2
 	NVIC_EN0_R = 1 << 1;      // enable interrupt 1 in NVIC (port b handler)

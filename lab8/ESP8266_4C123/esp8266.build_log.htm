@@ -7,20 +7,88 @@ C:\Users\ronny\Desktop\EE\445L\labs\lab8\ESP8266_4C123\espDemo.uvproj
 Project File Date:  10/31/2016
 
 <h2>Output:</h2>
-Build target 'esp8266'
+Rebuild target 'esp8266'
+assembling startup.s...
 compiling main.c...
+compiling pll.c...
+compiling esp8266.c...
+compiling UART.c...
+compiling FSM.c...
+compiling Debug.c...
+compiling LCD.c...
+compiling ST7735.c...
+compiling Timer.c...
+compiling Speaker.c...
+compiling Keypad.c...
+compiling Sensor.c...
+compiling Alarm.c...
 linking...
-Program Size: Code=5308 RO-data=2052 RW-data=128 ZI-data=6176  
+Program Size: Code=8268 RO-data=12036 RW-data=168 ZI-data=6176  
 ".\esp8266.axf" - 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab8\\ESP8266_4C123\\esp8266.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
 Programming Done.
 Verify OK.
-a=2052 RW-data=128 ZI-data=6176  
-".\esp8266.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\ronny\\Desktop\\EE\\445L\\labs\\lab8\\ESP8266_4C123\\esp8266.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
+ be used within a switch
+                default:
+FSM.c(151): warning:  #550-D: variable "code" was set but never used
+        static uint16_t code[4] = {KEY_0, KEY_0, KEY_0, KEY_0};
+FSM.c(281): error:  #169: expected a declaration
+  }
+FSM.c(464): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+FSM.c: 3 warnings, 5 errors
+".\esp8266.axf" - 5 Error(s), 3 Warning(s).
+Target not created
+ds);
+FSM.c(215): error:  #20: identifier "seconds" is undefined
+                                        printf("-%.2d:%.2d:<%.2d>-", hours, minutes, seconds);
+FSM.c(217): error:  #20: identifier "hours" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(217): error:  #20: identifier "minutes" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(217): error:  #20: identifier "seconds" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(219): error:  #20: identifier "hours" is undefined
+                                        printf("-<%.2d>:%.2d:%.2d-", hours, minutes, seconds);
+FSM.c(219): error:  #20: identifier "minutes" is undefined
+                                        printf("-<%.2d>:%.2d:%.2d-", hours, minutes, seconds);
+FSM.c(219): error:  #20: identifier "seconds" is undefined
+                                        printf("-<%.2d>:%.2d:%.2d-", hours, minutes, seconds);
+FSM.c(222): error:  #20: identifier "field" is undefined
+                        switch(field){
+FSM.c(224): error:  #20: identifier "hours" is undefined
+                                        if(hours == 0){
+FSM.c(230): error:  #20: identifier "minutes" is undefined
+                                        if(minutes == 0){
+FSM.c(236): error:  #20: identifier "seconds" is undefined
+                                        if(seconds == 0){
+FSM.c(245): error:  #20: identifier "hours" is undefined
+                                        hours = (hours << 16);
+FSM.c(246): error:  #20: identifier "minutes" is undefined
+                                        minutes = (minutes << 8);       
+FSM.c(247): error:  #20: identifier "seconds" is undefined
+                                        seconds = (seconds << 0);
+FSM.c(248): warning:  #223-D: function "Clock_Set" declared implicitly
+                                        Clock_Set(hours + minutes + seconds);
+FSM.c(252): error:  #20: identifier "field" is undefined
+                        if(field == 2){
+FSM.c(253): error:  #20: identifier "hours" is undefined
+                                        printf("-%.2d:%.2d:<%.2d>-", hours, minutes, seconds);
+FSM.c(253): error:  #20: identifier "minutes" is undefined
+                                        printf("-%.2d:%.2d:<%.2d>-", hours, minutes, seconds);
+FSM.c(253): error:  #20: identifier "seconds" is undefined
+                                        printf("-%.2d:%.2d:<%.2d>-", hours, minutes, seconds);
+FSM.c(255): error:  #20: identifier "hours" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(255): error:  #20: identifier "minutes" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(255): error:  #20: identifier "seconds" is undefined
+                                        printf("-%.2d:<%.2d>:%.2d-", hours, minutes, seconds);
+FSM.c(257): error:  #20: identifier "hours" is undefined
+                                        printf("-<%.2d>:%.2d:%.2d-", hours, minutes, seconds);
+FSM.c(257): error:  #20: identifier "minutes" is undefined
+                                        printf("-<%.2d>:%.2d:%.2d-", hours, minutes, seconds);
+FSM.c: 2 warnings, 30 errors
+".\esp8266.axf" - 30 Error(s), 2 Warning(s).
+Target not created

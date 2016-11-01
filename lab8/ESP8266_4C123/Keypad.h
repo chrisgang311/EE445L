@@ -29,6 +29,13 @@ void Keypad_Init(void);
  */
 uint16_t Keypad_Read(void);
 
+/** KeyConvert() **
+ * Returns the character of the key value
+ * input: 16 bit keycode
+ * output: char value
+ */
+char KeyConvert(uint16_t key);
+
 #ifndef KEY_CODES
 #define KEY_CODES
 #define KEY_0 0x2000

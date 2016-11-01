@@ -31,8 +31,8 @@
 #include "Keypad.h"
 #include "LCD.h"
 #include "Debug.h"
-#include "Sensor.h"
-#include "Speaker.h"
+#include "Alarm.h"
+#include "FSM.h"
 
 // prototypes for functions defined in startup.s
 void DisableInterrupts(void); // Disable interrupts
@@ -55,9 +55,9 @@ int main(void){
 	LCD_Init();
 	Keypad_Init();
 	Debug_Init();
-	LCD_OutString("Hello World!\n");
-	LCD_OutString("Final Project!\n");
+	Alarm_Init();
 	
+	uint32_t state = 0x00; // fsm state
 	uint32_t last = 0x00, keypad = 0x00;
 	while(true){
 		// sample and debounce the keypad
@@ -67,19 +67,10 @@ int main(void){
 		// change FSM state
 		if(keypad == last){
 			// single pulse / idle
-			//state = PlayerFSM(state, 0x00);
+			state = UpdateFSM(state, 0x00);
 		} else{
 			last = keypad;
-			char number[10];
-			sprintf(number, "x%.4x\n", keypad);
-			if(keypad != 0){LCD_OutString(number);}
-			if(keypad&0x0011){LED_YellowOn();}
-			if(keypad&0x0022){LED_YellowOff();}
-			if(keypad&0x00CC){LED_YellowToggle();}
-			if(keypad&0x1100){LED_RedOn();}
-			if(keypad&0x2200){LED_RedOff();}
-			if(keypad&0xCC00){LED_RedToggle();}
-			//state = PlayerFSM(state, keypad);
+			state = UpdateFSM(state, keypad);
 		}
 	}	
 

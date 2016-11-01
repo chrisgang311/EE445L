@@ -11,5 +11,8 @@
 .\main.o: Keypad.h
 .\main.o: LCD.h
 .\main.o: Debug.h
-.\main.o: Sensor.h
+.\main.o: Alarm.h
+.\main.o: Timer.h
 .\main.o: Speaker.h
+.\main.o: Sensor.h
+.\main.o: FSM.h
