@@ -5,6 +5,7 @@
 ".\esp8266.o"
 ".\uart.o"
 ".\fsm.o"
+".\wifi.o"
 ".\debug.o"
 ".\lcd.o"
 ".\st7735.o"

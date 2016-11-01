@@ -25,8 +25,7 @@
 #include "tm4c123gh6pm.h"
 
 #include "pll.h"
-#include "UART.h"
-#include "esp8266.h"
+#include "WIFI.h"
 
 #include "Keypad.h"
 #include "LCD.h"
@@ -41,22 +40,20 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-char Fetch[] = "GET /data/2.5/weather?q=Austin%20Texas&APPID=1234567890abcdef1234567890abcdef HTTP/1.1\r\nHost:api.openweathermap.org\r\n\r\n";
-#define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=ronny%20loves%20the%20esp8266 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
-// 1) go to http://openweathermap.org/appid#use 
-// 2) Register on the Sign up page
-// 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
-int WIFImain(void);
-int main2(void);
+// HTTP Data
+#define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=ronny%20loves%20his%20family. HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
 int main(void){  
-	//WIFImain();
   DisableInterrupts();
   PLL_Init(Bus80MHz);
 	LCD_Init();
 	Keypad_Init();
-	Debug_Init();
 	Alarm_Init();
+	WIFI_Init();
 	
+	// debug // call tests here after WIFI_Init()
+	Debug_Init(); // LEDS and Delay
+	WIFI_Send("server-144411.appspot.com", SERVER_POST);
+
 	uint32_t state = 0x00; // fsm state
 	uint32_t last = 0x00, keypad = 0x00;
 	while(true){
@@ -73,62 +70,6 @@ int main(void){
 			state = UpdateFSM(state, keypad);
 		}
 	}	
-
-}
-
-int WIFImain(void){  
-  DisableInterrupts();
-  PLL_Init(Bus80MHz);
-  Debug_Init();  
-	LCD_Init();
-  UART_OutputInit();       // UART0 only used for debugging
-  printf("\n\r-----------\n\rSystem starting...\n\r");
-	LCD_OutString("start connect...\n");
-  ESP8266_Init(115200);      // connect to access point, set up as client
-  ESP8266_GetVersionNumber();
-  while(1){
-    ESP8266_GetStatus();
-    if(ESP8266_MakeTCPConnection("server-144411.appspot.com")){ // open socket in server
-      //LED_YellowOn();
-			LCD_OutString("connecting to server...\n");
-      ESP8266_SendTCP(SERVER_POST);
-    }
-    ESP8266_CloseTCPConnection();
-		LCD_OutString("connection closed!\n");
-    //while(Board_Input()==0){// wait for touch
-    //}; 
-    //LED_YellowOff();
-    //LED_RedToggle();
-  }
-}
-
-// transparent mode for testing
-void ESP8266SendCommand(char *);
-int main2(void){  char data;
-  DisableInterrupts();
-  PLL_Init(Bus80MHz);
-	LCD_Init();
-  Debug_Init(); 
-  UART_OutputInit();       // UART0 as a terminal
-    printf("\n\r-----------\n\rSystem starting at 115200 baud...\n\r");
-//  ESP8266_Init(38400);
-  ESP8266_InitUART(115200,true);
-  ESP8266_EnableRXInterrupt();
-  EnableInterrupts();
-  ESP8266SendCommand("AT+RST\r\n");
-  data = UART_InChar();
-//  ESP8266SendCommand("AT+UART=115200,8,1,0,3\r\n");
-//  data = UART_InChar();
-//  ESP8266_InitUART(115200,true);
-//  data = UART_InChar();
-  
-  while(1){
-// echo data back and forth
-    data = UART_InCharNonBlock();
-    if(data){
-      ESP8266_PrintChar(data);
-    }
-  }
 }
 
 

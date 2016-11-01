@@ -1,0 +1,11 @@
+.\wifi.o: WIFI.c
+.\wifi.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdio.h
+.\wifi.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\wifi.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdint.h
+.\wifi.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\string.h
+.\wifi.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\wifi.o: tm4c123gh6pm.h
+.\wifi.o: esp8266.h
+.\wifi.o: UART.h
+.\wifi.o: pll.h
+.\wifi.o: LCD.h

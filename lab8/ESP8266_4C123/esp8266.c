@@ -368,7 +368,7 @@ void ESP8266_Init(uint32_t baud){
   if(ESP8266_SetWifiMode(ESP8266_WIFI_MODE_CLIENT)==0){ 
     printf("SetWifiMode, could not set mode\n\r"); while(1){};
   }
-// step 3: AT+CWJAP="ValvanoAP","12345678"  connect to access point 
+// step 3: AT+CWJAP="rpm954","Physics17"  connect to access point 
   if(ESP8266_JoinAccessPoint(SSID_NAME,PASSKEY)==0){ 
     printf("JoinAccessPoint error, could not join AP\n\r"); while(1){};
   }
@@ -401,7 +401,7 @@ int ESP8266_Reset(){int try=MAXTRY;
     //GPIO_PORTB_DATA_R &= ~0x20; // reset low
     //DelayMs(10);
     //GPIO_PORTB_DATA_R |= 0x20; // reset high
-    ESP8266SendCommand("AT+GMR\r\n");
+    ESP8266SendCommand("AT+RST\r\n");
     DelayMsSearching(500);
     if(SearchFound) return 1; // success
     try--;
@@ -417,7 +417,7 @@ int ESP8266_Reset(){int try=MAXTRY;
 int ESP8266_SetWifiMode(uint8_t mode){
   int try=MAXTRY;
   if(mode > ESP8266_WIFI_MODE_AP_AND_CLIENT)return 0; // fail
-  SearchStart("no change");
+  SearchStart("ok");
   while(try){
     sprintf((char*)TXBuffer, "AT+CWMODE=%d\r\n", mode);
     ESP8266SendCommand((const char*)TXBuffer);
