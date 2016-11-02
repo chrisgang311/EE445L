@@ -430,11 +430,6 @@
               <FileType>1</FileType>
               <FilePath>.\UART.c</FilePath>
             </File>
-            <File>
-              <FileName>LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\LED.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -469,6 +464,11 @@
               <FileName>Keypad.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Keypad.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sensor.c</FilePath>
             </File>
           </Files>
         </Group>

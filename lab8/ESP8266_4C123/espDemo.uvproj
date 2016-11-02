@@ -430,6 +430,16 @@
               <FileType>1</FileType>
               <FilePath>.\UART.c</FilePath>
             </File>
+            <File>
+              <FileName>FSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FSM.c</FilePath>
+            </File>
+            <File>
+              <FileName>WIFI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\WIFI.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -469,6 +479,11 @@
               <FileName>Sensor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Alarm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Alarm.c</FilePath>
             </File>
           </Files>
         </Group>
