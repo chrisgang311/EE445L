@@ -1,43 +1,36 @@
 Dependencies for Project 'ADCPrintResults', Target 'ADCPrintResults': (DO NOT MODIFY !)
-F (.\startup.s)(0x581AFA02)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\UART.c)(0x581ADE9E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (UART.h)(0x57BF96B0)
-I (tm4c123gh6pm.h)(0x58178572)
-F (.\main.c)(0x581B0F9A)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (ADCHWTrigger.h)(0x581AF436)
-I (ADCT0ATrigger.h)(0x57BF976B)
-I (uart.h)(0x57BF96B0)
-I (PLL.h)(0x57BF96B0)
-I (Timer.h)(0x58178572)
-I (LCD.h)(0x58178572)
-F (.\PLL.c)(0x581ADEB2)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (PLL.h)(0x57BF96B0)
-I (tm4c123gh6pm.h)(0x58178572)
-F (.\Timer.c)(0x581B0C3D)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x58178572)
-F (.\ADCHWTrigger.c)(0x581B0DCD)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\adchwtrigger.o --omf_browse .\adchwtrigger.crf --depend .\adchwtrigger.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x58178572)
-I (Timer.h)(0x58178572)
-F (.\LCD.c)(0x58178572)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (ST7735.h)(0x58178572)
-F (.\ST7735.c)(0x581AFB61)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdio.h)(0x51C87C24)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (ST7735.h)(0x58178572)
-I (./tm4c123gh6pm.h)(0x58178572)
-F (.\ADCContinuous.c)(0x581AF2FB)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adccontinuous.o --omf_browse .\adccontinuous.crf --depend .\adccontinuous.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x58178572)
-F (.\ADCSWTrigger.c)(0x581AF4F1)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\RV31\INC-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\CMSIS\Include-I C:\Users\ronny\Desktop\EE\445L\keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adcswtrigger.o --omf_browse .\adcswtrigger.crf --depend .\adcswtrigger.d)
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x58178572)
-F (.\ADCT0ATrigger.c)(0x581B0C72)()
-I (C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (tm4c123gh6pm.h)(0x58178572)
+F (.\startup.s)(0x581B8824)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\UART.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (UART.h)(0x581B8824)
+I (tm4c123gh6pm.h)(0x581B8824)
+F (.\main.c)(0x581B89EC)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (ADCHWTrigger.h)(0x581B8824)
+I (uart.h)(0x581B8824)
+I (PLL.h)(0x581B8824)
+I (Timer.h)(0x581B8824)
+I (LCD.h)(0x581B8824)
+F (.\PLL.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x581B8824)
+I (tm4c123gh6pm.h)(0x581B8824)
+F (.\Timer.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (tm4c123gh6pm.h)(0x581B8824)
+F (.\ADCHWTrigger.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\adchwtrigger.o --omf_browse .\adchwtrigger.crf --depend .\adchwtrigger.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (tm4c123gh6pm.h)(0x581B8824)
+I (Timer.h)(0x581B8824)
+F (.\LCD.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x581B8824)
+F (.\ST7735.c)(0x581B8824)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_TM4C123GH6PM-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C88A34)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (ST7735.h)(0x581B8824)
+I (./tm4c123gh6pm.h)(0x581B8824)
+F (.\ADCContinuous.c)(0x581B8824)()
+F (.\ADCSWTrigger.c)(0x581B8824)()
+F (.\ADCT0ATrigger.c)(0x581B8824)()

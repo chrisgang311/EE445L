@@ -1552,24 +1552,24 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       264         62       9984          3          0       3496   alarm.o
-       244         36          0          0          0       4306   debug.o
-      2448        836          0         64       3104      14593   esp8266.o
-      2506        818         75         35          0       4355   fsm.o
-       480         40          0          0          0       2441   keypad.o
-       114          0          0          0          0       3200   lcd.o
-       108         24          0          0          0       5991   main.o
+       264         62       9984          3          0       3484   alarm.o
+       244         36          0          0          0       4294   debug.o
+      2448        836          0         64       3104      14673   esp8266.o
+      2506        818         75         35          0       4347   fsm.o
+       480         40          0          0          0       2425   keypad.o
+       114          0          0          0          0       3192   lcd.o
+       108         24          0          0          0       5875   main.o
        124          6          0          0          0        419   pll.o
-       360         80          0          2          0       3149   sensor.o
-       228         38          0          0          0       2265   speaker.o
-      2006        198       2018         44          0      12650   st7735.o
+       360         80          0          2          0       3137   sensor.o
+       228         38          0          0          0       2241   speaker.o
+      2006        198       2018         44          0      12674   st7735.o
        672        622          0          0       1024        900   startup.o
-       184         40          0          0          0       2248   timer.o
-       804        132          0         16       2048       7445   uart.o
-        66          0          0          0          0        916   wifi.o
+       184         40          0          0          0       2236   timer.o
+       804        132          0         16       2048       7461   uart.o
+        66          0          0          0          0        920   wifi.o
 
     ----------------------------------------------------------------------
-     10618       2932      12112        168       6180      68374   Object Totals
+     10618       2932      12112        168       6180      68278   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          3          4          4          0   (incl. Padding)
 
@@ -1613,8 +1613,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11304       2968      12112        172       6180      63218   Grand Totals
-     11304       2968      12112        172       6180      63218   ELF Image Totals
+     11304       2968      12112        172       6180      63122   Grand Totals
+     11304       2968      12112        172       6180      63122   ELF Image Totals
      11304       2968      12112        172          0          0   ROM Totals
 
 ==============================================================================

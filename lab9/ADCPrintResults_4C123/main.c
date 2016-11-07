@@ -42,7 +42,7 @@
 #include <stdint.h> 
 #include <stdio.h>
 #include "ADCHWTrigger.h"
-#include "ADCT0ATrigger.h"
+//#include "ADCT0ATrigger.h"
 #include "uart.h"
 #include "PLL.h"
 #include "Timer.h"
