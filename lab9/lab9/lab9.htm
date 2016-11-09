@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\lab9.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\lab9.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 07 15:58:16 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Nov 08 17:41:13 2016
 <BR><P>
-<H3>Maximum Stack Usage =        208 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        200 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; Plot_Init &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 <P>
@@ -690,46 +690,41 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8f]"></a>LCD_SetCursor</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, lcd.o(i.LCD_SetCursor))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCD_SetCursor
-</UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[af]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>Plot_Init</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, plot.o(i.Plot_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = Plot_Init &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[8f]"></a>Plot_Init</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, plot.o(i.Plot_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = Plot_Init &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;map
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintFixed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>Plot_PlotData</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, plot.o(i.Plot_PlotData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = Plot_PlotData &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[96]"></a>Plot_PlotData</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, plot.o(i.Plot_PlotData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = Plot_PlotData &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoint
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;map
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintFixed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>Plot_PrintData</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, plot.o(i.Plot_PrintData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = Plot_PrintData &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[99]"></a>Plot_PrintData</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, plot.o(i.Plot_PrintData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = Plot_PrintData &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;map
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintFixed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -786,28 +781,28 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS
 </UL>
 
-<P><STRONG><a name="[92]"></a>ST7735_FillScreen</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))
+<P><STRONG><a name="[91]"></a>ST7735_FillScreen</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 </UL>
 
 <P><STRONG><a name="[8e]"></a>ST7735_InitR</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 </UL>
@@ -836,7 +831,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_Color565
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 </UL>
 
 <P><STRONG><a name="[98]"></a>ST7735_PlotNextErase</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, st7735.o(i.ST7735_PlotNextErase))
@@ -856,12 +851,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PlotData
 </UL>
 
-<P><STRONG><a name="[90]"></a>ST7735_SetCursor</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))
+<P><STRONG><a name="[92]"></a>ST7735_SetCursor</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PrintData
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PlotData
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 </UL>
 
 <P><STRONG><a name="[89]"></a>Timer0A_Init</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, timer.o(i.Timer0A_Init))
@@ -916,7 +910,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PrintData
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 </UL>
 
 <P><STRONG><a name="[bc]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
@@ -932,15 +926,14 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf2.o(i.__0printf$2)
 </UL>
-<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = main &rArr; Plot_Init &rArr; PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PrintData
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PlotData
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InitHWTrigger
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_In
@@ -1018,14 +1011,22 @@ Local Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIFO_Read
 </UL>
 
-<P><STRONG><a name="[95]"></a>PrintFixed</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, plot.o(i.PrintFixed))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[95]"></a>PrintFixed</STRONG> (Thumb, 200 bytes, Stack size 24 bytes, plot.o(i.PrintFixed))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = PrintFixed &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PrintData
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PlotData
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
+</UL>
+
+<P><STRONG><a name="[90]"></a>map</STRONG> (Thumb, 148 bytes, Stack size 20 bytes, plot.o(i.map))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = map
+</UL>
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PrintData
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_PlotData
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Plot_Init
 </UL>
 
 <P><STRONG><a name="[ad]"></a>_printf_core</STRONG> (Thumb, 208 bytes, Stack size 40 bytes, printf2.o(i._printf_core), UNUSED)

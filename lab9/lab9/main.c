@@ -53,13 +53,12 @@ int main(void){
   PLL_Init(Bus80MHz);   // 80 MHz
 	LCD_Init(); // screen debugging
   UART_Init(); // initialize UART device
-  ADC0_InitHWTrigger(TIMER_1000Hz);
+  ADC0_InitHWTrigger(TIMER_100Hz);
 	
-	Plot_Init("Temperature plot", 0, 4096);
+	Plot_Init("Temperature plot", 4096, 0);
   for(int idx = 0; ; idx++){
     data = ADC0_In();
     UART_OutString("\n\rADC data ="); UART_OutUDec(data);
-		LCD_SetCursor(0,0);
 		Plot_PrintData(data);
 		Plot_PlotData(data);
   }
