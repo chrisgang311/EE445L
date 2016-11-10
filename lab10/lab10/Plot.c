@@ -10,6 +10,8 @@
  #include <stdbool.h>
  #include <stdio.h>
  #include "ST7735.h"
+ #include "Timer.h"
+ #include "Switch.h"
  
  // helper functions
  static void PrintFixed(uint16_t n);
@@ -25,7 +27,10 @@
 */
 static int32_t min = 0, max = 0; 
 void Plot_Init(char *title, int32_t minData, int32_t maxData){
+	// setup data and timer
 	min = map(minData); max = map(maxData);
+	Timer1A_Init(TIMER_1Hz, 0x02);
+	Keypad_Init();
 	
 	// clear screen.
   ST7735_FillScreen(0);
@@ -34,32 +39,40 @@ void Plot_Init(char *title, int32_t minData, int32_t maxData){
 
   // print plot axes
   printf("%s \n", title);
-	printf("range:(");PrintFixed(min);
-	printf(", ");PrintFixed(max);
-	printf(")");
+	Timer1A_Start();
 }
  
-/** Plot_PrintData()
+/** Plot_PrintSpeed()
  * Print the data value in fixed point
  * Special place right above plot for data string
  */
-void Plot_PrintData(uint16_t data){
+void Plot_PrintSpeed(uint16_t desired, uint16_t actual){
+	// map input
 	static uint8_t idx = 0;
-	data = map(data);
+	desired = map(desired);
+	actual = map(actual);
+	
+	// print desired
+	ST7735_SetCursor(0, 1);
+	printf("desired: ");
+	PrintFixed(desired);
+	printf(" rps  ");
+	
+	// print actual
 	ST7735_SetCursor(0, 2);
-	printf("speed: ");
-	PrintFixed(data);
-	printf(" rps ");
+	printf("actual: ");
+	PrintFixed(actual);
+	printf(" rps  ");
 	idx = idx + 1;
 }
 
-/** Plot_PlotData()
+/** Plot_PlotSpeed()
  * Plots the next data point in the sequence.
  * plot pointer is incremented one place
  */
-void Plot_PlotData(uint16_t data){
-	data = map(data);
-	ST7735_PlotPoint(data);
+void Plot_PlotSpeed(uint16_t speed){
+	speed = map(speed);
+	ST7735_PlotPoint(speed);
 	ST7735_PlotNextErase();
 	ST7735_SetCursor(0, 3);
 	PrintFixed(max);
@@ -69,17 +82,17 @@ void Plot_PlotData(uint16_t data){
 
 /****************PrintFixed(uint16_t n)***************
  converts fixed point number to LCD
- format unsigned 16-bit with resolution 0.01
- range 0 to +50.00
+ format unsigned 16-bit with resolution 0.1
+ range 0 to +500.0
  Inputs:  unsigned 16-bit integer part of fixed-point number
  Outputs: none
  Parameter LCD display
  12345    "*.**"
-  2345    "23.45"
-  3100    "31.00"
-   102    "1.02"
-    31    "0.31"
--12345    "*.**"
+  2345    "234.5"
+  2100    "210.0"
+   120    "12.0"
+    31    "3.1"
+-12345    "*.*"
  ************************************************/
 static void PrintFixed(uint16_t n){
   const uint16_t max = 5000;
@@ -87,18 +100,28 @@ static void PrintFixed(uint16_t n){
 
   // invalid number
   if(/*n < min || */n > max){
-    ST7735_OutString("*.**");
+    ST7735_OutString("*.*");
     return;
   }
 
 	// build and print the number
 	uint8_t idx = 0;
 	char num[6] = {'\0'};
-	if((n / 1000) % 10 > 0){ // ten's digit
+	// n >= 100.0
+	if((n / 1000) % 10 > 0){ // hundred's digit
 		num[idx++] = ((n / 1000) % 10) + '0';
-	} num[idx++] = ((n / 100) % 10) + '0';
-	num[idx++] = '.';
+		if((n / 100) % 10 > 0){ // ten's digit
+			num[idx++] = ((n / 100) % 10) + '0';
+		}
+	} 
+	// 10.0 <= n <= 100.0
+	else if((n / 100) % 10 > 0){ // ten's digit
+			num[idx++] = ((n / 100) % 10) + '0';
+	} 
+	
+	// ones and tenth's digits
 	num[idx++] = ((n / 10) % 10) + '0';
+	num[idx++] = '.';
 	num[idx++] = ((n / 1) % 10) + '0';
 	num[idx++] = '\0';
 	ST7735_OutString(num);
@@ -140,4 +163,34 @@ static uint16_t map(uint16_t data){
 //}
 
 
+extern bool redraw;
+extern uint16_t desired;
+void Timer1A_Handler(){
+	Timer1A_Acknowledge();
+	// sample and debounce the keypad
+	static uint32_t keypad, last = 0x00;
+	keypad = Keypad_Read(); 
+	redraw = true;
+	
+	// update motor setting
+	const uint16_t ds = 500;
+	if(keypad != last){
+		// increase desired speed
+		if(keypad == 0x01){
+			if(desired + ds < max){
+				desired = desired + ds;
+			} else {
+				desired = max;
+			}
+		} 
+		// decrease desired speed
+		else if(keypad == 0x02){
+			if(desired > min + ds){
+				desired = desired - ds;
+			} else {
+				desired = min;
+			}
+		}
+	}
+}
 

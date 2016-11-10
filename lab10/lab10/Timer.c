@@ -3,7 +3,7 @@
  * Created: September 9th 2016
  * Description: Timer methods for various interrupt purposes
  * utitilizes various timer interrupts
- * Lab: 9
+ * Lab: 10
  * TA: Dylan Zika
  * Date: September 27th 2016
  *********************************************************************************/
@@ -26,26 +26,24 @@ void WaitForInterrupt(void);  // low power mode
  * Outputs: none
  */
 void Timer0A_Init(uint32_t period, uint32_t priority){
-
   volatile uint32_t delay;
   DisableInterrupts();
   SYSCTL_RCGCTIMER_R |= 0x01;      // activate timer0
   delay = SYSCTL_RCGCTIMER_R;      // allow time to finish activating
   TIMER0_CTL_R &= ~TIMER_CTL_TAEN; // disable timer0A during setup
-	TIMER0_CTL_R |= 0x00000020;      // enable timer0A trigger to ADC
   TIMER0_CFG_R = 0;                // configure for 32-bit timer mode
 	TIMER0_TAPR_R = 0;           		 // bus clock resolution
                                    
   TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD; // configure for periodic mode
   TIMER0_TAILR_R = period;         // start value for periodic interrupts
-  TIMER0_IMR_R &= ~TIMER_IMR_TATOIM;// disable timeout (rollover) interrupt
+  TIMER0_IMR_R |= TIMER_IMR_TATOIM;// enable timeout (rollover) interrupt
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// clear timer0A timeout flag
   
 	// **** interrupt initialization ****
-//	priority = (priority & 0x07) << 29; // mask priority (nvic bits 29-31)
-//  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF); // clear priority
-//	NVIC_PRI4_R = (NVIC_PRI4_R | priority); // set interrupt priority bits
-//  NVIC_EN0_R = 1 << 19;              // enable interrupt 19 in NVIC
+	priority = (priority & 0x07) << 29; // mask priority (nvic bits 29-31)
+  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF); // clear priority
+	NVIC_PRI4_R = (NVIC_PRI4_R | priority); // set interrupt priority bits
+  NVIC_EN0_R = 1 << 19;              // enable interrupt 19 in NVIC
 	EnableInterrupts();
 }
 

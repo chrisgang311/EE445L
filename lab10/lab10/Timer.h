@@ -3,7 +3,7 @@
  * Created: September 9th 2016
  * Description: Timer methods for various interrupt purposes
  * utitilizes various timer interrupts
- * Lab: 5
+ * Lab: 10
  * TA: Dylan Zika
  * Date: September 27th 2016
  *********************************************************************************/

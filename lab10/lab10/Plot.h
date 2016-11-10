@@ -20,11 +20,10 @@ void Plot_Init(char *title, int32_t min, int32_t max);
  * Print the data value in fixed point
  * Special place right above plot for data string
  */
-void Plot_PrintData(uint16_t data);
+void Plot_PrintSpeed(uint16_t desired, uint16_t actual);
 
-
-/** Plot_PlotData()
+/** Plot_PlotSpeed()
  * Plots the next data point in the sequence.
  * plot pointer is incremented one place
  */
-void Plot_PlotData(uint16_t data);
+void Plot_PlotSpeed(uint16_t speed);
