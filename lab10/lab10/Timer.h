@@ -12,6 +12,7 @@
  #define TIMER_1Hz 79999999
  #define TIMER_100Hz 799999
  #define TIMER_1000Hz 79999
+ #define TIMER_5000Hz 49999
  #define TIMER_MAXHz 79999999  // 53s at 80MHz clock
  #define TIMER_DELAY1S_1000Hz 519999999
  
@@ -25,6 +26,15 @@
  * Outputs: none
  */
 void Timer0A_Init(uint32_t period, uint32_t priority);
+
+/** Timer0B_Init() **
+ * Activate TIMER0B to perform input capture on pin PB7
+ * Initializes Timer0A for period interrupts
+ * Inputs:  period (reload value for the timer)
+            priority interrupt importance 0-7. 0 is highest priority
+ * Outputs: none
+ */
+void Timer0B_Init(uint32_t priority);
 
 /** Timer1A_Init() **
  * Activate TIMER1A with periodic interrupts
@@ -84,6 +94,23 @@ void Timer0A_Acknowledge(void);
  * Reset the period on Timer0A
  */
 void Timer0A_Period(uint32_t period);
+
+/******************* Timer0B Methods ****************************/
+
+/** Timer0B_Start() **
+ * Restart the Clock (TIMER 0B)
+ */
+void Timer0B_Start(void);
+
+/** Timer0B_Stop() **
+ * Stop the Clock (TIMER 0B)
+ */
+void Timer0B_Stop(void);
+
+/** Timer0B_Acknowledge() **
+ * Acknowledge a Timer0B interrupt
+ */
+void Timer0B_Acknowledge(void);
 
 /******************* Timer1A Methods ****************************/
 

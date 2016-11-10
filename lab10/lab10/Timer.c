@@ -31,10 +31,10 @@ void Timer0A_Init(uint32_t period, uint32_t priority){
   SYSCTL_RCGCTIMER_R |= 0x01;      // activate timer0
   delay = SYSCTL_RCGCTIMER_R;      // allow time to finish activating
   TIMER0_CTL_R &= ~TIMER_CTL_TAEN; // disable timer0A during setup
-  TIMER0_CFG_R = 0;                // configure for 32-bit timer mode
+  TIMER0_CFG_R = TIMER_CFG_16_BIT; // configure for 32-bit timer mode
 	TIMER0_TAPR_R = 0;           		 // bus clock resolution
                                    
-  TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD; // configure for periodic mode
+  TIMER0_TAMR_R |= TIMER_TAMR_TAMR_PERIOD; // configure for periodic mode
   TIMER0_TAILR_R = period;         // start value for periodic interrupts
   TIMER0_IMR_R |= TIMER_IMR_TATOIM;// enable timeout (rollover) interrupt
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// clear timer0A timeout flag
@@ -44,6 +44,36 @@ void Timer0A_Init(uint32_t period, uint32_t priority){
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF); // clear priority
 	NVIC_PRI4_R = (NVIC_PRI4_R | priority); // set interrupt priority bits
   NVIC_EN0_R = 1 << 19;              // enable interrupt 19 in NVIC
+	EnableInterrupts();
+}
+
+/** Timer0B_Init() **
+ * Activate TIMER0B to perform input capture on pin PB7
+ * Initializes Timer0A for period interrupts
+ * Inputs: priority interrupt importance 0-7. 0 is highest priority
+ * Outputs: none
+ */
+void Timer0B_Init(uint32_t priority){
+  volatile uint32_t delay;  
+	DisableInterrupts();
+  SYSCTL_RCGCTIMER_R |= 0x01;      // activate timer0
+  delay = SYSCTL_RCGCTIMER_R;      // allow time to finish activating
+  TIMER0_CTL_R &= ~TIMER_CTL_TBEN; // disable timer0B during setup
+  TIMER0_CFG_R = TIMER_CFG_16_BIT; // configure for 16-bit timer mode
+	TIMER0_TBPR_R = 0xFF;           		 // bus clock resolution / preescale to 24-bit
+                                   
+	TIMER0_TBMR_R |= TIMER_TBMR_TBCMR;		// GPIO Capture select
+	TIMER0_TBMR_R |= TIMER_TBMR_TBMR_CAP; // configure for capture mode
+  TIMER0_CTL_R &= ~(TIMER_CTL_TBEVENT_POS|0xC); // configure for rising edge event
+  TIMER0_TBILR_R = TIMER_TBILR_M;				// Max reload for periodic measurements
+  TIMER0_IMR_R &= TIMER_IMR_CBEIM; 			// Input Capture
+	TIMER0_ICR_R = TIMER_ICR_CBECINT; 		// clear RIS flag
+	
+		// **** interrupt initialization ****
+	priority = (priority & 0x07) << 5; // mask priority (nvic bits 7-5)
+  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFFFF00); // clear priority
+	NVIC_PRI5_R = (NVIC_PRI5_R | priority); // set interrupt priority bits
+  NVIC_EN0_R = 1 << 20;              // enable interrupt 19 in NVIC
 	EnableInterrupts();
 }
 
@@ -176,6 +206,30 @@ void Timer0A_Acknowledge(){
 void Timer0A_Period(uint32_t period){
 	TIMER0_TAILR_R = period; 
 }
+
+/******************* Timer0B Methods ****************************/
+
+/** Timer0B_Start() **
+ * Restart the Clock (TIMER 0B)
+ */
+void Timer0B_Start(){
+	TIMER0_CTL_R |= TIMER_CTL_TBEN;
+}
+
+/** Timer0B_Stop() **
+ * Stop the Clock (TIMER 0B)
+ */
+void Timer0B_Stop(){
+	TIMER0_CTL_R &= ~TIMER_CTL_TBEN;
+}
+
+/** Timer0B_Acknowledge() **
+ * Acknowledge a Timer0B interrupt
+ */
+void Timer0B_Acknowledge(){
+	TIMER0_ICR_R = TIMER_ICR_CBECINT; 
+}
+
 
 /******************* Timer1A Methods ****************************/
 

@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
 #include "Timer.h"
+#include "Tachometer.h"
 
 // 80MHZ PWM frequencies with /16 divider
 #define MOTOR_1Hz 4999999
@@ -26,19 +27,29 @@
 
 
 // port init for Motor
-static uint32_t period, duty;
 static void PWM_Init(uint32_t period, uint32_t duty);
 static void PortB_Init(void); 
+
+// motor speed
+static uint32_t period, duty;
+static uint16_t desired, actual; // desired speed
+
+// min and max rps
+static uint16_t min, max;
 	
 /** Motor_Init() **
  * Activate the Motor for Output Loop.
  * Outputs: none
  */
-void Motor_Init(uint32_t _period){
+void Motor_Init(uint32_t _period, uint16_t _min, uint16_t _max){
 	period = _period;
+	min = _min; max = _max;
 	duty = period / 2;
 	PortB_Init();
 	PWM_Init(period, duty);
+	
+	// interrupt at 10x faster than the time constant
+	Timer2A_Init(MOTOR_100Hz, 0x01);
 }
 
 /** Motor_Start() **
@@ -48,6 +59,7 @@ void Motor_Init(uint32_t _period){
  */
 void Motor_Start(){
   PWM0_ENABLE_R |= 0x00000001;// enable PB6/M0PWM0
+	Timer2A_Start();
 }
 
 /** Motor_Stop() **
@@ -55,14 +67,18 @@ void Motor_Start(){
  * Motor current will stop ABRUPTLY
  */
 void Motor_Stop(){
+	Timer2A_Stop();
 	PWM0_ENABLE_R &= ~0x00000001;  // disable PB6/M0PWM0
 }
 
-/** Motor_Update() **
+/** Motor_SetDuty() **
  * Update the motor's duty cycle to run at the new speed.
  */
-void Motor_Update(uint32_t duty){
-  // update motor
+void Motor_SetDuty(uint32_t _duty){
+	if(duty < period){
+		PWM0_0_CMPA_R = _duty;
+		duty = _duty;
+	}
 }
 
 /** Motor_Duty() **
@@ -70,6 +86,44 @@ void Motor_Update(uint32_t duty){
  */
 uint32_t Motor_Duty(){
   return duty;
+}
+
+/** Motor_Desired() **
+ * Read the motor's desired speed
+ */
+uint16_t Motor_Desired(){
+  return desired;
+}
+
+/** Motor_SetDesired() **
+ * Read the motor's desired speed
+ */
+void Motor_SetDesired(uint16_t _desired){
+  desired = _desired;
+}
+
+/** Motor_Actual() **
+ * Read the motor's actual speed
+ */
+uint16_t Motor_Actual(){
+  return actual;
+}
+
+// update motor
+#define COEFF 3 / 64
+void Timer2A_Handler(){
+	Timer2A_Acknowledge();
+	static int32_t response;
+	actual = 800000000 / period; // speed with 0.1 resolution
+	int32_t error = desired - actual;
+	
+	// update response;
+	response = response + (error * COEFF);
+	if(response < min){
+		response = min;
+	} else if(response > max){
+		response = max;
+	} Motor_SetDuty(response);
 }
 
 /** PWM_Init() **
@@ -87,8 +141,8 @@ static void PWM_Init(uint32_t period, uint32_t duty){
       ((SYSCTL_RCC_R & (~0x000E0000)) | 0x00060000);   //    configure for /2 divider
   PWM0_0_CTL_R = 0;                     // 4) re-loading down-counting mode
   PWM0_0_GENA_R = 0xC8;                 // PB6 goes low on LOAD and high on CMPA down
-  PWM0_0_LOAD_R = period - 1;           // 5) cycles needed to count down to 0
-  PWM0_0_CMPA_R = duty - 1;             // 6) count value when output rises
+  PWM0_0_LOAD_R = period;           // 5) cycles needed to count down to 0
+  PWM0_0_CMPA_R = duty;             // 6) count value when output rises
   PWM0_0_CTL_R |= 0x00000001;           // 7) start PWM0
 }
 

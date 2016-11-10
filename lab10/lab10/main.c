@@ -13,9 +13,7 @@
  #include "LCD.h"
  #include "PLL.h"
  #include "Plot.h"
- #include "Switch.h"
- #include "Timer.h"
- #include "Debug.h"
+ #include "Motor.h"
 
 // motor plot semaphore
 bool redraw = true;
@@ -26,11 +24,11 @@ int main(void){
 	LCD_Init(); // screen debugging
 	desired = 0000; actual = 0000;
 	
-	
 	Plot_Init("Motor Plot", 0, 5000);
 	while(true){
 		if(redraw){ // print motor plot
 			redraw = false;
+			desired = Motor_Desired();
 			Plot_PrintSpeed(desired, actual);
 			Plot_PlotSpeed(actual);
 		}
