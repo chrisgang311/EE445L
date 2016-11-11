@@ -58,7 +58,7 @@ int main(void){
 	//ADC0_InitSWTrigger();
   for(int idx = 0; idx < 100; idx++){
     data = ADC0_In();
-    UART_OutString("\n\rADC data ="); UART_OutUDec(data);
+    UART_OutString("\n\r"); UART_OutUDec(data);
 		printf("sample %d: %x\n", idx, data);
   }
 	

@@ -98,11 +98,10 @@ void ADC0_InitHWTrigger(uint32_t period){
  * Input: none
  * Output: 12-bit result of ADC conversion
  */
-static volatile uint32_t ADCvalue[100];
+static volatile uint32_t ADCvalue[300];
 uint32_t ADC0_In(void){
 	static int count = 0;
 	if(count < 100){
-		ADCvalue[count] = ADC0_SSFIFO3_R;  // 12-bit result
 		count = count + 1;
 		return ADCvalue[count - 1];
 	} else{
