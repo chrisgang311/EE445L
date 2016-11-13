@@ -1,8 +1,12 @@
 .\main.o: main.c
-.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdio.h
-.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdint.h
-.\main.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
 .\main.o: LCD.h
 .\main.o: PLL.h
 .\main.o: Plot.h
 .\main.o: Motor.h
+.\main.o: Debug.h
+.\main.o: Tachometer.h
+.\main.o: tm4c123gh6pm.h
+.\main.o: Timer.h

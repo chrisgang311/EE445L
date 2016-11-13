@@ -15,7 +15,7 @@
  #include "Motor.h"
  
  // helper functions
- static void PrintFixed(uint16_t n);
+void PrintFixed(uint16_t n);
  
  /**************Plot_Init()***************
  Specify the plot axes and range of LCD plot
@@ -29,7 +29,7 @@ static int32_t min = 0, max = 0;
 void Plot_Init(char *title, int32_t minData, int32_t maxData){
 	// setup data and timer
 	min = minData; max = maxData;
-	Timer1A_Init(TIMER_1Hz, 0x02);
+	Timer1A_Init(TIMER_1Hz / 8, 0x02);
 	Keypad_Init();
 	
 	// clear screen.
@@ -70,9 +70,10 @@ void Plot_PrintSpeed(uint16_t desired, uint16_t actual){
  * Plots the next data point in the sequence.
  * plot pointer is incremented one place
  */
-void Plot_PlotSpeed(uint16_t speed){
+void Plot_PlotSpeed(uint16_t desired, uint16_t speed){
 	speed = speed;
-	ST7735_PlotPoint(speed);
+	ST7735_PlotPoint(desired, ST7735_RED);
+	ST7735_PlotPoint(speed, ST7735_BLUE);
 	ST7735_PlotNextErase();
 	ST7735_SetCursor(0, 3);
 	PrintFixed(max);
@@ -94,7 +95,7 @@ void Plot_PlotSpeed(uint16_t speed){
     31    "3.1"
 -12345    "*.*"
  ************************************************/
-static void PrintFixed(uint16_t n){
+void PrintFixed(uint16_t n){
   const uint16_t max = 5000;
   //const uint16_t min = 0000;
 
@@ -138,22 +139,26 @@ void Timer1A_Handler(){
 	
 	// update motor setting
 	uint16_t desired = Motor_Desired();
-	const uint16_t ds = 500;
+	const uint16_t ds = 50;
 	if(keypad != last){
 		// increase desired speed
+		last = keypad;
 		if(keypad == 0x01){
-			if(desired + ds < max){
+			if(desired == 0){
+				desired = min;
+			} else if(desired + ds <= max){
 				desired = desired + ds;
-			} else {
+			} else{
 				desired = max;
 			}
 		} 
 		// decrease desired speed
 		else if(keypad == 0x02){
-			if(desired > min + ds){
+			if(desired >= min + ds){
 				desired = desired - ds;
 			} else {
-				desired = min;
+				//desired = min;
+				desired = 0x00;
 			}
 		}
 	} 

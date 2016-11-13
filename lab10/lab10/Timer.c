@@ -66,7 +66,7 @@ void Timer0B_Init(uint32_t priority){
 	TIMER0_TBMR_R |= TIMER_TBMR_TBMR_CAP; // configure for capture mode
   TIMER0_CTL_R &= ~(TIMER_CTL_TBEVENT_POS|0xC); // configure for rising edge event
   TIMER0_TBILR_R = TIMER_TBILR_M;				// Max reload for periodic measurements
-  TIMER0_IMR_R &= TIMER_IMR_CBEIM; 			// Input Capture
+  TIMER0_IMR_R |= TIMER_IMR_CBEIM; 			// Input Capture
 	TIMER0_ICR_R = TIMER_ICR_CBECINT; 		// clear RIS flag
 	
 		// **** interrupt initialization ****

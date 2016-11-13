@@ -26,4 +26,7 @@ void Plot_PrintSpeed(uint16_t desired, uint16_t actual);
  * Plots the next data point in the sequence.
  * plot pointer is incremented one place
  */
-void Plot_PlotSpeed(uint16_t speed);
+void Plot_PlotSpeed(uint16_t desired, uint16_t speed);
+
+ // helper functions
+void PrintFixed(uint16_t n);

@@ -47,9 +47,9 @@ void Motor_Init(uint32_t _period, uint16_t _min, uint16_t _max){
 	duty = period / 2;
 	PortB_Init();
 	PWM_Init(period, duty);
-	
+	Tachometer_Init();
 	// interrupt at 10x faster than the time constant
-	Timer2A_Init(MOTOR_100Hz, 0x01);
+	Timer2A_Init(MOTOR_100Hz * 2, 0x01);
 }
 
 /** Motor_Start() **
@@ -75,7 +75,7 @@ void Motor_Stop(){
  * Update the motor's duty cycle to run at the new speed.
  */
 void Motor_SetDuty(uint32_t _duty){
-	if(duty < period){
+	if(_duty < period){
 		PWM0_0_CMPA_R = _duty;
 		duty = _duty;
 	}
@@ -110,19 +110,29 @@ uint16_t Motor_Actual(){
 }
 
 // update motor
-#define COEFF 3 / 64
+#define COEFF  1 / 2
 void Timer2A_Handler(){
 	Timer2A_Acknowledge();
-	static int32_t response;
-	actual = 800000000 / period; // speed with 0.1 resolution
+	
+	// calculate speed error.
+	period = Tachometer_Read();
+	actual = 200000000 / period; // speed with 0.1 resolution
 	int32_t error = desired - actual;
 	
 	// update response;
-	response = response + (error * COEFF);
+	static int32_t response;
+	response = duty + (error * COEFF);
+	
+	// response filter
 	if(response < min){
 		response = min;
-	} else if(response > max){
-		response = max;
+	} else if(response > max * 99 / 100){
+		response = max * 99 / 100;
+	} 
+	
+	if(desired == 0){
+		response = 0;
+		actual = 0;
 	} Motor_SetDuty(response);
 }
 
