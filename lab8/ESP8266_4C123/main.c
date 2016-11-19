@@ -93,15 +93,16 @@ int main(void){
 		// sample and debounce the keypad
 		keypad = Keypad_Read(); 
 		Debug_Wait10ms(); 
+		int i = 0;
 		
 		// change FSM state
 		if(keypad == last){
 			// single pulse / idle
-			state = UpdateFSM(state, 0x00);
 		} else{
 			last = keypad;
 			char key[3] = {'\0', '\n', '\0'};
 			key[0] = KeyConvert(keypad);
+			LCD_OutString("sample: ");
 			LCD_OutString(key);
 		}
 	}	

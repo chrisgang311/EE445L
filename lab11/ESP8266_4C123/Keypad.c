@@ -51,6 +51,50 @@ uint16_t Keypad_Read(){
 	} return input; // keypad encoded values
 }
 
+/** KeyConvert() **
+ * Returns the character of the key value
+ * input: 16 bit keycode
+ * output: char value
+ */
+char KeyConvert(uint16_t key){
+	switch(key){
+		case KEY_0:
+			return '0';
+		case KEY_1:
+			return '1';
+		case KEY_2:
+			return '2';
+		case KEY_3:
+			return '3';
+		case KEY_4:
+			return '4';
+		case KEY_5:
+			return '5';
+		case KEY_6:
+			return '6';
+		case KEY_7:
+			return '7';
+		case KEY_8:
+			return '8';
+		case KEY_9:
+			return '9';
+		case KEY_A:
+			return 'A';
+		case KEY_B:
+			return 'B';
+		case KEY_C:
+			return 'C';
+		case KEY_D:
+			return 'D';
+		case KEY_POUND:
+			return '#';
+		case KEY_ASTERISK:
+			return '*';
+		default:
+			return ' ';
+	}
+}
+
 /** PortD_Init() **
  * Initialize PortD for Column Input Processing
  * Four Column inputs: Col 1-4 on PD0-3
