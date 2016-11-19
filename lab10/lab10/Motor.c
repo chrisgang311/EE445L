@@ -112,6 +112,7 @@ uint16_t Motor_Actual(){
 // update motor
 #define COEFF  1 / 2
 void Timer2A_Handler(){
+	// acknowledge
 	Timer2A_Acknowledge();
 	
 	// calculate speed error.

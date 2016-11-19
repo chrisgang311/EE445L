@@ -46,6 +46,8 @@ uint32_t Tachometer_Read(){
 // requires two rising edges.
 void Timer0B_Handler(){
 	Timer0B_Acknowledge();
+	GPIO_PORTB_DATA_R ^= 0x01;
+	GPIO_PORTB_DATA_R ^= 0x01;
 	static uint32_t last = TIMER_TBILR_M;
 	
 	// calculate period
@@ -58,12 +60,14 @@ void Timer0B_Handler(){
 	
 	// update cache
 	last = timestamp; 
-
+	period = sample;
+	// heartbeat
+	GPIO_PORTB_DATA_R ^= 0x01;
 	
-	// noise filter
+// noise filter
 //  static uint32_t old = 0;
 //	if(((old * 7 / 10) <= sample) && (sample <= (old * 13 / 10))){
-		period = sample;
+//		period = sample;
 //	} old = sample;
 	
 	// sample averaging
@@ -92,10 +96,11 @@ static void PortB_Init(){
 	SYSCTL_RCGCGPIO_R |= 0x02;    		 // turn on port B
 	delay = SYSCTL_RCGCTIMER_R; 			 // allow time to finish activating
 	GPIO_PORTB_AFSEL_R |= 0x80;        // enable alt funct on PB7
+	GPIO_PORTB_AFSEL_R &= ~0x01;        // disable alt funct on PB0
   GPIO_PORTB_PCTL_R &= ~0xF0000000;  // configure PB7 as T0CP1
   GPIO_PORTB_PCTL_R |= 0x70000000;  
   GPIO_PORTB_DIR_R &= ~0x80;       // make PB7 in
-  GPIO_PORTB_DEN_R |= 0x80;        // enable digital I/O on PB7
-	
-
+	GPIO_PORTB_DIR_R |= 0x01;       // make PB0 out
+  GPIO_PORTB_DEN_R |= 0x81;        // enable digital I/O on PB7
+	GPIO_PORTB_AMSEL_R &= ~0x01;       // disable analog functionality on PB0
 }
