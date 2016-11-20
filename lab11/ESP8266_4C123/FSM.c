@@ -344,7 +344,7 @@ uint32_t Alarm(uint32_t input){
 		started = true;
 		LCD_SetCursor(CURSOR_WIDTH / 6, CURSOR_HEIGHT / 4);
 		LCD_OutString("Intruder Alert!!");
-		WIFI_Send("alarm-147413.appspot.com", "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n");
+//		WIFI_Send("alarm-147413.appspot.com", "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n");
 	}
 	
 	// decide next state.

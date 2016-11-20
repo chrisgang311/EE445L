@@ -40,49 +40,19 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-//// HTTP Data
-//#define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=ronny%20loves%20his%20family. HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
-//#define NOTIFY_POST "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n"
-//int main(void){  
-//  DisableInterrupts();
-//  PLL_Init(Bus80MHz);
-//	LCD_Init();
-//	Keypad_Init();
-//	Alarm_Init();
-//	
-//	LCD_OutString("Connecting to WIFI...");
-//	WIFI_Init();
-//	
-//	// debug // call tests here after WIFI_Init()
-//	Debug_Init(); // LEDS and Delay
-//	//WIFI_Send("server-144411.appspot.com", SERVER_POST);
-
-//	uint32_t state = 0x00; // fsm state
-//	uint32_t last = 0x00, keypad = 0x00;
-//	while(true){
-//		// sample and debounce the keypad
-//		keypad = Keypad_Read(); 
-//		Debug_Wait10ms(); 
-//		
-//		// change FSM state
-//		if(keypad == last){
-//			// single pulse / idle
-//			state = UpdateFSM(state, 0x00);
-//		} else{
-//			last = keypad;
-//			state = UpdateFSM(state, keypad);
-//		}
-//	}	
-//}
-
-
-//KEYPAD TEST
+// HTTP Data
+#define SERVER_POST "GET /post?city=Austin%%2C%%20Texas&user=ronny&content=ronny%20loves%20his%20family. HTTP/1.1\r\nUser-Agent: Keil\r\nHost: server-144411.appspot.com\r\n\r\n"
+#define NOTIFY_POST "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n"
 int main(void){  
   DisableInterrupts();
   PLL_Init(Bus80MHz);
 	LCD_Init();
 	Keypad_Init();
-
+	Alarm_Init();
+	
+//	LCD_OutString("Connecting to WIFI...");
+//	WIFI_Init();
+	
 	// debug // call tests here after WIFI_Init()
 	Debug_Init(); // LEDS and Delay
 	//WIFI_Send("server-144411.appspot.com", SERVER_POST);
@@ -97,13 +67,43 @@ int main(void){
 		// change FSM state
 		if(keypad == last){
 			// single pulse / idle
+			state = UpdateFSM(state, 0x00);
 		} else{
 			last = keypad;
-			char key[3] = {'\0', '\n', '\0'};
-			key[0] = KeyConvert(keypad);
-			LCD_OutString("sample: ");
-			LCD_OutString(key);
+			state = UpdateFSM(state, keypad);
 		}
 	}	
 }
+
+
+////KEYPAD TEST
+//int main(void){  
+//  DisableInterrupts();
+//  PLL_Init(Bus80MHz);
+//	LCD_Init();
+//	Keypad_Init();
+
+//	// debug // call tests here after WIFI_Init()
+//	Debug_Init(); // LEDS and Delay
+//	//WIFI_Send("server-144411.appspot.com", SERVER_POST);
+
+//	uint32_t state = 0x00; // fsm state
+//	uint32_t last = 0x00, keypad = 0x00;
+//	while(true){
+//		// sample and debounce the keypad
+//		keypad = Keypad_Read(); 
+//		Debug_Wait10ms(); 
+//		
+//		// change FSM state
+//		if(keypad == last){
+//			// single pulse / idle
+//		} else{
+//			last = keypad;
+//			char key[3] = {'\0', '\n', '\0'};
+//			key[0] = KeyConvert(keypad);
+//			LCD_OutString("sample: ");
+//			LCD_OutString(key);
+//		}
+//	}	
+//}
 

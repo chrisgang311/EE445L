@@ -1,7 +1,7 @@
 .\fsm.o: FSM.c
-.\fsm.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\fsm.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\fsm.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\fsm.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdint.h
+.\fsm.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdio.h
+.\fsm.o: C:\Users\ronny\Desktop\EE\445L\keil\ARM\ARMCC\bin\..\include\stdbool.h
 .\fsm.o: Debug.h
 .\fsm.o: FSM.h
 .\fsm.o: LCD.h
