@@ -55,3 +55,24 @@ char KeyConvert(uint16_t key);
 #define KEY_POUND 0x0010
 #define KEY_ASTERISK 0x1000
 #endif // KEY_CODES
+
+//// OLD KEY CODES
+//#ifndef KEY_CODES
+//#define KEY_CODES
+//#define KEY_0 0x2000
+//#define KEY_1 0x0001
+//#define KEY_2 0x0002
+//#define KEY_3 0x0004
+//#define KEY_4 0x0010
+//#define KEY_5 0x0020
+//#define KEY_6 0x0040
+//#define KEY_7 0x0100
+//#define KEY_8 0x0200
+//#define KEY_9 0x0400
+//#define KEY_A 0x0008
+//#define KEY_B 0x0080
+//#define KEY_C 0x0800
+//#define KEY_D 0x8000
+//#define KEY_POUND 0x4000
+//#define KEY_ASTERISK 0x1000
+//#endif // KEY_CODES

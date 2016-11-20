@@ -21,6 +21,8 @@
 // port C and D init for Keypad hardware
 static void PortC_Init(void);
 static void PortD_Init(void);
+static void PortE_Init(void);
+#define PE5 (*((volatile uint32_t *)0x40024080))
  
 /** Keypad_Init() **
  * Activate the Keypad for user input processing.
@@ -29,6 +31,7 @@ static void PortD_Init(void);
 void Keypad_Init(){
 	PortC_Init();
 	PortD_Init();
+	PortE_Init();
 }
 
 /** Keypad_Read() **
@@ -47,6 +50,7 @@ uint16_t Keypad_Read(){
 		
 		// check each column
 		input |= (GPIO_PORTD_DATA_R&0x0F) << shift;
+		input |= (PE5 >> 3) << shift;// pcb patchwork replace PD2 with PE5
 		shift += 4; // 4 checks at a time.
 	} return input; // keypad encoded values
 }
@@ -125,4 +129,18 @@ static void PortC_Init(){
 	GPIO_PORTC_PCTL_R &= ~0xFFFF0000;  // 4) choose GPIO functionality
 	GPIO_PORTC_DIR_R |= 0xF0;   // 5) set PC4-7 to drive outputs
 	GPIO_PORTC_DEN_R |= 0xF0;    // 6) inputs are digital
+}
+
+/** PortE_Init() **
+ * Initialize PE5 to replace PD2's signal for PCB
+ */
+static void PortE_Init(){
+	volatile uint32_t delay;
+	SYSCTL_RCGCGPIO_R |= 0x10;     // 1) turn on port D
+	delay = SYSCTL_RCGCTIMER_R; // allow time to finish activating
+	GPIO_PORTE_AMSEL_R &= ~0x20; // 2) disable analog on PD0-3
+	GPIO_PORTE_AFSEL_R &= ~0x20; // 3) disable alternative functionality on PD0-3
+	GPIO_PORTE_PCTL_R &= ~0x00F00000;  // 4) choose GPIO functionality
+	GPIO_PORTE_DIR_R &= ~0x20;   // 5) set PD0-3 to read inputs
+	GPIO_PORTE_DEN_R |= 0x20;    // 6) inputs are digital
 }

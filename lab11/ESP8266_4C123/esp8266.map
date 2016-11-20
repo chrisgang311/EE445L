@@ -361,6 +361,7 @@ Section Cross References
     speaker.o(i.Speaker_Init) refers to speaker.o(i.PWM_Init) for PWM_Init
     keypad.o(i.Keypad_Init) refers to keypad.o(i.PortC_Init) for PortC_Init
     keypad.o(i.Keypad_Init) refers to keypad.o(i.PortD_Init) for PortD_Init
+    keypad.o(i.Keypad_Init) refers to keypad.o(i.PortE_Init) for PortE_Init
     sensor.o(i.GPIOPortB_Handler) refers to sensor.o(.data) for enabled
     sensor.o(i.Sensor_Disable) refers to sensor.o(.data) for enabled
     sensor.o(i.Sensor_Enable) refers to sensor.o(.data) for enabled
@@ -821,39 +822,39 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/strcpy.c         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strstr.c         0x00000000   Number         0  strstr.o ABSOLUTE
@@ -902,75 +903,77 @@ Image Symbol Table
     i.GPIOPortB_Handler                      0x0000039c   Section        0  sensor.o(i.GPIOPortB_Handler)
     i.KeyConvert                             0x000003bc   Section        0  keypad.o(i.KeyConvert)
     i.Keypad_Init                            0x00000460   Section        0  keypad.o(i.Keypad_Init)
-    i.Keypad_Read                            0x0000046c   Section        0  keypad.o(i.Keypad_Read)
-    i.LCD_Init                               0x000004c8   Section        0  lcd.o(i.LCD_Init)
-    i.LCD_OutString                          0x000004d2   Section        0  lcd.o(i.LCD_OutString)
-    i.LED_Init                               0x000004e0   Section        0  debug.o(i.LED_Init)
-    LED_Init                                 0x000004e1   Thumb Code    90  debug.o(i.LED_Init)
-    i.LED_RedOff                             0x00000548   Section        0  debug.o(i.LED_RedOff)
-    i.LED_RedOn                              0x00000554   Section        0  debug.o(i.LED_RedOn)
-    i.PLL_Init                               0x00000560   Section        0  pll.o(i.PLL_Init)
-    i.PortC_Init                             0x000005dc   Section        0  keypad.o(i.PortC_Init)
-    PortC_Init                               0x000005dd   Thumb Code    92  keypad.o(i.PortC_Init)
-    i.PortD_Init                             0x00000644   Section        0  keypad.o(i.PortD_Init)
-    PortD_Init                               0x00000645   Thumb Code    94  keypad.o(i.PortD_Init)
-    i.RxFifo_Put                             0x000006b0   Section        0  uart.o(i.RxFifo_Put)
-    i.RxFifo_Size                            0x000006ec   Section        0  uart.o(i.RxFifo_Size)
-    i.ST7735_DrawCharS                       0x00000704   Section        0  st7735.o(i.ST7735_DrawCharS)
-    i.ST7735_DrawPixel                       0x000007f8   Section        0  st7735.o(i.ST7735_DrawPixel)
-    i.ST7735_DrawString                      0x00000840   Section        0  st7735.o(i.ST7735_DrawString)
-    i.ST7735_FillRect                        0x00000894   Section        0  st7735.o(i.ST7735_FillRect)
-    i.ST7735_FillScreen                      0x00000940   Section        0  st7735.o(i.ST7735_FillScreen)
-    i.ST7735_InitR                           0x00000964   Section        0  st7735.o(i.ST7735_InitR)
-    i.ST7735_OutChar                         0x000009e0   Section        0  st7735.o(i.ST7735_OutChar)
-    i.ST7735_OutString                       0x00000ab4   Section        0  st7735.o(i.ST7735_OutString)
-    i.ST7735_SetCursor                       0x00000acc   Section        0  st7735.o(i.ST7735_SetCursor)
-    i.SearchCheck                            0x00000aec   Section        0  esp8266.o(i.SearchCheck)
-    i.ServerResponseSearchCheck              0x00000b40   Section        0  esp8266.o(i.ServerResponseSearchCheck)
-    i.Speaker_Mute                           0x00000c14   Section        0  speaker.o(i.Speaker_Mute)
-    i.Speaker_Play                           0x00000c28   Section        0  speaker.o(i.Speaker_Play)
-    i.SysTick_Init                           0x00000c3c   Section        0  debug.o(i.SysTick_Init)
-    SysTick_Init                             0x00000c3d   Thumb Code    24  debug.o(i.SysTick_Init)
-    i.SysTick_Wait                           0x00000c54   Section        0  debug.o(i.SysTick_Wait)
-    SysTick_Wait                             0x00000c55   Thumb Code    32  debug.o(i.SysTick_Wait)
-    i.SysTick_Wait10ms                       0x00000c74   Section        0  debug.o(i.SysTick_Wait10ms)
-    SysTick_Wait10ms                         0x00000c75   Thumb Code    10  debug.o(i.SysTick_Wait10ms)
-    i.Timer0A_Acknowledge                    0x00000c84   Section        0  timer.o(i.Timer0A_Acknowledge)
-    i.Timer0A_Handler                        0x00000c90   Section        0  alarm.o(i.Timer0A_Handler)
-    i.TxFifo_Get                             0x00000cd4   Section        0  uart.o(i.TxFifo_Get)
-    i.TxFifo_Put                             0x00000d10   Section        0  uart.o(i.TxFifo_Put)
-    i.TxFifo_Size                            0x00000d4c   Section        0  uart.o(i.TxFifo_Size)
-    i.UART0_Handler                          0x00000d64   Section        0  uart.o(i.UART0_Handler)
-    i.UART1_Handler                          0x00000dbc   Section        0  esp8266.o(i.UART1_Handler)
-    i.UART_OutCharNonBlock                   0x00000dec   Section        0  uart.o(i.UART_OutCharNonBlock)
-    i.__scatterload_copy                     0x00000e20   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000e2e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00000e30   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.commandList                            0x00000e3e   Section        0  st7735.o(i.commandList)
-    commandList                              0x00000e3f   Thumb Code    86  st7735.o(i.commandList)
-    i.commonInit                             0x00000e94   Section        0  st7735.o(i.commonInit)
-    commonInit                               0x00000e95   Thumb Code   340  st7735.o(i.commonInit)
-    i.copyHardwareToSoftware                 0x00001018   Section        0  uart.o(i.copyHardwareToSoftware)
-    copyHardwareToSoftware                   0x00001019   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
-    i.copySoftwareToHardware                 0x00001044   Section        0  uart.o(i.copySoftwareToHardware)
-    copySoftwareToHardware                   0x00001045   Thumb Code    38  uart.o(i.copySoftwareToHardware)
-    i.lc                                     0x00001070   Section        0  esp8266.o(i.lc)
-    i.main                                   0x00001080   Section        0  main.o(i.main)
-    i.pushColor                              0x000010e0   Section        0  st7735.o(i.pushColor)
-    pushColor                                0x000010e1   Thumb Code    18  st7735.o(i.pushColor)
-    i.setAddrWindow                          0x000010f4   Section        0  st7735.o(i.setAddrWindow)
-    setAddrWindow                            0x000010f5   Thumb Code   106  st7735.o(i.setAddrWindow)
-    i.writecommand                           0x00001168   Section        0  st7735.o(i.writecommand)
-    writecommand                             0x00001169   Thumb Code    40  st7735.o(i.writecommand)
-    i.writedata                              0x00001198   Section        0  st7735.o(i.writedata)
-    writedata                                0x00001199   Thumb Code    24  st7735.o(i.writedata)
-    .constdata                               0x000011b8   Section     2018  st7735.o(.constdata)
-    Font                                     0x000011b8   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x000016b3   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x0000171a   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x00001755   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x00001762   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x0000176f   Data          43  st7735.o(.constdata)
+    i.Keypad_Read                            0x00000470   Section        0  keypad.o(i.Keypad_Read)
+    i.LCD_Init                               0x000004e0   Section        0  lcd.o(i.LCD_Init)
+    i.LCD_OutString                          0x000004ea   Section        0  lcd.o(i.LCD_OutString)
+    i.LED_Init                               0x000004f8   Section        0  debug.o(i.LED_Init)
+    LED_Init                                 0x000004f9   Thumb Code    90  debug.o(i.LED_Init)
+    i.LED_RedOff                             0x00000560   Section        0  debug.o(i.LED_RedOff)
+    i.LED_RedOn                              0x0000056c   Section        0  debug.o(i.LED_RedOn)
+    i.PLL_Init                               0x00000578   Section        0  pll.o(i.PLL_Init)
+    i.PortC_Init                             0x000005f4   Section        0  keypad.o(i.PortC_Init)
+    PortC_Init                               0x000005f5   Thumb Code    92  keypad.o(i.PortC_Init)
+    i.PortD_Init                             0x0000065c   Section        0  keypad.o(i.PortD_Init)
+    PortD_Init                               0x0000065d   Thumb Code    94  keypad.o(i.PortD_Init)
+    i.PortE_Init                             0x000006c8   Section        0  keypad.o(i.PortE_Init)
+    PortE_Init                               0x000006c9   Thumb Code    94  keypad.o(i.PortE_Init)
+    i.RxFifo_Put                             0x00000734   Section        0  uart.o(i.RxFifo_Put)
+    i.RxFifo_Size                            0x00000770   Section        0  uart.o(i.RxFifo_Size)
+    i.ST7735_DrawCharS                       0x00000788   Section        0  st7735.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawPixel                       0x0000087c   Section        0  st7735.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x000008c4   Section        0  st7735.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x00000918   Section        0  st7735.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x000009c4   Section        0  st7735.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x000009e8   Section        0  st7735.o(i.ST7735_InitR)
+    i.ST7735_OutChar                         0x00000a64   Section        0  st7735.o(i.ST7735_OutChar)
+    i.ST7735_OutString                       0x00000b38   Section        0  st7735.o(i.ST7735_OutString)
+    i.ST7735_SetCursor                       0x00000b50   Section        0  st7735.o(i.ST7735_SetCursor)
+    i.SearchCheck                            0x00000b70   Section        0  esp8266.o(i.SearchCheck)
+    i.ServerResponseSearchCheck              0x00000bc4   Section        0  esp8266.o(i.ServerResponseSearchCheck)
+    i.Speaker_Mute                           0x00000c98   Section        0  speaker.o(i.Speaker_Mute)
+    i.Speaker_Play                           0x00000cac   Section        0  speaker.o(i.Speaker_Play)
+    i.SysTick_Init                           0x00000cc0   Section        0  debug.o(i.SysTick_Init)
+    SysTick_Init                             0x00000cc1   Thumb Code    24  debug.o(i.SysTick_Init)
+    i.SysTick_Wait                           0x00000cd8   Section        0  debug.o(i.SysTick_Wait)
+    SysTick_Wait                             0x00000cd9   Thumb Code    32  debug.o(i.SysTick_Wait)
+    i.SysTick_Wait10ms                       0x00000cf8   Section        0  debug.o(i.SysTick_Wait10ms)
+    SysTick_Wait10ms                         0x00000cf9   Thumb Code    10  debug.o(i.SysTick_Wait10ms)
+    i.Timer0A_Acknowledge                    0x00000d08   Section        0  timer.o(i.Timer0A_Acknowledge)
+    i.Timer0A_Handler                        0x00000d14   Section        0  alarm.o(i.Timer0A_Handler)
+    i.TxFifo_Get                             0x00000d58   Section        0  uart.o(i.TxFifo_Get)
+    i.TxFifo_Put                             0x00000d94   Section        0  uart.o(i.TxFifo_Put)
+    i.TxFifo_Size                            0x00000dd0   Section        0  uart.o(i.TxFifo_Size)
+    i.UART0_Handler                          0x00000de8   Section        0  uart.o(i.UART0_Handler)
+    i.UART1_Handler                          0x00000e40   Section        0  esp8266.o(i.UART1_Handler)
+    i.UART_OutCharNonBlock                   0x00000e70   Section        0  uart.o(i.UART_OutCharNonBlock)
+    i.__scatterload_copy                     0x00000ea4   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000eb2   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000eb4   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.commandList                            0x00000ec2   Section        0  st7735.o(i.commandList)
+    commandList                              0x00000ec3   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x00000f18   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x00000f19   Thumb Code   340  st7735.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x0000109c   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x0000109d   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
+    i.copySoftwareToHardware                 0x000010c8   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x000010c9   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.lc                                     0x000010f4   Section        0  esp8266.o(i.lc)
+    i.main                                   0x00001104   Section        0  main.o(i.main)
+    i.pushColor                              0x00001164   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x00001165   Thumb Code    18  st7735.o(i.pushColor)
+    i.setAddrWindow                          0x00001178   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x00001179   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.writecommand                           0x000011ec   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x000011ed   Thumb Code    40  st7735.o(i.writecommand)
+    i.writedata                              0x0000121c   Section        0  st7735.o(i.writedata)
+    writedata                                0x0000121d   Thumb Code    24  st7735.o(i.writedata)
+    .constdata                               0x0000123c   Section     2018  st7735.o(.constdata)
+    Font                                     0x0000123c   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x00001737   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x0000179e   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x000017d9   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x000017e6   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x000017f3   Data          43  st7735.o(.constdata)
     .data                                    0x20000000   Section       64  esp8266.o(.data)
     .data                                    0x20000040   Section       16  uart.o(.data)
     .data                                    0x20000050   Section       44  st7735.o(.data)
@@ -1190,44 +1193,44 @@ Image Symbol Table
     ESP8266FIFOtoBuffer                      0x00000321   Thumb Code   100  esp8266.o(i.ESP8266FIFOtoBuffer)
     GPIOPortB_Handler                        0x0000039d   Thumb Code    20  sensor.o(i.GPIOPortB_Handler)
     KeyConvert                               0x000003bd   Thumb Code   164  keypad.o(i.KeyConvert)
-    Keypad_Init                              0x00000461   Thumb Code    12  keypad.o(i.Keypad_Init)
-    Keypad_Read                              0x0000046d   Thumb Code    78  keypad.o(i.Keypad_Read)
-    LCD_Init                                 0x000004c9   Thumb Code    10  lcd.o(i.LCD_Init)
-    LCD_OutString                            0x000004d3   Thumb Code    12  lcd.o(i.LCD_OutString)
-    LED_RedOff                               0x00000549   Thumb Code     8  debug.o(i.LED_RedOff)
-    LED_RedOn                                0x00000555   Thumb Code     8  debug.o(i.LED_RedOn)
-    PLL_Init                                 0x00000561   Thumb Code   118  pll.o(i.PLL_Init)
-    RxFifo_Put                               0x000006b1   Thumb Code    48  uart.o(i.RxFifo_Put)
-    RxFifo_Size                              0x000006ed   Thumb Code    14  uart.o(i.RxFifo_Size)
-    ST7735_DrawCharS                         0x00000705   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
-    ST7735_DrawPixel                         0x000007f9   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
-    ST7735_DrawString                        0x00000841   Thumb Code    84  st7735.o(i.ST7735_DrawString)
-    ST7735_FillRect                          0x00000895   Thumb Code   164  st7735.o(i.ST7735_FillRect)
-    ST7735_FillScreen                        0x00000941   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
-    ST7735_InitR                             0x00000965   Thumb Code    90  st7735.o(i.ST7735_InitR)
-    ST7735_OutChar                           0x000009e1   Thumb Code   176  st7735.o(i.ST7735_OutChar)
-    ST7735_OutString                         0x00000ab5   Thumb Code    22  st7735.o(i.ST7735_OutString)
-    ST7735_SetCursor                         0x00000acd   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
-    SearchCheck                              0x00000aed   Thumb Code    68  esp8266.o(i.SearchCheck)
-    ServerResponseSearchCheck                0x00000b41   Thumb Code   180  esp8266.o(i.ServerResponseSearchCheck)
-    Speaker_Mute                             0x00000c15   Thumb Code    14  speaker.o(i.Speaker_Mute)
-    Speaker_Play                             0x00000c29   Thumb Code    14  speaker.o(i.Speaker_Play)
-    Timer0A_Acknowledge                      0x00000c85   Thumb Code     8  timer.o(i.Timer0A_Acknowledge)
-    Timer0A_Handler                          0x00000c91   Thumb Code    56  alarm.o(i.Timer0A_Handler)
-    TxFifo_Get                               0x00000cd5   Thumb Code    46  uart.o(i.TxFifo_Get)
-    TxFifo_Put                               0x00000d11   Thumb Code    48  uart.o(i.TxFifo_Put)
-    TxFifo_Size                              0x00000d4d   Thumb Code    14  uart.o(i.TxFifo_Size)
-    UART0_Handler                            0x00000d65   Thumb Code    82  uart.o(i.UART0_Handler)
-    UART1_Handler                            0x00000dbd   Thumb Code    44  esp8266.o(i.UART1_Handler)
-    UART_OutCharNonBlock                     0x00000ded   Thumb Code    46  uart.o(i.UART_OutCharNonBlock)
-    __scatterload_copy                       0x00000e21   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000e2f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00000e31   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    lc                                       0x00001071   Thumb Code    14  esp8266.o(i.lc)
-    main                                     0x00001081   Thumb Code    80  main.o(i.main)
-    dBfs                                     0x0000179a   Data         512  st7735.o(.constdata)
-    Region$$Table$$Base                      0x0000199c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000019bc   Number         0  anon$$obj.o(Region$$Table)
+    Keypad_Init                              0x00000461   Thumb Code    16  keypad.o(i.Keypad_Init)
+    Keypad_Read                              0x00000471   Thumb Code    96  keypad.o(i.Keypad_Read)
+    LCD_Init                                 0x000004e1   Thumb Code    10  lcd.o(i.LCD_Init)
+    LCD_OutString                            0x000004eb   Thumb Code    12  lcd.o(i.LCD_OutString)
+    LED_RedOff                               0x00000561   Thumb Code     8  debug.o(i.LED_RedOff)
+    LED_RedOn                                0x0000056d   Thumb Code     8  debug.o(i.LED_RedOn)
+    PLL_Init                                 0x00000579   Thumb Code   118  pll.o(i.PLL_Init)
+    RxFifo_Put                               0x00000735   Thumb Code    48  uart.o(i.RxFifo_Put)
+    RxFifo_Size                              0x00000771   Thumb Code    14  uart.o(i.RxFifo_Size)
+    ST7735_DrawCharS                         0x00000789   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
+    ST7735_DrawPixel                         0x0000087d   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x000008c5   Thumb Code    84  st7735.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x00000919   Thumb Code   164  st7735.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x000009c5   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x000009e9   Thumb Code    90  st7735.o(i.ST7735_InitR)
+    ST7735_OutChar                           0x00000a65   Thumb Code   176  st7735.o(i.ST7735_OutChar)
+    ST7735_OutString                         0x00000b39   Thumb Code    22  st7735.o(i.ST7735_OutString)
+    ST7735_SetCursor                         0x00000b51   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
+    SearchCheck                              0x00000b71   Thumb Code    68  esp8266.o(i.SearchCheck)
+    ServerResponseSearchCheck                0x00000bc5   Thumb Code   180  esp8266.o(i.ServerResponseSearchCheck)
+    Speaker_Mute                             0x00000c99   Thumb Code    14  speaker.o(i.Speaker_Mute)
+    Speaker_Play                             0x00000cad   Thumb Code    14  speaker.o(i.Speaker_Play)
+    Timer0A_Acknowledge                      0x00000d09   Thumb Code     8  timer.o(i.Timer0A_Acknowledge)
+    Timer0A_Handler                          0x00000d15   Thumb Code    56  alarm.o(i.Timer0A_Handler)
+    TxFifo_Get                               0x00000d59   Thumb Code    46  uart.o(i.TxFifo_Get)
+    TxFifo_Put                               0x00000d95   Thumb Code    48  uart.o(i.TxFifo_Put)
+    TxFifo_Size                              0x00000dd1   Thumb Code    14  uart.o(i.TxFifo_Size)
+    UART0_Handler                            0x00000de9   Thumb Code    82  uart.o(i.UART0_Handler)
+    UART1_Handler                            0x00000e41   Thumb Code    44  esp8266.o(i.UART1_Handler)
+    UART_OutCharNonBlock                     0x00000e71   Thumb Code    46  uart.o(i.UART_OutCharNonBlock)
+    __scatterload_copy                       0x00000ea5   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000eb3   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000eb5   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    lc                                       0x000010f5   Thumb Code    14  esp8266.o(i.lc)
+    main                                     0x00001105   Thumb Code    80  main.o(i.main)
+    dBfs                                     0x0000181e   Data         512  st7735.o(.constdata)
+    Region$$Table$$Base                      0x00001a20   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001a40   Number         0  anon$$obj.o(Region$$Table)
     RXBufferIndex                            0x20000000   Data           4  esp8266.o(.data)
     LastReturnIndex                          0x20000004   Data           4  esp8266.o(.data)
     CurrentReturnIndex                       0x20000008   Data           4  esp8266.o(.data)
@@ -1276,107 +1279,108 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001a40, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001ac4, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x000019bc, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00001a40, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000000   Code   RO         1297  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000284   0x00000004   Code   RO         1571    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000288   0x00000004   Code   RO         1574    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000028c   0x00000000   Code   RO         1576    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000028c   0x00000000   Code   RO         1578    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000028c   0x00000008   Code   RO         1579    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000294   0x00000000   Code   RO         1581    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000294   0x00000000   Code   RO         1583    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000294   0x00000004   Code   RO         1572    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000284   0x00000000   Code   RO         1281  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000284   0x00000004   Code   RO         1555    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000288   0x00000004   Code   RO         1558    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000028c   0x00000000   Code   RO         1560    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000028c   0x00000000   Code   RO         1562    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000028c   0x00000008   Code   RO         1563    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000294   0x00000000   Code   RO         1565    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000294   0x00000000   Code   RO         1567    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000294   0x00000004   Code   RO         1556    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000298   0x0000001c   Code   RO            4    .text               startup.o
-    0x000002b4   0x00000012   Code   RO         1306    .text               mc_w.l(strcpy.o)
+    0x000002b4   0x00000012   Code   RO         1290    .text               mc_w.l(strcpy.o)
     0x000002c6   0x00000002   PAD
-    0x000002c8   0x00000024   Code   RO         1601    .text               mc_w.l(init.o)
-    0x000002ec   0x0000000c   Code   RO          541    i.Debug_Init        debug.o
-    0x000002f8   0x00000008   Code   RO          542    i.Debug_Wait10ms    debug.o
-    0x00000300   0x00000020   Code   RO          676    i.Delay1ms          st7735.o
-    0x00000320   0x0000007c   Code   RO           91    i.ESP8266FIFOtoBuffer  esp8266.o
-    0x0000039c   0x00000020   Code   RO         1187    i.GPIOPortB_Handler  sensor.o
-    0x000003bc   0x000000a4   Code   RO         1153    i.KeyConvert        keypad.o
-    0x00000460   0x0000000c   Code   RO         1154    i.Keypad_Init       keypad.o
-    0x0000046c   0x0000005c   Code   RO         1155    i.Keypad_Read       keypad.o
-    0x000004c8   0x0000000a   Code   RO          619    i.LCD_Init          lcd.o
-    0x000004d2   0x0000000c   Code   RO          620    i.LCD_OutString     lcd.o
-    0x000004de   0x00000002   PAD
-    0x000004e0   0x00000068   Code   RO          543    i.LED_Init          debug.o
-    0x00000548   0x0000000c   Code   RO          544    i.LED_RedOff        debug.o
-    0x00000554   0x0000000c   Code   RO          545    i.LED_RedOn         debug.o
-    0x00000560   0x0000007c   Code   RO           74    i.PLL_Init          pll.o
-    0x000005dc   0x00000068   Code   RO         1156    i.PortC_Init        keypad.o
-    0x00000644   0x0000006c   Code   RO         1157    i.PortD_Init        keypad.o
-    0x000006b0   0x0000003c   Code   RO          312    i.RxFifo_Put        uart.o
-    0x000006ec   0x00000018   Code   RO          313    i.RxFifo_Size       uart.o
-    0x00000704   0x000000f4   Code   RO          685    i.ST7735_DrawCharS  st7735.o
-    0x000007f8   0x00000048   Code   RO          688    i.ST7735_DrawPixel  st7735.o
-    0x00000840   0x00000054   Code   RO          689    i.ST7735_DrawString  st7735.o
-    0x00000894   0x000000ac   Code   RO          690    i.ST7735_FillRect   st7735.o
-    0x00000940   0x00000024   Code   RO          691    i.ST7735_FillScreen  st7735.o
-    0x00000964   0x0000007c   Code   RO          693    i.ST7735_InitR      st7735.o
-    0x000009e0   0x000000d4   Code   RO          695    i.ST7735_OutChar    st7735.o
-    0x00000ab4   0x00000016   Code   RO          696    i.ST7735_OutString  st7735.o
-    0x00000aca   0x00000002   PAD
-    0x00000acc   0x00000020   Code   RO          706    i.ST7735_SetCursor  st7735.o
-    0x00000aec   0x00000054   Code   RO          117    i.SearchCheck       esp8266.o
-    0x00000b40   0x000000d4   Code   RO          119    i.ServerResponseSearchCheck  esp8266.o
-    0x00000c14   0x00000014   Code   RO         1119    i.Speaker_Mute      speaker.o
-    0x00000c28   0x00000014   Code   RO         1120    i.Speaker_Play      speaker.o
-    0x00000c3c   0x00000018   Code   RO          550    i.SysTick_Init      debug.o
-    0x00000c54   0x00000020   Code   RO          551    i.SysTick_Wait      debug.o
-    0x00000c74   0x00000010   Code   RO          552    i.SysTick_Wait10ms  debug.o
-    0x00000c84   0x0000000c   Code   RO          942    i.Timer0A_Acknowledge  timer.o
-    0x00000c90   0x00000044   Code   RO         1242    i.Timer0A_Handler   alarm.o
-    0x00000cd4   0x0000003c   Code   RO          314    i.TxFifo_Get        uart.o
-    0x00000d10   0x0000003c   Code   RO          316    i.TxFifo_Put        uart.o
-    0x00000d4c   0x00000018   Code   RO          317    i.TxFifo_Size       uart.o
-    0x00000d64   0x00000058   Code   RO          318    i.UART0_Handler     uart.o
-    0x00000dbc   0x00000030   Code   RO          121    i.UART1_Handler     esp8266.o
-    0x00000dec   0x00000034   Code   RO          326    i.UART_OutCharNonBlock  uart.o
-    0x00000e20   0x0000000e   Code   RO         1613    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00000e2e   0x00000002   Code   RO         1614    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00000e30   0x0000000e   Code   RO         1615    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00000e3e   0x00000056   Code   RO          710    i.commandList       st7735.o
-    0x00000e94   0x00000184   Code   RO          711    i.commonInit        st7735.o
-    0x00001018   0x0000002c   Code   RO          331    i.copyHardwareToSoftware  uart.o
-    0x00001044   0x0000002c   Code   RO          332    i.copySoftwareToHardware  uart.o
-    0x00001070   0x0000000e   Code   RO          122    i.lc                esp8266.o
-    0x0000107e   0x00000002   PAD
-    0x00001080   0x00000060   Code   RO           12    i.main              main.o
-    0x000010e0   0x00000012   Code   RO          715    i.pushColor         st7735.o
-    0x000010f2   0x00000002   PAD
-    0x000010f4   0x00000074   Code   RO          716    i.setAddrWindow     st7735.o
-    0x00001168   0x00000030   Code   RO          717    i.writecommand      st7735.o
-    0x00001198   0x00000020   Code   RO          718    i.writedata         st7735.o
-    0x000011b8   0x000007e2   Data   RO          720    .constdata          st7735.o
-    0x0000199a   0x00000002   PAD
-    0x0000199c   0x00000020   Data   RO         1611    Region$$Table       anon$$obj.o
+    0x000002c8   0x00000024   Code   RO         1585    .text               mc_w.l(init.o)
+    0x000002ec   0x0000000c   Code   RO          532    i.Debug_Init        debug.o
+    0x000002f8   0x00000008   Code   RO          533    i.Debug_Wait10ms    debug.o
+    0x00000300   0x00000020   Code   RO          667    i.Delay1ms          st7735.o
+    0x00000320   0x0000007c   Code   RO           88    i.ESP8266FIFOtoBuffer  esp8266.o
+    0x0000039c   0x00000020   Code   RO         1180    i.GPIOPortB_Handler  sensor.o
+    0x000003bc   0x000000a4   Code   RO         1141    i.KeyConvert        keypad.o
+    0x00000460   0x00000010   Code   RO         1142    i.Keypad_Init       keypad.o
+    0x00000470   0x00000070   Code   RO         1143    i.Keypad_Read       keypad.o
+    0x000004e0   0x0000000a   Code   RO          610    i.LCD_Init          lcd.o
+    0x000004ea   0x0000000c   Code   RO          611    i.LCD_OutString     lcd.o
+    0x000004f6   0x00000002   PAD
+    0x000004f8   0x00000068   Code   RO          534    i.LED_Init          debug.o
+    0x00000560   0x0000000c   Code   RO          535    i.LED_RedOff        debug.o
+    0x0000056c   0x0000000c   Code   RO          536    i.LED_RedOn         debug.o
+    0x00000578   0x0000007c   Code   RO           74    i.PLL_Init          pll.o
+    0x000005f4   0x00000068   Code   RO         1144    i.PortC_Init        keypad.o
+    0x0000065c   0x0000006c   Code   RO         1145    i.PortD_Init        keypad.o
+    0x000006c8   0x0000006c   Code   RO         1146    i.PortE_Init        keypad.o
+    0x00000734   0x0000003c   Code   RO          309    i.RxFifo_Put        uart.o
+    0x00000770   0x00000018   Code   RO          310    i.RxFifo_Size       uart.o
+    0x00000788   0x000000f4   Code   RO          676    i.ST7735_DrawCharS  st7735.o
+    0x0000087c   0x00000048   Code   RO          679    i.ST7735_DrawPixel  st7735.o
+    0x000008c4   0x00000054   Code   RO          680    i.ST7735_DrawString  st7735.o
+    0x00000918   0x000000ac   Code   RO          681    i.ST7735_FillRect   st7735.o
+    0x000009c4   0x00000024   Code   RO          682    i.ST7735_FillScreen  st7735.o
+    0x000009e8   0x0000007c   Code   RO          684    i.ST7735_InitR      st7735.o
+    0x00000a64   0x000000d4   Code   RO          686    i.ST7735_OutChar    st7735.o
+    0x00000b38   0x00000016   Code   RO          687    i.ST7735_OutString  st7735.o
+    0x00000b4e   0x00000002   PAD
+    0x00000b50   0x00000020   Code   RO          697    i.ST7735_SetCursor  st7735.o
+    0x00000b70   0x00000054   Code   RO          114    i.SearchCheck       esp8266.o
+    0x00000bc4   0x000000d4   Code   RO          116    i.ServerResponseSearchCheck  esp8266.o
+    0x00000c98   0x00000014   Code   RO         1110    i.Speaker_Mute      speaker.o
+    0x00000cac   0x00000014   Code   RO         1111    i.Speaker_Play      speaker.o
+    0x00000cc0   0x00000018   Code   RO          541    i.SysTick_Init      debug.o
+    0x00000cd8   0x00000020   Code   RO          542    i.SysTick_Wait      debug.o
+    0x00000cf8   0x00000010   Code   RO          543    i.SysTick_Wait10ms  debug.o
+    0x00000d08   0x0000000c   Code   RO          933    i.Timer0A_Acknowledge  timer.o
+    0x00000d14   0x00000044   Code   RO         1235    i.Timer0A_Handler   alarm.o
+    0x00000d58   0x0000003c   Code   RO          311    i.TxFifo_Get        uart.o
+    0x00000d94   0x0000003c   Code   RO          313    i.TxFifo_Put        uart.o
+    0x00000dd0   0x00000018   Code   RO          314    i.TxFifo_Size       uart.o
+    0x00000de8   0x00000058   Code   RO          315    i.UART0_Handler     uart.o
+    0x00000e40   0x00000030   Code   RO          118    i.UART1_Handler     esp8266.o
+    0x00000e70   0x00000034   Code   RO          323    i.UART_OutCharNonBlock  uart.o
+    0x00000ea4   0x0000000e   Code   RO         1597    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000eb2   0x00000002   Code   RO         1598    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00000eb4   0x0000000e   Code   RO         1599    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000ec2   0x00000056   Code   RO          701    i.commandList       st7735.o
+    0x00000f18   0x00000184   Code   RO          702    i.commonInit        st7735.o
+    0x0000109c   0x0000002c   Code   RO          328    i.copyHardwareToSoftware  uart.o
+    0x000010c8   0x0000002c   Code   RO          329    i.copySoftwareToHardware  uart.o
+    0x000010f4   0x0000000e   Code   RO          119    i.lc                esp8266.o
+    0x00001102   0x00000002   PAD
+    0x00001104   0x00000060   Code   RO           12    i.main              main.o
+    0x00001164   0x00000012   Code   RO          706    i.pushColor         st7735.o
+    0x00001176   0x00000002   PAD
+    0x00001178   0x00000074   Code   RO          707    i.setAddrWindow     st7735.o
+    0x000011ec   0x00000030   Code   RO          708    i.writecommand      st7735.o
+    0x0000121c   0x00000020   Code   RO          709    i.writedata         st7735.o
+    0x0000123c   0x000007e2   Data   RO          711    .constdata          st7735.o
+    0x00001a1e   0x00000002   PAD
+    0x00001a20   0x00000020   Data   RO         1595    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000084, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000040   Data   RW          125    .data               esp8266.o
-    0x20000040   0x00000010   Data   RW          335    .data               uart.o
-    0x20000050   0x0000002c   Data   RW          721    .data               st7735.o
-    0x2000007c   0x00000002   Data   RW         1194    .data               sensor.o
-    0x2000007e   0x00000003   Data   RW         1244    .data               alarm.o
+    0x20000000   0x00000040   Data   RW          122    .data               esp8266.o
+    0x20000040   0x00000010   Data   RW          332    .data               uart.o
+    0x20000050   0x0000002c   Data   RW          712    .data               st7735.o
+    0x2000007c   0x00000002   Data   RW         1187    .data               sensor.o
+    0x2000007e   0x00000003   Data   RW         1237    .data               alarm.o
 
 
     Execution Region ER_ZI (Base: 0x20000084, Size: 0x00001824, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000084   0x00000c20   Zero   RW          123    .bss                esp8266.o
-    0x20000ca4   0x00000800   Zero   RW          334    .bss                uart.o
+    0x20000084   0x00000c20   Zero   RW          120    .bss                esp8266.o
+    0x20000ca4   0x00000800   Zero   RW          331    .bss                uart.o
     0x200014a4   0x00000004   PAD
     0x200014a8   0x00000400   Zero   RW            1    STACK               startup.o
 
@@ -1388,22 +1392,22 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        68         12          0          3          0       1095   alarm.o
-       220         28          0          0          0       3599   debug.o
-       482         76          0         64       3104       4425   esp8266.o
-       480         40          0          0          0       2449   keypad.o
-        22          0          0          0          0       1267   lcd.o
-        96         16          0          0          0       4811   main.o
+        68         12          0          3          0       1075   alarm.o
+       220         28          0          0          0       3595   debug.o
+       482         76          0         64       3104       4429   esp8266.o
+       612         56          0          0          0       2889   keypad.o
+        22          0          0          0          0       1279   lcd.o
+        96         16          0          0          0       4747   main.o
        124          6          0          0          0        419   pll.o
-        32         12          0          2          0        540   sensor.o
-        40         12          0          0          0        710   speaker.o
-      1718        190       2018         44          0      11774   st7735.o
-       672        622          0          0       1024        900   startup.o
-        12          4          0          0          0        366   timer.o
-       456         80          0         16       2048       4972   uart.o
+        32         12          0          2          0        544   sensor.o
+        40         12          0          0          0        718   speaker.o
+      1718        190       2018         44          0      11814   st7735.o
+       672        622          0          0       1024        908   startup.o
+        12          4          0          0          0        370   timer.o
+       456         80          0         16       2048       4984   uart.o
 
     ----------------------------------------------------------------------
-      4430       1098       2052        132       6180      37327   Object Totals
+      4562       1114       2052        132       6180      37771   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          2          3          4          0   (incl. Padding)
 
@@ -1443,15 +1447,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4536       1114       2052        132       6180      34915   Grand Totals
-      4536       1114       2052        132       6180      34915   ELF Image Totals
-      4536       1114       2052        132          0          0   ROM Totals
+      4668       1130       2052        132       6180      35307   Grand Totals
+      4668       1130       2052        132       6180      35307   ELF Image Totals
+      4668       1130       2052        132          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6588 (   6.43kB)
+    Total RO  Size (Code + RO Data)                 6720 (   6.56kB)
     Total RW  Size (RW Data + ZI Data)              6312 (   6.16kB)
-    Total ROM Size (Code + RO Data + RW Data)       6720 (   6.56kB)
+    Total ROM Size (Code + RO Data + RW Data)       6852 (   6.69kB)
 
 ==============================================================================
 
