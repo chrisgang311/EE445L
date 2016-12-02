@@ -266,7 +266,7 @@ uint32_t EnterPasscode(uint32_t input){
 							LCD_SetCursor(CURSOR_WIDTH / 8, CURSOR_HEIGHT * 3 / 5);
 							LCD_OutString("Enabling Alarm...\n"); // 1 sec delay
 							LCD_OutString(" Get out of the way!"); // 1 sec delay
-							for(int i = 0; i < 500; i++) Debug_Wait10ms();
+							for(int i = 0; i < 800; i++) Debug_Wait10ms();
 							Alarm_Stop();
 						} else{
 							for(int i = 0; i < 100; i++) Debug_Wait10ms();
@@ -340,11 +340,12 @@ uint32_t Alarm(uint32_t input){
 	
 	// kick off alarm
 	if(Alarm_Triggered() && !started){
-		Alarm_Start();
-		started = true;
 		LCD_SetCursor(CURSOR_WIDTH / 6, CURSOR_HEIGHT / 4);
 		LCD_OutString("Intruder Alert!!");
-//		WIFI_Send("alarm-147413.appspot.com", "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n");
+		WIFI_Send("alarm-147413.appspot.com", "GET /notify HTTP/1.1\r\nUser-Agent: Keil\r\nHost: alarm-147413.appspot.com\r\n\r\n");
+		for(int i = 0; i < 50; i++){Debug_Wait10ms();}
+		Alarm_Start();
+		started = true;
 	}
 	
 	// decide next state.

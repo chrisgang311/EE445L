@@ -86,8 +86,9 @@ void Alarm_Stop(void){
 void Timer0A_Handler(){
 	Timer0A_Acknowledge();
 	static bool play = true;
+	static int everyOther = 0;
 	if(enabled && triggered){
-		if(play){
+		if(play && !everyOther){
 			play = false;
 			Speaker_Play();
 			LED_RedOn();
@@ -95,7 +96,7 @@ void Timer0A_Handler(){
 			play = true;
 			Speaker_Mute();
 			LED_RedOff();
-		}
+		} everyOther = (everyOther + 1) & 0x01;
 	}
 }
 

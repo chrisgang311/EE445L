@@ -50,8 +50,8 @@ int main(void){
 	Keypad_Init();
 	Alarm_Init();
 	
-//	LCD_OutString("Connecting to WIFI...");
-//	WIFI_Init();
+	LCD_OutString("Connecting to WIFI...");
+	WIFI_Init();
 	
 	// debug // call tests here after WIFI_Init()
 	Debug_Init(); // LEDS and Delay
